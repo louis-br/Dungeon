@@ -1,6 +1,13 @@
 #include "Jogo.h"
 
-Jogo::Jogo() {
+#define LARGURA 200
+#define ALTURA 200
+#define TITULO "Jogo"
+
+Jogo::Jogo() :
+	janela(sf::VideoMode(LARGURA, ALTURA), TITULO),
+	entrada(&janela)
+{
 	Executar();
 }
 
@@ -9,21 +16,16 @@ Jogo::~Jogo() {
 }
 
 void Jogo::Executar() {
-	sf::RenderWindow window(sf::VideoMode(200, 200), "SFML works!");
+	
 	sf::CircleShape shape(100.f);
 	shape.setFillColor(sf::Color::Green);
 
-	while (window.isOpen())
+	while (janela.isOpen())
 	{
-		sf::Event event;
-		while (window.pollEvent(event))
-		{
-			if (event.type == sf::Event::Closed)
-				window.close();
-		}
+		entrada.Executar();
 
-		window.clear();
-		window.draw(shape);
-		window.display();
+		janela.clear();
+		janela.draw(shape);
+		janela.display();
 	}
 }

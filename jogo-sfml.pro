@@ -6,4 +6,18 @@ CONFIG -= qt
 LIBS += -lsfml-graphics -lsfml-window -lsfml-system
 
 SOURCES += \
-        main.cpp
+    Gerenciadores/GerenciadorEntrada.cpp \
+    Gerenciadores/GerenciadorFisico.cpp \
+    Gerenciadores/GerenciadorGrafico.cpp \
+    Entidade.cpp \
+    EntidadeFisica.cpp \
+    Jogo.cpp \
+    main.cpp
+
+HEADERS += \
+    Gerenciadores/GerenciadorEntrada.h \
+    Gerenciadores/GerenciadorFisico.h \
+    Gerenciadores/GerenciadorGrafico.h \
+    Entidade.h \
+    EntidadeFisica.h \
+    Jogo.h
