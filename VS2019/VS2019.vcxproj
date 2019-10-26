@@ -133,10 +133,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Entidade.cpp" />
+    <ClCompile Include="..\EntidadeFisica.cpp" />
+    <ClCompile Include="..\Gerenciadores\GerenciadorEntrada.cpp" />
+    <ClCompile Include="..\Gerenciadores\GerenciadorFisico.cpp" />
+    <ClCompile Include="..\Gerenciadores\GerenciadorGrafico.cpp" />
+    <ClCompile Include="..\Jogo.cpp" />
     <ClCompile Include="..\main.cpp">
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\jogo-sfml\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\jogo-sfml\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\Entidade.h" />
+    <ClInclude Include="..\EntidadeFisica.h" />
+    <ClInclude Include="..\Gerenciadores\GerenciadorEntrada.h" />
+    <ClInclude Include="..\Gerenciadores\GerenciadorFisico.h" />
+    <ClInclude Include="..\Gerenciadores\GerenciadorGrafico.h" />
+    <ClInclude Include="..\Jogo.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
