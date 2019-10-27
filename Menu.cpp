@@ -1,7 +1,7 @@
 #include "Menu.h"
 
 Menu::Menu(GerenciadorGrafico* grafico) :
-	Entidade(grafico, 0, 0, 200, 200),
+	Entidade(0, 0, 200, 200, grafico),
 	forma(100.f)
 {
 	CriarGraficos();
