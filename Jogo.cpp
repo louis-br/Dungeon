@@ -6,7 +6,9 @@
 
 Jogo::Jogo() :
 	janela(sf::VideoMode(LARGURA, ALTURA), TITULO),
-	entrada(&janela)
+	entrada(&janela),
+	grafico(&janela),
+	menu(&grafico)
 {
 	Executar();
 }
@@ -17,15 +19,9 @@ Jogo::~Jogo() {
 
 void Jogo::Executar() {
 	
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-
 	while (janela.isOpen())
 	{
 		entrada.Executar();
-
-		janela.clear();
-		janela.draw(shape);
-		janela.display();
+		grafico.Executar();
 	}
 }

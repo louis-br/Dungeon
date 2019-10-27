@@ -1,9 +1,14 @@
 #pragma once
-#include "Menu.h"
+#include "Entidade.h"
 
-class Menu
+class Menu : public Entidade
 {
+private:
+	sf::CircleShape forma;
 public:
-	Menu();
+	Menu(GerenciadorGrafico* grafico);
 	~Menu();
+	void Executar();
+	void CriarGraficos();
+	void Apresentar(GerenciadorGrafico& grafico);
 };
