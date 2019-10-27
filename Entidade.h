@@ -10,6 +10,6 @@ protected:
 public:
 	Entidade(int x = 0, int y = 0, unsigned largura = 0, unsigned altura = 0);
 	~Entidade();
-	//virtual void Apresentar();// GerenciadorGrafico& grafico);
+	virtual void Apresentar(GerenciadorGrafico& grafico) = 0;
 };
 

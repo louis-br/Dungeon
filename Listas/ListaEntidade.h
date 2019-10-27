@@ -10,7 +10,5 @@ public:
 	ListaEntidade();
 	~ListaEntidade();
 	Lista<Entidade>* getListaEntidades();
-	void Inserir(Entidade* entidade = nullptr);
-	void Excluir(Entidade* entidade = nullptr);
 };
 
