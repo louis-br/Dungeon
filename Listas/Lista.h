@@ -28,7 +28,7 @@ public:
 	Elemento<TL>* getPrimeiro() { return pPrimeiro; }
 	Elemento<TL>* getUltimo() { return pUltimo; }
 	void Inserir(TL* elemento) {
-		Elemento<TL>* novo = new Elemento(elemento);
+		Elemento<TL>* novo = new Elemento<TL>(elemento);
 		if (pPrimeiro == nullptr) {
 			pPrimeiro = novo;
 			pUltimo = novo;

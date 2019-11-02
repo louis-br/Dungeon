@@ -18,5 +18,5 @@ public:
 	void Inserir(Entidade* entidade);
 	void Executar();
 	void Desenhar(sf::Drawable& forma);
+	void CarregarFonte(sf::Font& fonte, const std::string& arquivo);
 };
-

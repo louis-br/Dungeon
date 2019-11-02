@@ -4,10 +4,10 @@
 class Entidade
 {
 protected:
-	sf::Vector2i posicao;
-	sf::Vector2u tamanho;
+	sf::Vector2f posicao;
+	sf::Vector2f tamanho;
 public:
-	Entidade(int x = 0, int y = 0, unsigned largura = 0, unsigned altura = 0, GerenciadorGrafico* grafico = nullptr);
+	Entidade(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), GerenciadorGrafico* grafico = nullptr);
 	~Entidade();
 	virtual void Apresentar(GerenciadorGrafico& grafico) = 0;
 };

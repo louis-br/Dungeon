@@ -4,11 +4,13 @@
 class Menu : public Entidade
 {
 private:
-	sf::CircleShape forma;
+	sf::RectangleShape fundo;
+	sf::Font fonte;
+	sf::Text titulo;
 public:
-	Menu(GerenciadorGrafico* grafico);
+	Menu(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), GerenciadorGrafico* grafico = nullptr);
 	~Menu();
 	void Executar();
-	void CriarGraficos();
+	void CriarGraficos(GerenciadorGrafico* grafico);
 	void Apresentar(GerenciadorGrafico& grafico);
 };

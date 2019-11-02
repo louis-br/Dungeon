@@ -1,3 +1,4 @@
+#include <iostream>
 #include "GerenciadorGrafico.h"
 #include "../Entidade.h"
 
@@ -28,4 +29,10 @@ void GerenciadorGrafico::Executar()
 
 void GerenciadorGrafico::Desenhar(sf::Drawable& desenho) {
 	janela->draw(desenho);
+}
+
+void GerenciadorGrafico::CarregarFonte(sf::Font& fonte, const std::string& arquivo) {
+	if (!(fonte.loadFromFile(arquivo))) {
+		cout << "Falha ao carregar fonte: " << arquivo << '\n';
+	}
 }
