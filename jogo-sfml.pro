@@ -16,8 +16,10 @@ HEADERS += \
     Listas/ListaEntidade.h \
     Entidade.h \
     EntidadeFisica.h \
+    Fase.h \
     Jogo.h \
-    Menu.h
+    Menu.h \
+    defesainvasao.h
 
 SOURCES += \
     Gerenciadores/GerenciadorEntrada.cpp \
@@ -26,6 +28,8 @@ SOURCES += \
     Listas/ListaEntidade.cpp \
     Entidade.cpp \
     EntidadeFisica.cpp \
+    Fase.cpp \
     Jogo.cpp \
     main.cpp \
-    Menu.cpp
+    Menu.cpp \
+    defesainvasao.cpp

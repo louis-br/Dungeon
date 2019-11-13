@@ -1,22 +1,18 @@
-#pragma once
-#include <list>
+#include <iostream>
 #include <SFML/Graphics.hpp>
-
-using namespace std;
-
-class Entidade;
 
 class GerenciadorGrafico
 {
 private:
 	sf::RenderWindow* janela;
-	list<Entidade*> elementos;
-	list<Entidade*>::iterator iterador;
-public:
-	GerenciadorGrafico(sf::RenderWindow* window);
+	static GerenciadorGrafico* instancia;
+	GerenciadorGrafico();
 	~GerenciadorGrafico();
-	void Inserir(Entidade* entidade);
-	void Executar();
+public:
+	static GerenciadorGrafico* getInstancia();
+	void setJanela(sf::RenderWindow* window);
+	void Limpar();
 	void Desenhar(sf::Drawable& forma);
+	void AtualizarTela();
 	void CarregarFonte(sf::Font& fonte, const std::string& arquivo);
 };

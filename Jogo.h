@@ -7,9 +7,9 @@ class Jogo
 {
 private:
 	sf::RenderWindow janela;
-	GerenciadorEntrada entrada;
-	GerenciadorGrafico grafico;
-	Menu menu;
+	GerenciadorEntrada* entrada;
+	GerenciadorGrafico* grafico;
+//	Menu menu;
 public:
 	Jogo();
 	~Jogo();

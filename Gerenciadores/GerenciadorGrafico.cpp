@@ -1,9 +1,7 @@
-#include <iostream>
 #include "GerenciadorGrafico.h"
-#include "../Entidade.h"
 
-GerenciadorGrafico::GerenciadorGrafico(sf::RenderWindow* window) :
-	janela(window)
+GerenciadorGrafico::GerenciadorGrafico() :
+	janela(nullptr)
 {
 
 }
@@ -12,27 +10,42 @@ GerenciadorGrafico::~GerenciadorGrafico() {
 
 }
 
-void GerenciadorGrafico::Inserir(Entidade* entidade)
+GerenciadorGrafico* GerenciadorGrafico::getInstancia()
 {
-	elementos.push_back(entidade);
-}
-
-void GerenciadorGrafico::Executar()
-{
-	janela->clear();
-	GerenciadorGrafico& grafico = *this;
-	for (iterador = elementos.begin(); iterador != elementos.end(); ++iterador) {
-		(*iterador)->Apresentar(grafico);
+	if (instancia == nullptr) {
+		instancia = new GerenciadorGrafico();
 	}
-	janela->display();
+	return instancia;
 }
 
-void GerenciadorGrafico::Desenhar(sf::Drawable& desenho) {
-	janela->draw(desenho);
+void GerenciadorGrafico::setJanela(sf::RenderWindow* window) {
+	janela = window;
 }
 
-void GerenciadorGrafico::CarregarFonte(sf::Font& fonte, const std::string& arquivo) {
-	if (!(fonte.loadFromFile(arquivo))) {
-		cout << "Falha ao carregar fonte: " << arquivo << '\n';
+void GerenciadorGrafico::Limpar() 
+{
+	if (janela != nullptr) {
+		janela->clear();
+	}
+}
+
+void GerenciadorGrafico::Desenhar(sf::Drawable& desenho)
+{
+	if (janela != nullptr) {
+		janela->draw(desenho);
+	}
+}
+
+void GerenciadorGrafico::AtualizarTela() 
+{
+	if (janela != nullptr) {
+		janela->display();
+	}
+}
+
+void GerenciadorGrafico::CarregarFonte(sf::Font& fonte, const std::string& arquivo)
+{
+	if (!fonte.loadFromFile(arquivo)) {
+		std::cout << "Falha ao carregar fonte: " << arquivo << '\n';
 	}
 }

@@ -1,14 +1,21 @@
 #pragma once
-#include "Lista.h"
-#include "../Entidade.h"
+#include <list>
+using namespace std;
+
+#include "../Gerenciadores/GerenciadorGrafico.h"
+
+class Entidade;
 
 class ListaEntidade
 {
 private:
-	Lista<Entidade> LEs;
+	GerenciadorGrafico* grafico;
+	//Lista<Entidade> LEs;
+	list<Entidade*> elementos;
+	list<Entidade*>::iterator iterador;
 public:
 	ListaEntidade();
 	~ListaEntidade();
-	Lista<Entidade>* getListaEntidades();
+	void Inserir(Entidade* entidade);
+	void Printar();
 };
-

@@ -10,6 +10,18 @@ GerenciadorEntrada::~GerenciadorEntrada() {
 
 }
 
+GerenciadorEntrada* GerenciadorEntrada::getInstancia()
+{
+	if (instancia == nullptr) {
+		instancia = new GerenciadorEntrada();
+	}
+	return instancia;
+}
+
+void GerenciadorEntrada::setJanela(sf::RenderWindow* window) {
+	janela = window;
+}
+
 void GerenciadorEntrada::Executar() {
 	if (janela != nullptr) {
 		sf::Event event;

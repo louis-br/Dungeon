@@ -5,9 +5,11 @@ class GerenciadorEntrada
 { 
 private:
 	sf::RenderWindow* janela;
-public:
+	static GerenciadorEntrada* instancia;
 	GerenciadorEntrada(sf::RenderWindow* window = nullptr);
 	~GerenciadorEntrada();
+public:
+	static GerenciadorEntrada* getInstancia();
+	void setJanela(sf::RenderWindow* window);
 	void Executar();
 };
-

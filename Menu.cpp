@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(sf::Vector2f pos, sf::Vector2f tam, GerenciadorGrafico* grafico) :
+Menu::Menu(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* grafico) :
 	Entidade(pos, tam, grafico),
 	fundo(tam * 0.8f),
 	fonte(),
@@ -17,7 +17,7 @@ void Menu::Executar() {
 
 }
 
-void Menu::CriarGraficos(GerenciadorGrafico* grafico) {
+void Menu::CriarGraficos(ListaEntidade* grafico) {
 	if (grafico != nullptr) {
 		grafico->CarregarFonte(fonte, "Recursos/Fontes/vinque.ttf");
 	}
@@ -31,7 +31,7 @@ void Menu::CriarGraficos(GerenciadorGrafico* grafico) {
 	}
 }
 
-void Menu::Apresentar(GerenciadorGrafico& grafico)
+void Menu::Apresentar(ListaEntidade& grafico)
 {
 	grafico.Desenhar(fundo);
 	grafico.Desenhar(titulo);
