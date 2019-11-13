@@ -9,25 +9,27 @@ DISTFILES += \
     Recursos/Fontes/vinque.ttf
 
 HEADERS += \
+    Entidades/Entidade.h \
+    Entidades/EntidadeFisica.h \
+    Entidades/Fase.h \
+    Fases/Fase.h \
     Gerenciadores/GerenciadorEntrada.h \
     Gerenciadores/GerenciadorFisico.h \
     Gerenciadores/GerenciadorGrafico.h \
     Listas/Lista.h \
     Listas/ListaEntidade.h \
-    Entidade.h \
-    EntidadeFisica.h \
-    Fase.h \
-    Jogo.h \
-    Menu.h
+    Principal/Menus/Menu.h \
+    Principal/Jogo.h
 
 SOURCES += \
+    Entidades/Entidade.cpp \
+    Entidades/EntidadeFisica.cpp \
+    Entidades/Fase.cpp \
+    Fases/Fase.cpp \
     Gerenciadores/GerenciadorEntrada.cpp \
     Gerenciadores/GerenciadorFisico.cpp \
     Gerenciadores/GerenciadorGrafico.cpp \
     Listas/ListaEntidade.cpp \
-    Entidade.cpp \
-    EntidadeFisica.cpp \
-    Fase.cpp \
-    Jogo.cpp \
-    main.cpp \
-    Menu.cpp
+    Principal/Menus/Menu.cpp \
+    Principal/Jogo.cpp \
+    Principal/main.cpp
