@@ -12,4 +12,3 @@ public:
 	static GerenciadorFisico* getInstancia();
 	sf::Vector2f Colidir(Entidade* A, Entidade* B);
 };
-

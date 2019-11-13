@@ -18,8 +18,7 @@ HEADERS += \
     EntidadeFisica.h \
     Fase.h \
     Jogo.h \
-    Menu.h \
-    defesainvasao.h
+    Menu.h
 
 SOURCES += \
     Gerenciadores/GerenciadorEntrada.cpp \
@@ -31,5 +30,4 @@ SOURCES += \
     Fase.cpp \
     Jogo.cpp \
     main.cpp \
-    Menu.cpp \
-    defesainvasao.cpp
+    Menu.cpp
