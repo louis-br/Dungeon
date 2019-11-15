@@ -1,0 +1,13 @@
+﻿  Entidade.cpp
+  EntidadeFisica.cpp
+  DefesaInvasao.cpp
+  Fase.cpp
+  GerenciadorEntrada.cpp
+  GerenciadorFisico.cpp
+  GerenciadorGrafico.cpp
+  ListaEntidade.cpp
+  Jogo.cpp
+  Menu.cpp
+  main.cpp
+GerenciadorGrafico.obj : error LNK2001: unresolved external symbol "public: static class sf::RenderStates const sf::RenderStates::Default" (?Default@RenderStates@sf@@2V12@B)
+D:\jogo-sfml\VS2019\Release\VS2019.exe : fatal error LNK1120: 1 unresolved externals

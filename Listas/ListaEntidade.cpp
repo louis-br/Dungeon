@@ -1,6 +1,6 @@
 #include <iostream>
 #include "ListaEntidade.h"
-#include "../Entidade.h"
+#include "../Entidades/Entidade.h"
 
 ListaEntidade::ListaEntidade() :
 	grafico(GerenciadorGrafico::getInstancia())

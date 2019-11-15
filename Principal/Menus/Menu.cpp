@@ -1,5 +1,5 @@
 #include "Menu.h"
-
+/*
 Menu::Menu(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* grafico) :
 	Entidade(pos, tam, grafico),
 	fundo(tam * 0.8f),
@@ -36,3 +36,4 @@ void Menu::Apresentar(ListaEntidade& grafico)
 	grafico.Desenhar(fundo);
 	grafico.Desenhar(titulo);
 }
+*/

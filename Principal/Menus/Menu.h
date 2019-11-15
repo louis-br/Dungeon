@@ -1,6 +1,6 @@
 #pragma once
-#include "Entidade.h"
-
+#include "../../Entidades/Entidade.h"
+/*
 class Menu : public Entidade
 {
 private:
@@ -14,3 +14,4 @@ public:
 	void CriarGraficos(ListaEntidade* grafico);
 	void Apresentar(ListaEntidade& grafico);
 };
+*/

@@ -44,3 +44,5 @@ void GerenciadorEntrada::Executar() {
 		}
 	}
 }
+
+GerenciadorEntrada* GerenciadorEntrada::instancia(nullptr);

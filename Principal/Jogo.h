@@ -1,7 +1,7 @@
 #pragma once
-#include "Gerenciadores/GerenciadorEntrada.h"
-#include "Gerenciadores/GerenciadorGrafico.h"
-#include "Menu.h"
+#include "../Gerenciadores/GerenciadorEntrada.h"
+#include "../Gerenciadores/GerenciadorGrafico.h"
+//#include "Menus/Menu.h"
 
 class Jogo
 {

@@ -1,6 +1,6 @@
 #pragma once
 #include <SFML/System.hpp>
-#include "../Entidade.h"
+#include "../Entidades/Entidade.h"
 
 class GerenciadorFisico
 {

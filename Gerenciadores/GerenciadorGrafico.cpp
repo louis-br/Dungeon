@@ -49,3 +49,5 @@ void GerenciadorGrafico::CarregarFonte(sf::Font& fonte, const std::string& arqui
 		std::cout << "Falha ao carregar fonte: " << arquivo << '\n';
 	}
 }
+
+GerenciadorGrafico* GerenciadorGrafico::instancia(nullptr);

@@ -73,3 +73,6 @@ sf::Vector2f GerenciadorFisico::Colidir(Entidade* A, Entidade* B) {
 			sf::Vector2i diferenca = posicao + tamanho;
 		}
 	}*/
+
+
+GerenciadorFisico* GerenciadorFisico::instancia(nullptr);
