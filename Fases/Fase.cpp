@@ -2,7 +2,8 @@
 
 Fase::Fase(sf::RenderWindow* janela) :
 	listaEntidade(),
-	camera()
+	camera(),
+	jogador(sf::Vector2f(0, 0), &listaEntidade)
 {
 	camera.setCenter(100.f, 75.f); //trocar para personagem
 	camera.setSize(static_cast<sf::Vector2f>(janela->getSize()));

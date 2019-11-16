@@ -11,6 +11,7 @@ Jogo::Jogo() :
 	fase1(&janela)
 //	menu(sf::Vector2f(0, 0), sf::Vector2f(LARGURA, ALTURA))
 {
+	janela.setFramerateLimit(5);
 	entrada->setJanela(&janela);
 	grafico->setJanela(&janela);
 	Executar();
