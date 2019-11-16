@@ -1,12 +1,15 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "../Listas/ListaEntidade.h"
 
 class Fase
 {
-private:
+protected:
+	ListaEntidade listaEntidade;
 	sf::View camera;
 public:
-	Fase();
+	Fase(sf::RenderWindow* janela = nullptr);
 	virtual ~Fase();
 	virtual void CriarTerreno() = 0;
+	void Executar();
 };

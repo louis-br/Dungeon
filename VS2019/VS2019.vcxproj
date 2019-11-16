@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Blocos\Tijolo.cpp" />
     <ClCompile Include="..\Entidades\Entidade.cpp" />
     <ClCompile Include="..\Entidades\EntidadeFisica.cpp" />
     <ClCompile Include="..\Fases\DefesaInvasao.cpp" />
@@ -146,6 +147,7 @@
     <ClCompile Include="..\Principal\Menus\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Blocos\Tijolo.h" />
     <ClInclude Include="..\Entidades\Entidade.h" />
     <ClInclude Include="..\Entidades\EntidadeFisica.h" />
     <ClInclude Include="..\Fases\DefesaInvasao.h" />

@@ -50,4 +50,11 @@ void GerenciadorGrafico::CarregarFonte(sf::Font& fonte, const std::string& arqui
 	}
 }
 
+void GerenciadorGrafico::CarregarTextura(sf::Texture& textura, sf::IntRect area, const std::string& arquivo)
+{
+	if (!textura.loadFromFile(arquivo, area)) {
+		std::cout << "Falha ao carregar textura: " << arquivo << '\n';
+	}
+}
+
 GerenciadorGrafico* GerenciadorGrafico::instancia(nullptr);

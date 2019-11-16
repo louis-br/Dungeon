@@ -16,4 +16,5 @@ public:
 	void Desenhar(sf::Drawable& forma);
 	void AtualizarTela();
 	void CarregarFonte(sf::Font& fonte, const std::string& arquivo);
+	void CarregarTextura(sf::Texture& textura, sf::IntRect area, const std::string& arquivo);
 };
