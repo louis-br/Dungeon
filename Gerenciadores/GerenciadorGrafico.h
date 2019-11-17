@@ -12,10 +12,10 @@ private:
 public:
 	static GerenciadorGrafico* getInstancia();
 	void setJanela(sf::RenderWindow* window);
-	void Limpar();
-	void Desenhar(sf::Drawable& forma);
-	void AtualizarTela();
-	void CarregarFonte(sf::Font& fonte, const std::string& arquivo);
-	void CarregarTextura(sf::Texture& textura, const std::string& arquivo);
-	void CarregarTextura(sf::Texture& textura, sf::IntRect area, const std::string& arquivo);
+	void limpar();
+	void desenhar(sf::Drawable& forma);
+	void atualizarTela();
+	void carregarFonte(sf::Font& fonte, const std::string& arquivo);
+	void carregarTextura(sf::Texture& textura, const std::string& arquivo);
+	void carregarTextura(sf::Texture& textura, sf::IntRect area, const std::string& arquivo);
 };

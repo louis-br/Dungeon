@@ -14,9 +14,11 @@ private:
 			pProx(nullptr),
 			pElem(elemento) {}
 		~Elemento() {}
+
 		Elemento<TE*> getProximo() { return pProx; }
 		Elemento<TE*> getElemento() { return pElem; }
 		void setProximo(Elemento<TE>* elemento) { pProx = elemento; }
+
 	};
 	Elemento<TL>* pPrimeiro;
 	Elemento<TL>* pUltimo;
@@ -25,9 +27,11 @@ public:
 		pPrimeiro(nullptr),
 		pUltimo(nullptr) {}
 	~Lista() {}
+
 	Elemento<TL>* getPrimeiro() { return pPrimeiro; }
 	Elemento<TL>* getUltimo() { return pUltimo; }
-	void Inserir(TL* elemento) {
+
+	void empurrarElemento(TL* elemento) {
 		Elemento<TL>* novo = new Elemento<TL>(elemento);
 		if (pPrimeiro == nullptr) {
 			pPrimeiro = novo;

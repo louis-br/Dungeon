@@ -12,6 +12,6 @@ protected:
 public:
 	Fase(sf::RenderWindow* janela = nullptr);
 	virtual ~Fase();
-	virtual void CriarTerreno() = 0;
-	void Executar();
+	virtual void criarTerreno() = 0;
+	void executar();
 };

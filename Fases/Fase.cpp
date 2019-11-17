@@ -17,6 +17,6 @@ Fase::~Fase() {
 
 }
 
-void Fase::Executar() {
-	listaEntidade.Printar();
+void Fase::executar() {
+	listaEntidade.printar();
 }

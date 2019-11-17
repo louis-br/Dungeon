@@ -1,7 +1,9 @@
 #include "GerenciadorFisico.h"
 
 
-GerenciadorFisico::GerenciadorFisico() {
+GerenciadorFisico::GerenciadorFisico() :
+	entidades(nullptr)
+{
 
 }
 
@@ -16,7 +18,7 @@ GerenciadorFisico* GerenciadorFisico::getInstancia() {
 	return instancia;
 }
 
-sf::Vector2f GerenciadorFisico::Colidir(Entidade* A, Entidade* B) {
+sf::Vector2f GerenciadorFisico::colidir(Entidade* A, Entidade* B) {
 	sf::Vector2f posA = A->getPosicao();
 	sf::Vector2f extremoA = posA + A->getTamanho();
 	sf::Vector2f posB = B->getPosicao();
@@ -56,23 +58,23 @@ sf::Vector2f GerenciadorFisico::Colidir(Entidade* A, Entidade* B) {
 	return sf::Vector2f(0, 0);
 }
 
-/*
+void GerenciadorFisico::executar() {
 	for (std::list<EntidadeFisica>::iterator i = moveis.begin(); i != moveis.end(); ++i) {
 		sf::Vector2f aceleracao = i->getAceleracao();
 		sf::Vector2f velocidade = i->getVelocidade() + aceleracao * decorrido;
 		sf::Vector2i posicao = i->getPosicao()
 			+ static_cast<sf::Vector2i>(velocidade * decorrido)
 			+ static_cast<sf::Vector2i>(aceleracao * 0.5f * decorrido));
-		sf::Vector2i tamanho = i->getTamanho();
-		bool colisao = false;
-		sf::Vector2f correcaoTotal(0, 0);
-		for (std::list<EntidadeFisica>::iterator j = lista.begin(); j != lista.end(); ++j) {
-			sf::Vector2i jpos = j->getPosicao();
-			sf::Vector2i jtam = j->getTamanho();
-			sf::Vector2i correcao(0, 0);
-			sf::Vector2i diferenca = posicao + tamanho;
-		}
-	}*/
-
+			sf::Vector2i tamanho = i->getTamanho();
+			bool colisao = false;
+			sf::Vector2f correcaoTotal(0, 0);
+			for (std::list<EntidadeFisica>::iterator j = lista.begin(); j != lista.end(); ++j) {
+				sf::Vector2i jpos = j->getPosicao();
+				sf::Vector2i jtam = j->getTamanho();
+				sf::Vector2i correcao(0, 0);
+				sf::Vector2i diferenca = posicao + tamanho;
+			}
+	}
+}
 
 GerenciadorFisico* GerenciadorFisico::instancia(nullptr);

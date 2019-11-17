@@ -9,7 +9,6 @@ private:
 public:
 	Guerreiro(sf::Vector2f pos = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr);
 	~Guerreiro();
-	void Printar(GerenciadorGrafico* grafico);
-	void Andar();
+	void printar(GerenciadorGrafico* grafico);
+	void andar();
 };
-

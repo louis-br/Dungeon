@@ -15,8 +15,8 @@ Jogador::~Jogador() {
 
 }
 
-void Jogador::AtualizarTeclas() {
-	Mover(sf::Vector2f(
+void Jogador::atualizarTeclas() {
+	mover(sf::Vector2f(
 		sf::Keyboard::isKeyPressed(direita) - sf::Keyboard::isKeyPressed(esquerda),
 		sf::Keyboard::isKeyPressed(baixo) - sf::Keyboard::isKeyPressed(cima)
 	));

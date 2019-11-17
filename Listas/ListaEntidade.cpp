@@ -12,16 +12,16 @@ ListaEntidade::~ListaEntidade() {
 
 }
 
-void ListaEntidade::Inserir(Entidade* entidade)
+void ListaEntidade::inserir(Entidade* entidade)
 {
 	elementos.push_back(entidade);
 }
 
-void ListaEntidade::Printar()
+void ListaEntidade::printar()
 {
-	grafico->Limpar();
+	grafico->limpar();
 	for (iterador = elementos.begin(); iterador != elementos.end(); ++iterador) {
-		(*iterador)->Printar(grafico);
+		(*iterador)->printar(grafico);
 	}
-	grafico->AtualizarTela();
+	grafico->atualizarTela();
 }

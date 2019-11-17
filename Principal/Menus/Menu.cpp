@@ -6,20 +6,20 @@ Menu::Menu(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* grafico) :
 	fonte(),
 	titulo(sf::String("Titulo"), fonte)
 {
-	CriarGraficos(grafico);
+	criarGraficos(grafico);
 }
 
 Menu::~Menu() {
 
 }
 
-void Menu::Executar() {
+void Menu::executar() {
 
 }
 
-void Menu::CriarGraficos(ListaEntidade* grafico) {
+void Menu::criarGraficos(ListaEntidade* grafico) {
 	if (grafico != nullptr) {
-		grafico->CarregarFonte(fonte, "Recursos/Fontes/vinque.ttf");
+		grafico->carregarFonte(fonte, "Recursos/Fontes/vinque.ttf");
 	}
 	fundo.setPosition(tamanho * 0.1f);
 	titulo.setCharacterSize(96);
@@ -31,9 +31,9 @@ void Menu::CriarGraficos(ListaEntidade* grafico) {
 	}
 }
 
-void Menu::Apresentar(ListaEntidade& grafico)
+void Menu::apresentar(ListaEntidade& grafico)
 {
-	grafico.Desenhar(fundo);
-	grafico.Desenhar(titulo);
+	grafico.desenhar(fundo);
+	grafico.desenhar(titulo);
 }
 */

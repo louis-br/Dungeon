@@ -11,5 +11,5 @@ private:
 public:
 	static GerenciadorEntrada* getInstancia();
 	void setJanela(sf::RenderWindow* window);
-	void Executar();
+	void executar();
 };

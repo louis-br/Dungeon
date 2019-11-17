@@ -16,5 +16,5 @@ private:
 public:
 	Jogo();
 	~Jogo();
-	void Executar();
+	void executar();
 };

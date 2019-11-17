@@ -3,13 +3,13 @@
 DefesaInvasao::DefesaInvasao(sf::RenderWindow* janela) :
 	Fase(janela)
 {
-	CriarTerreno();
+	criarTerreno();
 }
 
 DefesaInvasao::~DefesaInvasao() {
 
 }
 
-void DefesaInvasao::CriarTerreno() {
+void DefesaInvasao::criarTerreno() {
 	new Tijolo(sf::Vector2f(0, 268), sf::Vector2f(32 * 9, 32), &listaEntidade);
 }

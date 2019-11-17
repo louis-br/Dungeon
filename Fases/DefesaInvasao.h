@@ -8,6 +8,6 @@ class DefesaInvasao : public Fase
 public:
 	DefesaInvasao(sf::RenderWindow* janela);
 	~DefesaInvasao();
-	void CriarTerreno();
+	void criarTerreno();
 };
 

@@ -22,7 +22,7 @@ void GerenciadorEntrada::setJanela(sf::RenderWindow* window) {
 	janela = window;
 }
 
-void GerenciadorEntrada::Executar() {
+void GerenciadorEntrada::executar() {
 	if (janela != nullptr) {
 		sf::Event event;
 		while (janela->pollEvent(event))

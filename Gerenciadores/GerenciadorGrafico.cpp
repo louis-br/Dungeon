@@ -22,42 +22,42 @@ void GerenciadorGrafico::setJanela(sf::RenderWindow* window) {
 	janela = window;
 }
 
-void GerenciadorGrafico::Limpar() 
+void GerenciadorGrafico::limpar() 
 {
 	if (janela != nullptr) {
 		janela->clear();
 	}
 }
 
-void GerenciadorGrafico::Desenhar(sf::Drawable& desenho)
+void GerenciadorGrafico::desenhar(sf::Drawable& desenho)
 {
 	if (janela != nullptr) {
 		janela->draw(desenho);
 	}
 }
 
-void GerenciadorGrafico::AtualizarTela() 
+void GerenciadorGrafico::atualizarTela() 
 {
 	if (janela != nullptr) {
 		janela->display();
 	}
 }
 
-void GerenciadorGrafico::CarregarFonte(sf::Font& fonte, const std::string& arquivo)
+void GerenciadorGrafico::carregarFonte(sf::Font& fonte, const std::string& arquivo)
 {
 	if (!fonte.loadFromFile(arquivo)) {
 		std::cout << "Falha ao carregar fonte: " << arquivo << '\n';
 	}
 }
 
-void GerenciadorGrafico::CarregarTextura(sf::Texture& textura, const std::string& arquivo)
+void GerenciadorGrafico::carregarTextura(sf::Texture& textura, const std::string& arquivo)
 {
 	if (!textura.loadFromFile(arquivo)) {
 		std::cout << "Falha ao carregar textura: " << arquivo << '\n';
 	}
 }
 
-void GerenciadorGrafico::CarregarTextura(sf::Texture& textura, sf::IntRect area, const std::string& arquivo)
+void GerenciadorGrafico::carregarTextura(sf::Texture& textura, sf::IntRect area, const std::string& arquivo)
 {
 	if (!textura.loadFromFile(arquivo, area)) {
 		std::cout << "Falha ao carregar textura: " << arquivo << '\n';

@@ -16,5 +16,5 @@ protected:
 public:
 	Personagem(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr);
 	~Personagem();
-	void Mover(sf::Vector2f direcao = sf::Vector2f(0, 0));
+	void mover(sf::Vector2f direcao = sf::Vector2f(0, 0));
 };

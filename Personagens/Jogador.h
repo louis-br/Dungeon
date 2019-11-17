@@ -11,6 +11,6 @@ private:
 public:
 	Jogador(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr);
 	~Jogador();
-	void AtualizarTeclas();
+	void atualizarTeclas();
 };
 

@@ -14,19 +14,19 @@ Jogo::Jogo() :
 	//janela.setFramerateLimit(5);
 	entrada->setJanela(&janela);
 	grafico->setJanela(&janela);
-	Executar();
+	executar();
 }
 
 Jogo::~Jogo() {
 
 }
 
-void Jogo::Executar() {
+void Jogo::executar() {
 	
 	while (janela.isOpen())
 	{
-		entrada->Executar();
-		fase1.Executar();
-		//grafico.Executar();
+		entrada->executar();
+		fase1.executar();
+		//grafico.executar();
 	}
 }

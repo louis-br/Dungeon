@@ -16,6 +16,6 @@ private:
 public:
 	ListaEntidade();
 	~ListaEntidade();
-	void Inserir(Entidade* entidade);
-	void Printar();
+	void inserir(Entidade* entidade);
+	void printar();
 };

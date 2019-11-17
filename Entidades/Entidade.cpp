@@ -5,7 +5,7 @@ Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	tamanho(tam)
 {
 	if (lista != nullptr) {
-		lista->Inserir(this);
+		lista->inserir(this);
 	}
 }
 

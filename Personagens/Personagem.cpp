@@ -15,7 +15,7 @@ Personagem::~Personagem() {
 
 }
 
-void Personagem::Mover(sf::Vector2f direcao) {
+void Personagem::mover(sf::Vector2f direcao) {
 	direcao = sf::Vector2f(direcao.x, direcao.y > 0);
 	velocidade += sf::Vector2f(direcao.x * potencialVelocidade.x, direcao.y * potencialVelocidade.y);
 	aceleracao = sf::Vector2f(direcao.x * potencialAceleracao.x, direcao.y * potencialAceleracao.y);
