@@ -5,9 +5,9 @@ Fase::Fase(sf::RenderWindow* janela) :
 	camera(),
 	jogador(sf::Vector2f(0, 0), &listaEntidade)
 {
-	camera.setCenter(100.f, 75.f); //trocar para personagem
+	camera.setCenter(200.f, 150.f); //trocar para personagem
 	camera.setSize(static_cast<sf::Vector2f>(janela->getSize()));
-	camera.zoom(0.25f);
+	camera.zoom(0.5f);
 	if (janela != nullptr) {
 		janela->setView(camera);
 	}
