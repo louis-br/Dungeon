@@ -3,10 +3,10 @@
 
 Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	Personagem(pos, tam, lista),
-	direita(sf::Keyboard::Key::Right),
-	esquerda(sf::Keyboard::Key::Left),
-	cima(sf::Keyboard::Key::Up),
-	baixo(sf::Keyboard::Key::Down)
+	direita(sf::Keyboard::Right),
+	esquerda(sf::Keyboard::Left),
+	cima(sf::Keyboard::Up),
+	baixo(sf::Keyboard::Down)
 {
 
 }

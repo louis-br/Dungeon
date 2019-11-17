@@ -3,7 +3,10 @@
 Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	EntidadeFisica(pos, tam, lista),
 	potencialAceleracao(0, 0),
-	potencialVelocidade(0, 0)
+	potencialVelocidade(0, 0),
+	relogio(),
+	estado(Estado::Andando),
+	quadroSprite(0)
 {
 
 }
