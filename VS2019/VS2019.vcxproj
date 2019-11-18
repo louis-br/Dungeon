@@ -139,6 +139,7 @@
     <ClCompile Include="..\Gerenciadores\GerenciadorFisico.cpp" />
     <ClCompile Include="..\Gerenciadores\GerenciadorGrafico.cpp" />
     <ClCompile Include="..\Listas\ListaEntidade.cpp" />
+    <ClCompile Include="..\Listas\VetorEntidadeFisica.cpp" />
     <ClCompile Include="..\Personagens\Jogador.cpp" />
     <ClCompile Include="..\Personagens\Personagem.cpp" />
     <ClCompile Include="..\Principal\Jogo.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="..\Gerenciadores\GerenciadorFisico.h" />
     <ClInclude Include="..\Gerenciadores\GerenciadorGrafico.h" />
     <ClInclude Include="..\Listas\ListaEntidade.h" />
+    <ClInclude Include="..\Listas\VetorEntidadeFisica.h" />
     <ClInclude Include="..\Personagens\Jogador.h" />
     <ClInclude Include="..\Personagens\Personagem.h" />
     <ClInclude Include="..\Principal\Jogo.h" />

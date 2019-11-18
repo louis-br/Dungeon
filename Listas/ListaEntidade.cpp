@@ -1,9 +1,9 @@
-#include <iostream>
 #include "ListaEntidade.h"
 #include "../Entidades/Entidade.h"
 
 ListaEntidade::ListaEntidade() :
-	grafico(GerenciadorGrafico::getInstancia())
+	grafico(GerenciadorGrafico::getInstancia()),
+	LEs()
 {
 
 }
@@ -12,16 +12,29 @@ ListaEntidade::~ListaEntidade() {
 
 }
 
-void ListaEntidade::inserir(Entidade* entidade)
+Lista<Entidade>::Elemento<Entidade>* ListaEntidade::getPrimeiro() {
+	return LEs.getPrimeiro();
+}
+
+Lista<Entidade>::Elemento<Entidade>* ListaEntidade::getUltimo() {
+	return LEs.getUltimo();
+}
+
+void ListaEntidade::empilharTras(Entidade* entidade)
 {
-	elementos.push_back(entidade);
+	LEs.empilharTras(entidade);
 }
 
 void ListaEntidade::printar()
 {
 	grafico->limpar();
-	for (iterador = elementos.begin(); iterador != elementos.end(); ++iterador) {
-		(*iterador)->printar(grafico);
+	Lista<Entidade>::Elemento<Entidade>* atual = LEs.getPrimeiro();
+	while (atual != nullptr) {
+		atual->getElemento()->printar(grafico);
+		atual = atual->getProximo();
 	}
+	/*for (iterador = elementos.begin(); iterador != elementos.end(); ++iterador) {
+		(*iterador)->printar(grafico);
+	}*/
 	grafico->atualizarTela();
 }

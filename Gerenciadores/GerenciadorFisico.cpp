@@ -1,10 +1,8 @@
 #include "GerenciadorFisico.h"
 
 
-GerenciadorFisico::GerenciadorFisico() :
-	entidades(nullptr)
-{
-
+GerenciadorFisico::GerenciadorFisico() {
+	
 }
 
 GerenciadorFisico::~GerenciadorFisico() {
@@ -26,12 +24,12 @@ sf::Vector2f GerenciadorFisico::colidir(Entidade* A, Entidade* B) {
 	if (extremoA.x > posB.x && extremoA.y > posB.y &&
 		posA.x < extremoB.x && posA.y < extremoB.y)
 	{
-		sf::Vector2f distAB = posA - posB;
+		sf::Vector2f distExtremoAB = extremoA - posB;
 		sf::Vector2f distAextremoB = extremoB - posA;
 		float direita = 0;
 		int sentidoDireita = 0;
-		if (distAB.x > distAextremoB.x) {
-			direita = distAB.x;
+		if (distExtremoAB.x < distAextremoB.x) {
+			direita = distExtremoAB.x;
 			sentidoDireita = -1;
 		}
 		else {
@@ -40,15 +38,15 @@ sf::Vector2f GerenciadorFisico::colidir(Entidade* A, Entidade* B) {
 		}
 		float baixo = 0;
 		int sentidoBaixo = 0;
-		if (distAB.y > distAextremoB.y) {
-			baixo = distAB.y;
+		if (distExtremoAB.y < distAextremoB.y) {
+			baixo = distExtremoAB.y;
 			sentidoBaixo = -1;
 		}
 		else {
 			baixo = distAextremoB.y;
 			sentidoBaixo = 1;
 		}
-		if (direita > baixo) {
+		if (direita < baixo) {
 			return sf::Vector2f(direita * sentidoDireita, 0);
 		}
 		else {
@@ -58,22 +56,28 @@ sf::Vector2f GerenciadorFisico::colidir(Entidade* A, Entidade* B) {
 	return sf::Vector2f(0, 0);
 }
 
-void GerenciadorFisico::executar() {
-	for (std::list<EntidadeFisica>::iterator i = moveis.begin(); i != moveis.end(); ++i) {
-		sf::Vector2f aceleracao = i->getAceleracao();
-		sf::Vector2f velocidade = i->getVelocidade() + aceleracao * decorrido;
-		sf::Vector2i posicao = i->getPosicao()
-			+ static_cast<sf::Vector2i>(velocidade * decorrido)
-			+ static_cast<sf::Vector2i>(aceleracao * 0.5f * decorrido));
-			sf::Vector2i tamanho = i->getTamanho();
-			bool colisao = false;
-			sf::Vector2f correcaoTotal(0, 0);
-			for (std::list<EntidadeFisica>::iterator j = lista.begin(); j != lista.end(); ++j) {
-				sf::Vector2i jpos = j->getPosicao();
-				sf::Vector2i jtam = j->getTamanho();
-				sf::Vector2i correcao(0, 0);
-				sf::Vector2i diferenca = posicao + tamanho;
+void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& entidades) {
+	//Lista<Entidade>::Elemento<Entidade>* atual = ListaEntidade
+	float decorrido = relogio.getElapsedTime().asSeconds();
+	relogio.restart();
+	for (int i = 0; i < moveis.tamanho(); ++i) {
+		EntidadeFisica* movel = moveis[i];
+		sf::Vector2f aceleracao = movel->getAceleracao();
+		sf::Vector2f velocidade = movel->getVelocidade() + aceleracao * decorrido;
+		sf::Vector2f posicao = movel->getPosicao() + velocidade * decorrido + aceleracao * 0.5f * (decorrido * decorrido);
+		//sf::Vector2f correcao = colidir(static_cast<Entidade*>(moveis[i]))
+		Entidade* A = static_cast<Entidade*>(movel);
+		Lista<Entidade>::Elemento<Entidade>* atual = entidades.getPrimeiro();
+		while (atual != nullptr) {
+			Entidade* B = atual->getElemento();
+			if (A != B) {
+				posicao += colidir(A, atual->getElemento());
 			}
+			atual = atual->getProximo();
+		}
+		movel->setAceleracao(aceleracao);
+		movel->setVelocidade(velocidade);
+		movel->setPosicao(posicao);
 	}
 }
 

@@ -2,6 +2,8 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 
+class Entidade;
+
 class GerenciadorGrafico
 {
 private:

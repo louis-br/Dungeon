@@ -1,7 +1,5 @@
 #pragma once
-#include <list>
-using namespace std;
-
+#include "Lista.h"
 #include "../Gerenciadores/GerenciadorGrafico.h"
 
 class Entidade;
@@ -10,12 +8,12 @@ class ListaEntidade
 {
 private:
 	GerenciadorGrafico* grafico;
-	//Lista<Entidade> LEs;
-	list<Entidade*> elementos;
-	list<Entidade*>::iterator iterador;
+	Lista<Entidade> LEs;
 public:
 	ListaEntidade();
 	~ListaEntidade();
-	void inserir(Entidade* entidade);
+	Lista<Entidade>::Elemento<Entidade>* getPrimeiro();
+	Lista<Entidade>::Elemento<Entidade>* getUltimo();
+	void empilharTras(Entidade* entidade);
 	void printar();
 };

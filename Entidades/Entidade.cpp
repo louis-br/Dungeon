@@ -1,11 +1,12 @@
 #include "Entidade.h"
 
+
 Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	posicao(pos),
 	tamanho(tam)
 {
 	if (lista != nullptr) {
-		lista->inserir(this);
+		lista->empilharTras(this);
 	}
 }
 

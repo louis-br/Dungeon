@@ -1,8 +1,8 @@
 #include "Jogador.h"
 #include <SFML/Window/Keyboard.hpp>
 
-Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
-	Personagem(pos, tam, lista),
+Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+	Personagem(pos, tam, lista, vetor),
 	direita(sf::Keyboard::Right),
 	esquerda(sf::Keyboard::Left),
 	cima(sf::Keyboard::Up),

@@ -1,7 +1,7 @@
 #include "Personagem.h"
 
-Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
-	EntidadeFisica(pos, tam, lista),
+Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+	EntidadeFisica(pos, tam, lista, vetor),
 	potencialAceleracao(0, 0),
 	potencialVelocidade(0, 0),
 	relogio(),

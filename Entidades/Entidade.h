@@ -1,6 +1,8 @@
 #pragma once
-#include "../Listas/ListaEntidade.h"
 #include "../Gerenciadores/GerenciadorGrafico.h"
+#include "../Listas/ListaEntidade.h"
+
+//class ListaEntidade;
 
 class Entidade
 {
