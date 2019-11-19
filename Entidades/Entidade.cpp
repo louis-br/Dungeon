@@ -14,6 +14,14 @@ Entidade::~Entidade() {
 
 }
 
+Entidade::Tipo Entidade::getTipo() {
+	return Tipo::Neutro;
+}
+
+void Entidade::colidiuCom(Tipo tipo) {
+
+}
+
 sf::Vector2f Entidade::getPosicao() {
 	return posicao;
 }

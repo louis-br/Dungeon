@@ -18,6 +18,23 @@ Guerreiro::~Guerreiro() {
 
 }
 
+/*void Guerreiro::colidiuCom(Entidade* entidade) {
+	std::cout << "Guerreiro colidiu!\n";
+	//colidiuCom(dynamic_cast<void*>(entidade));
+	Tijolo* tijolo = dynamic_cast<Tijolo*>(entidade);
+	if (tijolo != nullptr) {
+		colidiuCom(tijolo);
+	}
+}
+
+void Guerreiro::colidiuCom(Tijolo* tijolo) {
+	std::cout << "Tijolo!\n";
+}*/
+
+void Guerreiro::colidiuCom(Tipo tipo) {
+	std::cout << "Guerreiro colidiu com " << tipo << '\n';
+}
+
 void Guerreiro::printar(GerenciadorGrafico* grafico) {
 	sprite.setPosition(posicao);
 	switch(estado) {

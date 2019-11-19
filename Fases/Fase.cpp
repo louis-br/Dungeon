@@ -22,6 +22,7 @@ Fase::~Fase() {
 }
 
 void Fase::executar() {
+	//std::cout << jogador.getVelocidade().x << ':' << jogador.getVelocidade().y << '\n';
 	camera.setCenter(jogador.getPosicao() + jogador.getTamanho() * 0.5f);
 	janela->setView(camera);
 	listaEntidade.printar();

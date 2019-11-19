@@ -10,9 +10,16 @@ protected:
 	sf::Vector2f posicao;
 	sf::Vector2f tamanho;
 public:
+	enum Tipo {
+		Neutro,
+		Hostil
+	};
+
 	Entidade(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr);
 	virtual ~Entidade();
 	virtual void printar(GerenciadorGrafico* grafico) = 0;
+	virtual Tipo getTipo();
+	virtual void colidiuCom(Tipo tipo);
 	sf::Vector2f getPosicao();
 	sf::Vector2f getTamanho();
 	void setPosicao(sf::Vector2f pos);

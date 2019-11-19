@@ -16,6 +16,10 @@ Tijolo::~Tijolo() {
 	
 }
 
+Entidade::Tipo Tijolo::getTipo() {
+	return Tipo::Hostil;
+}
+
 void Tijolo::printar(GerenciadorGrafico* grafico) {
 	grafico->desenhar(sprite);
 }

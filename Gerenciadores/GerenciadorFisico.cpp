@@ -73,7 +73,24 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
 		while (atual != nullptr) {
 			Entidade* B = atual->getElemento();
 			if (A != B) {
-				posicao += colidir(A, atual->getElemento());
+				sf::Vector2f correcao = colidir(A, atual->getElemento());
+				posicao += correcao;
+				if (correcao.x != 0.f || correcao.y != 0.f) {
+					if (correcao.x == 0.f) {
+						velocidade = sf::Vector2f(velocidade.x, 0);
+					}
+					else if (correcao.y == 0.f) {
+						velocidade = sf::Vector2f(0, velocidade.y);
+					}
+					Entidade::Tipo tipoA = A->getTipo();
+					Entidade::Tipo tipoB = B->getTipo();
+					if (tipoB != Entidade::Tipo::Neutro) {
+						A->colidiuCom(tipoB);
+					}
+					if (tipoA != Entidade::Tipo::Neutro) {
+						B->colidiuCom(tipoA);
+					}
+				}
 			}
 			atual = atual->getProximo();
 		}
