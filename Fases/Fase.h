@@ -1,6 +1,7 @@
 #pragma once
 #include <SFML/Graphics.hpp>
 #include "../Gerenciadores/GerenciadorFisico.h"
+#include "../Gerenciadores/GerenciadorEntrada.h"
 //#include "../Listas/ListaEntidade.h"
 //#include "../Listas/VetorEntidadeFisica.h"
 #include "../Personagens/Guerreiro.h"
@@ -9,9 +10,10 @@ class Fase
 {
 protected:
 	GerenciadorFisico* fisico;
+	sf::RenderWindow* janela;
+	sf::View camera;
 	ListaEntidade listaEntidade;
 	VetorEntidadeFisica vetorEntidadeFisica;
-	sf::View camera;
 	Guerreiro jogador;
 public:
 	Fase(sf::RenderWindow* janela = nullptr);

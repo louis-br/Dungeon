@@ -10,6 +10,7 @@
 class GerenciadorFisico
 {
 private:
+	sf::Vector2f gravidade;
 	static GerenciadorFisico* instancia;
 	sf::Clock relogio;
 	GerenciadorFisico();

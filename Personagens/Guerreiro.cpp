@@ -3,6 +3,8 @@
 Guerreiro::Guerreiro(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
 	Jogador(pos, sf::Vector2f(63, 77), lista, vetor)
 {
+	potencialVelocidade = sf::Vector2f(0, 50);
+	potencialAceleracao = sf::Vector2f(100, 0);
 	GerenciadorGrafico* grafico = GerenciadorGrafico::getInstancia();
 	grafico->carregarTextura(textura, "Recursos/Personagens/Guerreiro.png");
 	sprite = sf::Sprite(textura);
@@ -36,7 +38,7 @@ void Guerreiro::printar(GerenciadorGrafico* grafico) {
 
 void Guerreiro::andar() {
 	//velocidade = sf::Vector2f(5, 0);
-	aceleracao = sf::Vector2f(0, 100);
+	//aceleracao = sf::Vector2f(0, 100);
 	int quadros = 11 * (relogio.getElapsedTime().asSeconds() * velocidade.x) / (tamanho.x);
 	if (quadros > 0) {
 		relogio.restart();

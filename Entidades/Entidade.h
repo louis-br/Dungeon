@@ -11,7 +11,7 @@ protected:
 	sf::Vector2f tamanho;
 public:
 	Entidade(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr);
-	~Entidade();
+	virtual ~Entidade();
 	virtual void printar(GerenciadorGrafico* grafico) = 0;
 	sf::Vector2f getPosicao();
 	sf::Vector2f getTamanho();

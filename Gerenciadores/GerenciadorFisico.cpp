@@ -1,7 +1,9 @@
 #include "GerenciadorFisico.h"
 
 
-GerenciadorFisico::GerenciadorFisico() {
+GerenciadorFisico::GerenciadorFisico() :
+	gravidade(0, 10)
+{
 	
 }
 
@@ -62,7 +64,7 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
 	relogio.restart();
 	for (int i = 0; i < moveis.tamanho(); ++i) {
 		EntidadeFisica* movel = moveis[i];
-		sf::Vector2f aceleracao = movel->getAceleracao();
+		sf::Vector2f aceleracao = movel->getAceleracao() + gravidade;
 		sf::Vector2f velocidade = movel->getVelocidade() + aceleracao * decorrido;
 		sf::Vector2f posicao = movel->getPosicao() + velocidade * decorrido + aceleracao * 0.5f * (decorrido * decorrido);
 		//sf::Vector2f correcao = colidir(static_cast<Entidade*>(moveis[i]))
@@ -75,7 +77,6 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
 			}
 			atual = atual->getProximo();
 		}
-		movel->setAceleracao(aceleracao);
 		movel->setVelocidade(velocidade);
 		movel->setPosicao(posicao);
 	}
