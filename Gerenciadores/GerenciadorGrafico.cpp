@@ -3,7 +3,7 @@
 GerenciadorGrafico::GerenciadorGrafico() :
 	janela(nullptr)
 {
-
+	carregarTexturas();
 }
 
 GerenciadorGrafico::~GerenciadorGrafico() {
@@ -43,26 +43,36 @@ void GerenciadorGrafico::atualizarTela()
 	}
 }
 
+void GerenciadorGrafico::carregarTexturas() {
+	carregarTextura(Texturas::Tijolo, "Recursos/Plataformas/Plataforma1.png");
+	carregarTextura(Texturas::Grama, "Recursos/Plataformas/Grass.png");
+	carregarTextura(Texturas::PlataformaGrama, "Recursos/Plataformas/Plataforma3.png");
+	carregarTextura(Texturas::PlataformaGramaPequenaBaixa, "Recursos/Plataformas/PlataformaPequenaBaixa.png");
+	carregarTextura(Texturas::PlataformaGramaPequenaMedia, "Recursos/Plataformas/PlataformaPequenaMedia.png");
+	carregarTextura(Texturas::PlataformaGramaPequenaGrande, "Recursos/Plataformas/PlataformaPequenaGrande.png");
+	carregarTextura(Texturas::PlataformaGramaMediaBaixa, "Recursos/Plataformas/PlataformaMediaBaixa.png");
+	carregarTextura(Texturas::Cavaleiro, "Recursos/Personagens/Original/Anaos.png");
+	carregarTextura(Texturas::Orc, "Recursos/Personagens/Inimigo1.png");
+	carregarTextura(Texturas::Aranha, "Recursos/Personagens/spider.png");
+	carregarTextura(Texturas::Floresta, "Recursos/Fundos/Forest.png");
+	carregarTextura(Texturas::Estalactite, "Recursos/Obstaculos/stalactite4.png");
+	carregarTextura(Texturas::TeiaDeAranha, "Recursos/Obstaculos/SpiderWeb.png");
+}
+
+void GerenciadorGrafico::carregarTextura(Texturas id, const std::string& arquivo)
+{
+	mapaTexturas.carregarRecurso(id, arquivo);
+}
+
+sf::Texture& GerenciadorGrafico::getTextura(Texturas id) {
+	return mapaTexturas.getRecurso(id);
+}
+
 void GerenciadorGrafico::carregarFonte(sf::Font& fonte, const std::string& arquivo)
 {
 	if (!fonte.loadFromFile(arquivo)) {
 		std::cout << "Falha ao carregar fonte: " << arquivo << '\n';
 	}
 }
-
-void GerenciadorGrafico::carregarTextura(sf::Texture& textura, const std::string& arquivo)
-{
-	if (!textura.loadFromFile(arquivo)) {
-		std::cout << "Falha ao carregar textura: " << arquivo << '\n';
-	}
-}
-
-void GerenciadorGrafico::carregarTextura(sf::Texture& textura, sf::IntRect area, const std::string& arquivo)
-{
-	if (!textura.loadFromFile(arquivo, area)) {
-		std::cout << "Falha ao carregar textura: " << arquivo << '\n';
-	}
-}
-
 
 GerenciadorGrafico* GerenciadorGrafico::instancia(nullptr);

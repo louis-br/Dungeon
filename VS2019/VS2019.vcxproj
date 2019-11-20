@@ -148,7 +148,7 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\jogo-sfml\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <ClCompile Include="..\Principal\Menus\Menu.cpp" />
-    <ClCompile Include="..\Personagens\Guerreiro.cpp" />
+    <ClCompile Include="..\Personagens\Cavaleiro.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Blocos\Tijolo.h" />
@@ -160,13 +160,14 @@
     <ClInclude Include="..\Gerenciadores\GerenciadorFisico.h" />
     <ClInclude Include="..\Gerenciadores\GerenciadorGrafico.h" />
     <ClInclude Include="..\Listas\ListaEntidade.h" />
+    <ClInclude Include="..\Listas\MapaRecursos.h" />
     <ClInclude Include="..\Listas\VetorEntidadeFisica.h" />
     <ClInclude Include="..\Personagens\Jogador.h" />
     <ClInclude Include="..\Personagens\Personagem.h" />
     <ClInclude Include="..\Principal\Jogo.h" />
     <ClInclude Include="..\Listas\Lista.h" />
     <ClInclude Include="..\Principal\Menus\Menu.h" />
-    <ClInclude Include="..\Personagens\Guerreiro.h" />
+    <ClInclude Include="..\Personagens\Cavaleiro.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -5,7 +5,6 @@
 class Tijolo : public Entidade
 {
 private:
-	sf::IntRect retangulo;
 	sf::Texture textura;
 	sf::Sprite sprite;
 public:

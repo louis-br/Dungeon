@@ -31,7 +31,8 @@ HEADERS += \
     Personagens/Jogador.h \
     Personagens/Personagem.h \
     Principal/Menus/Menu.h \
-    Principal/Jogo.h
+    Principal/Jogo.h \
+    Listas/MapaTexturas.h
 
 SOURCES += \
     Blocos/Tijolo.cpp \
@@ -49,4 +50,5 @@ SOURCES += \
     Personagens/Personagem.cpp \
     Principal/Menus/Menu.cpp \
     Principal/Jogo.cpp \
-    Principal/main.cpp
+    Principal/main.cpp \
+    Listas/MapaTexturas.cpp

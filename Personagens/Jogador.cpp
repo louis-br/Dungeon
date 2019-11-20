@@ -32,7 +32,7 @@ sf::Keyboard::Key* Jogador::getTeclas() {
 
 void Jogador::atualizarTeclas() {
 	mover(sf::Vector2f(
-		sf::Keyboard::isKeyPressed(direita) - sf::Keyboard::isKeyPressed(esquerda),
-		sf::Keyboard::isKeyPressed(baixo) - sf::Keyboard::isKeyPressed(cima)
+		(float)(sf::Keyboard::isKeyPressed(direita) - sf::Keyboard::isKeyPressed(esquerda)),
+		(float)(sf::Keyboard::isKeyPressed(baixo) - sf::Keyboard::isKeyPressed(cima))
 	));
 }

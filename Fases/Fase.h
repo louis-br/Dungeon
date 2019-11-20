@@ -4,7 +4,7 @@
 #include "../Gerenciadores/GerenciadorEntrada.h"
 //#include "../Listas/ListaEntidade.h"
 //#include "../Listas/VetorEntidadeFisica.h"
-#include "../Personagens/Guerreiro.h"
+#include "../Personagens/Cavaleiro.h"
 
 class Fase
 {
@@ -14,7 +14,7 @@ protected:
 	sf::View camera;
 	ListaEntidade listaEntidade;
 	VetorEntidadeFisica vetorEntidadeFisica;
-	Guerreiro jogador;
+	Cavaleiro jogador;
 public:
 	Fase(sf::RenderWindow* janela = nullptr);
 	virtual ~Fase();
