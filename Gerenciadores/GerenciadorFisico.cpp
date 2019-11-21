@@ -1,8 +1,9 @@
 #include "GerenciadorFisico.h"
+#include "stdlib.h"
 
 
 GerenciadorFisico::GerenciadorFisico() :
-	gravidade(0, 10)
+	gravidade(0, 100)
 {
 	
 }
@@ -58,6 +59,28 @@ sf::Vector2f GerenciadorFisico::colidir(Entidade* A, Entidade* B) {
 	return sf::Vector2f(0, 0);
 }
 
+float minimo(float f, float fmax) {
+	float v = fminf(fabsf(f), fabsf(fmax));
+	if (f < 0) {
+		v = -v;
+	}
+	return v;
+}
+
+sf::Vector2f restringirVelocidade(sf::Vector2f velocidade, sf::Vector2f velocidadeMaxima) {
+	float x = velocidade.x;
+	float y = velocidade.y;
+	float xmax = velocidadeMaxima.x;
+	float ymax = velocidadeMaxima.y;
+	if (xmax != 0) {
+		x = minimo(x, xmax);
+	}
+	if (ymax != 0) {
+		y = minimo(y, ymax);
+	}
+	return sf::Vector2f(x, y);
+}
+
 void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& entidades) {
 	//Lista<Entidade>::Elemento<Entidade>* atual = ListaEntidade
 	float decorrido = relogio.getElapsedTime().asSeconds();
@@ -65,9 +88,8 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
 	for (int i = 0; i < moveis.tamanho(); ++i) {
 		EntidadeFisica* movel = moveis[i];
 		sf::Vector2f aceleracao = movel->getAceleracao() + gravidade;
-		sf::Vector2f velocidade = movel->getVelocidade() + aceleracao * decorrido;
+		sf::Vector2f velocidade = restringirVelocidade(movel->getVelocidade() + aceleracao * decorrido, movel->getVelocidadeMaxima());
 		sf::Vector2f posicao = movel->getPosicao() + velocidade * decorrido + aceleracao * 0.5f * (decorrido * decorrido);
-		//sf::Vector2f correcao = colidir(static_cast<Entidade*>(moveis[i]))
 		Entidade* A = static_cast<Entidade*>(movel);
 		Lista<Entidade>::Elemento<Entidade>* atual = entidades.getPrimeiro();
 		while (atual != nullptr) {
@@ -76,17 +98,15 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
 				sf::Vector2f correcao = colidir(A, atual->getElemento());
 				posicao += correcao;
 				if (correcao.x != 0.f || correcao.y != 0.f) {
-					if (correcao.x == 0.f) {
+					if (correcao.x == 0.f && (velocidade.y * correcao.y < 0.f)) {
 						velocidade = sf::Vector2f(velocidade.x, 0);
 					}
-					else if (correcao.y == 0.f) {
+					else if (correcao.y == 0.f && (velocidade.x * correcao.x < 0.f)) {
 						velocidade = sf::Vector2f(0, velocidade.y);
 					}
+					velocidade = sf::Vector2f(velocidade.x * (1 - B->getAtrito() * decorrido), velocidade.y);
+					A->colidiuCom(B->getTipo());
 					Entidade::Tipo tipoA = A->getTipo();
-					Entidade::Tipo tipoB = B->getTipo();
-					if (tipoB != Entidade::Tipo::Neutro) {
-						A->colidiuCom(tipoB);
-					}
 					if (tipoA != Entidade::Tipo::Neutro) {
 						B->colidiuCom(tipoA);
 					}

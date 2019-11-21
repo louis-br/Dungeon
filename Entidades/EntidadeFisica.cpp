@@ -4,7 +4,8 @@ EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade
 	Entidade(pos, tam, lista),
 	velocidade(0, 0),
 	aceleracao(0, 0),
-	velocidadeMaxima(0, 0)
+	velocidadeMaxima(0, 0),
+	atrito(0)
 {
 	if (vetor != nullptr) {
 		vetor->empilharTras(this);

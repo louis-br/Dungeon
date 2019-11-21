@@ -2,10 +2,12 @@
 
 Fase::Fase(sf::RenderWindow* window) :
 	fisico(GerenciadorFisico::getInstancia()),
+	grafico(GerenciadorGrafico::getInstancia()),
 	janela(window),
 	camera(),
 	listaEntidade(),
 	vetorEntidadeFisica(),
+	fundo(sf::Vector2f(0, 0), sf::Vector2f(100000, 5000), &listaEntidade),
 	jogador(sf::Vector2f(0, 0), &listaEntidade, &vetorEntidadeFisica)
 {
 	//camera.setCenter(200.f, 150.f); //trocar para personagem

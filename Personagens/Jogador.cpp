@@ -9,7 +9,9 @@ Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, Vetor
 	baixo(sf::Keyboard::Down),
 	teclas{direita, esquerda, cima, baixo}
 {
-
+	potencialVelocidade = sf::Vector2f(0.f, 65.f);
+	potencialAceleracao = sf::Vector2f(100.f, 0.f);
+	velocidadeMaxima = sf::Vector2f(130.f, 0.f);
 }
 
 Jogador::~Jogador() {
@@ -35,4 +37,8 @@ void Jogador::atualizarTeclas() {
 		(float)(sf::Keyboard::isKeyPressed(direita) - sf::Keyboard::isKeyPressed(esquerda)),
 		(float)(sf::Keyboard::isKeyPressed(baixo) - sf::Keyboard::isKeyPressed(cima))
 	));
+}
+
+void Jogador::colidiuCom(Tipo tipo) {
+	estado = Estado::Andando;
 }

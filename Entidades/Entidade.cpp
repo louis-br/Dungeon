@@ -3,7 +3,8 @@
 
 Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	posicao(pos),
-	tamanho(tam)
+	tamanho(tam),
+	atrito(2.f)
 {
 	if (lista != nullptr) {
 		lista->empilharTras(this);
@@ -22,18 +23,26 @@ void Entidade::colidiuCom(Tipo tipo) {
 
 }
 
+void Entidade::setPosicao(sf::Vector2f pos) {
+	posicao = pos;
+}
+
 sf::Vector2f Entidade::getPosicao() {
 	return posicao;
+}
+
+void Entidade::setTamanho(sf::Vector2f pos) {
+	tamanho = pos;
 }
 
 sf::Vector2f Entidade::getTamanho() {
 	return tamanho;
 }
 
-void Entidade::setPosicao(sf::Vector2f pos) {
-	posicao = pos;
+void Entidade::setAtrito(float at) {
+	atrito = at;
 }
 
-void Entidade::setTamanho(sf::Vector2f pos) {
-	tamanho = pos;
+float Entidade::getAtrito() {
+	return atrito;
 }

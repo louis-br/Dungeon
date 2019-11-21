@@ -9,8 +9,9 @@ class Entidade
 protected:
 	sf::Vector2f posicao;
 	sf::Vector2f tamanho;
+	float atrito;
 public:
-	enum Tipo {
+	enum class Tipo {
 		Neutro,
 		Hostil
 	};
@@ -24,4 +25,6 @@ public:
 	sf::Vector2f getTamanho();
 	void setPosicao(sf::Vector2f pos);
 	void setTamanho(sf::Vector2f tam);
+	void setAtrito(float at);
+	float getAtrito();
 };
