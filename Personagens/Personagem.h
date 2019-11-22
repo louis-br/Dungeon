@@ -13,6 +13,8 @@ protected:
 	sf::Clock relogio;
 	Estado estado;
 	int quadroSprite;
+	int sentido;
+	bool atualizar;
 public:
 	Personagem(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr, VetorEntidadeFisica* vetor = nullptr);
 	~Personagem();

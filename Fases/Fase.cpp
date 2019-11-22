@@ -29,6 +29,7 @@ Fase::~Fase() {
 
 void Fase::executar() {
 	//std::cout << jogador.getVelocidade().x << ':' << jogador.getVelocidade().y << '\n';
+	fisico->executar(vetorEntidadeFisica, listaEntidade);
 	if (jogador != nullptr) {
 		sf::Vector2f centro = jogador->getPosicao() + jogador->getTamanho() * 0.5f;
 		camera.setCenter(centro);
@@ -43,5 +44,4 @@ void Fase::executar() {
 	grafico->desenhar(fundo);
 	listaEntidade.printar();
 	grafico->atualizarTela();
-	fisico->executar(vetorEntidadeFisica, listaEntidade);
 }

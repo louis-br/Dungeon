@@ -51,7 +51,7 @@ void GerenciadorGrafico::carregarTexturas() {
 	carregarTextura(Texturas::PlataformaGramaPequenaMedia, "Recursos/Plataformas/PlataformaPequenaMedia.png");
 	carregarTextura(Texturas::PlataformaGramaPequenaGrande, "Recursos/Plataformas/PlataformaPequenaGrande.png");
 	carregarTextura(Texturas::PlataformaGramaMediaBaixa, "Recursos/Plataformas/PlataformaMediaBaixa.png");
-	carregarTextura(Texturas::Cavaleiro, "Recursos/Personagens/Original/Anaos.png");
+	carregarTextura(Texturas::Cavaleiro, "Recursos/Personagens/Cavaleiro.png");//"Recursos/Personagens/Original/Anaos.png");
 	carregarTextura(Texturas::Orc, "Recursos/Personagens/Inimigo1.png");
 	carregarTextura(Texturas::Aranha, "Recursos/Personagens/spider.png");
 	carregarTextura(Texturas::Floresta, "Recursos/Fundos/Forest.png");

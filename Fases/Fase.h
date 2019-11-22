@@ -4,7 +4,7 @@
 #include "../Gerenciadores/GerenciadorEntrada.h"
 //#include "../Listas/ListaEntidade.h"
 //#include "../Listas/VetorEntidadeFisica.h"
-//#include "../Personagens/CavaleiroAntigo.h"
+//#include "../Personagens/Cavaleiro.h"
 #include "../Blocos/Fundo.h"
 #include "../Personagens/Cavaleiro.h"
 
@@ -17,7 +17,7 @@ protected:
 	sf::View camera;
 	ListaEntidade listaEntidade;
 	VetorEntidadeFisica vetorEntidadeFisica;
-	//CavaleiroAntigo jogador;
+	//Cavaleiro jogador;
 	sf::Sprite fundo;
 	Cavaleiro* jogador;
 public:
