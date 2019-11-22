@@ -18,10 +18,10 @@ protected:
 	ListaEntidade listaEntidade;
 	VetorEntidadeFisica vetorEntidadeFisica;
 	//CavaleiroAntigo jogador;
-	Fundo fundo;
-	Cavaleiro jogador;
+	sf::Sprite fundo;
+	Cavaleiro* jogador;
 public:
-	Fase(sf::RenderWindow* janela = nullptr);
+	Fase(sf::RenderWindow* janela = nullptr, Cavaleiro* jog1 = nullptr);
 	virtual ~Fase();
 	virtual void criarTerreno() = 0;
 	void executar();

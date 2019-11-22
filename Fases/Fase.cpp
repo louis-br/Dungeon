@@ -1,14 +1,15 @@
 #include "Fase.h"
 
-Fase::Fase(sf::RenderWindow* window) :
+Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 	fisico(GerenciadorFisico::getInstancia()),
 	grafico(GerenciadorGrafico::getInstancia()),
 	janela(window),
 	camera(),
 	listaEntidade(),
 	vetorEntidadeFisica(),
-	fundo(sf::Vector2f(0, 0), sf::Vector2f(100000, 5000), &listaEntidade),
-	jogador(sf::Vector2f(0, 0), &listaEntidade, &vetorEntidadeFisica)
+	//fundo(sf::Vector2f(0, 0), sf::Vector2f(100000, 5000), &listaEntidade),
+	fundo(),
+	jogador(jog1)//sf::Vector2f(0, 0), &listaEntidade, &vetorEntidadeFisica)
 {
 	//camera.setCenter(200.f, 150.f); //trocar para personagem
 	if (janela != nullptr) {
@@ -16,7 +17,10 @@ Fase::Fase(sf::RenderWindow* window) :
 		camera.zoom(0.5f);
 		janela->setView(camera);
 	}
-	GerenciadorEntrada::getInstancia()->setJogador(static_cast<Jogador*>(&jogador));
+	if (jogador != nullptr) {
+		listaEntidade.empilharTras(static_cast<Entidade*>(jogador));
+		vetorEntidadeFisica.empilharTras(static_cast<EntidadeFisica*>(jogador));
+	}
 }
 
 Fase::~Fase() {
@@ -25,8 +29,19 @@ Fase::~Fase() {
 
 void Fase::executar() {
 	//std::cout << jogador.getVelocidade().x << ':' << jogador.getVelocidade().y << '\n';
-	camera.setCenter(jogador.getPosicao() + jogador.getTamanho() * 0.5f);
+	if (jogador != nullptr) {
+		sf::Vector2f centro = jogador->getPosicao() + jogador->getTamanho() * 0.5f;
+		camera.setCenter(centro);
+		sf::Vector2f tamanho = camera.getSize();
+		centro = centro - tamanho;
+		sf::IntRect retanguloTextura = fundo.getTextureRect();
+		sf::Vector2f tamanhoFundo = sf::Vector2f(retanguloTextura.width, retanguloTextura.height);
+		fundo.setPosition(sf::Vector2f(centro.x - fmodf(centro.x, tamanhoFundo.x)*0.5f, centro.y - fmodf(centro.y, tamanhoFundo.y)*0.5f));
+	}
 	janela->setView(camera);
+	grafico->limpar();
+	grafico->desenhar(fundo);
 	listaEntidade.printar();
+	grafico->atualizarTela();
 	fisico->executar(vetorEntidadeFisica, listaEntidade);
 }

@@ -5,8 +5,10 @@
 
 class DefesaInvasao : public Fase
 {
+private:
+	sf::Texture textura;
 public:
-	DefesaInvasao(sf::RenderWindow* janela);
+	DefesaInvasao(sf::RenderWindow* janela = nullptr, Cavaleiro* jog1 = nullptr);
 	~DefesaInvasao();
 	void criarTerreno();
 };

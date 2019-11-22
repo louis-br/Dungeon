@@ -27,7 +27,7 @@ void ListaEntidade::empilharTras(Entidade* entidade)
 
 void ListaEntidade::printar()
 {
-	grafico->limpar();
+	//grafico->limpar();
 	Lista<Entidade>::Elemento<Entidade>* atual = LEs.getPrimeiro();
 	while (atual != nullptr) {
 		atual->getElemento()->printar(grafico);
@@ -36,5 +36,5 @@ void ListaEntidade::printar()
 	/*for (iterador = elementos.begin(); iterador != elementos.end(); ++iterador) {
 		(*iterador)->printar(grafico);
 	}*/
-	grafico->atualizarTela();
+	//grafico->atualizarTela();
 }

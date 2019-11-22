@@ -21,10 +21,10 @@ public:
 	virtual void printar(GerenciadorGrafico* grafico) = 0;
 	virtual Tipo getTipo();
 	virtual void colidiuCom(Tipo tipo);
-	sf::Vector2f getPosicao();
-	sf::Vector2f getTamanho();
 	void setPosicao(sf::Vector2f pos);
+	sf::Vector2f getPosicao();
 	void setTamanho(sf::Vector2f tam);
+	sf::Vector2f getTamanho();
 	void setAtrito(float at);
 	float getAtrito();
 };

@@ -10,8 +10,8 @@ private:
 	sf::RenderWindow janela;
 	GerenciadorEntrada* entrada;
 	GerenciadorGrafico* grafico;
+	Cavaleiro jogador;
 	DefesaInvasao fase1;
-
 //	Menu menu;
 public:
 	Jogo();
