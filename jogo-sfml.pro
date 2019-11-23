@@ -25,7 +25,7 @@ DISTFILES += \
     Recursos/Personagens/Anao.png \
     Recursos/Personagens/Anao2.png \
     Recursos/Personagens/Anao3.png \
-    Recursos/Personagens/Guerreiro.png \
+    Recursos/Personagens/Cavaleiro.png \
     Recursos/Personagens/Inimigo1.png \
     Recursos/Personagens/Personagem.png \
     Recursos/Personagens/Personagem2.png \
@@ -42,6 +42,7 @@ DISTFILES += \
     Recursos/Fases/Cenario_OutOfCave.dat
 
 HEADERS += \
+    Blocos/Fundo.h \
     Blocos/Tijolo.h \
     Entidades/Entidade.h \
     Entidades/EntidadeFisica.h \
@@ -55,13 +56,15 @@ HEADERS += \
     Listas/MapaRecursos.h \
     Listas/VetorEntidadeFisica.h \
     Personagens/Cavaleiro.h \
-    Personagens/CavaleiroAntigo.h \
     Personagens/Jogador.h \
+    Personagens/Orc.h \
     Personagens/Personagem.h \
+    Principal/Menus/Inicial.h \
     Principal/Menus/Menu.h \
     Principal/Jogo.h
 
 SOURCES += \
+    Blocos/Fundo.cpp \
     Blocos/Tijolo.cpp \
     Entidades/Entidade.cpp \
     Entidades/EntidadeFisica.cpp \
@@ -73,9 +76,10 @@ SOURCES += \
     Listas/ListaEntidade.cpp \
     Listas/VetorEntidadeFisica.cpp \
     Personagens/Cavaleiro.cpp \
-    Personagens/CavaleiroAntigo.cpp \
     Personagens/Jogador.cpp \
+    Personagens/Orc.cpp \
     Personagens/Personagem.cpp \
+    Principal/Menus/Inicial.cpp \
     Principal/Menus/Menu.cpp \
     Principal/Jogo.cpp \
     Principal/main.cpp

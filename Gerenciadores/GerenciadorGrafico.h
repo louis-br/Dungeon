@@ -12,21 +12,32 @@ private:
 	~GerenciadorGrafico();
 public:
 	enum Texturas {
-		Tijolo,
+		Plataforma,
 		Grama,
 		PlataformaGrama,
 		PlataformaGramaPequenaBaixa,
 		PlataformaGramaPequenaMedia,
 		PlataformaGramaPequenaGrande,
 		PlataformaGramaMediaBaixa,
+		PlataformaTijolo1,
+		PlataformaTijolo2,
+		PlataformaTijolo3,
+		PlataformaTijolo4,
+		PlataformaTijolo5,
 		Lava,
 		Escada,
 		Cavaleiro,
+		Mago,
 		Orc,
 		Aranha,
 		Floresta,
+		Caverna,
 		Estalactite,
-		TeiaDeAranha
+		TeiaDeAranha,
+		BolaDeFogo,
+		menuDead,
+		menuPause,
+		menuGame,
 	};
 private:
 	MapaRecursos<GerenciadorGrafico::Texturas, sf::Texture> mapaTexturas;

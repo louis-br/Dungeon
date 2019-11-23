@@ -17,6 +17,7 @@ private:
 	~GerenciadorFisico();
 public:
 	static GerenciadorFisico* getInstancia();
+	void reiniciarRelogio();
 	sf::Vector2f colidir(Entidade* A, Entidade* B);
 	void executar(VetorEntidadeFisica& moveis, ListaEntidade& entidades);
 };

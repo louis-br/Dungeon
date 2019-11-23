@@ -44,19 +44,28 @@ void GerenciadorGrafico::atualizarTela()
 }
 
 void GerenciadorGrafico::carregarTexturas() {
-	carregarTextura(Texturas::Tijolo, "Recursos/Plataformas/Plataforma1.png");
+	carregarTextura(Texturas::Plataforma, "Recursos/Plataformas/Plataforma1.png");
 	carregarTextura(Texturas::Grama, "Recursos/Plataformas/Grass.png");
 	carregarTextura(Texturas::PlataformaGrama, "Recursos/Plataformas/Plataforma3.png");
 	carregarTextura(Texturas::PlataformaGramaPequenaBaixa, "Recursos/Plataformas/PlataformaPequenaBaixa.png");
 	carregarTextura(Texturas::PlataformaGramaPequenaMedia, "Recursos/Plataformas/PlataformaPequenaMedia.png");
 	carregarTextura(Texturas::PlataformaGramaPequenaGrande, "Recursos/Plataformas/PlataformaPequenaGrande.png");
 	carregarTextura(Texturas::PlataformaGramaMediaBaixa, "Recursos/Plataformas/PlataformaMediaBaixa.png");
+	//carregarTextura(Texturas::PlataformaTijolo1, "data/images/BrickPlataforma5.png");
+	//carregarTextura(Texturas::PlataformaTijolo2, "data/images/BrickPlataforma1.png");
+	//carregarTextura(Texturas::PlataformaTijolo3, "data/images/BrickPlataforma6.png");
+	//carregarTextura(Texturas::PlataformaTijolo4, "data/images/BrickPlataforma4.png");
+	//carregarTextura(Texturas::PlataformaTijolo5, "data/images/BrickPlataforma3.png");
 	carregarTextura(Texturas::Cavaleiro, "Recursos/Personagens/Cavaleiro.png");//"Recursos/Personagens/Original/Anaos.png");
+	//carregarTextura(Texturas::Mago, "data/images/Mago.png");
 	carregarTextura(Texturas::Orc, "Recursos/Personagens/Inimigo1.png");
 	carregarTextura(Texturas::Aranha, "Recursos/Personagens/spider.png");
 	carregarTextura(Texturas::Floresta, "Recursos/Fundos/Forest.png");
+	//carregarTextura(Texturas::Caverna, "data/images/Cave.png");
 	carregarTextura(Texturas::Estalactite, "Recursos/Obstaculos/stalactite4.png");
 	carregarTextura(Texturas::TeiaDeAranha, "Recursos/Obstaculos/SpiderWeb.png");
+	//carregarTextura(Texturas::BolaDeFogo, "data/images/ProjetilFogo.png");
+	//carregarTextura(Texturas::menuGame, "data/images/wood.png");
 }
 
 void GerenciadorGrafico::carregarTextura(Texturas id, const std::string& arquivo)

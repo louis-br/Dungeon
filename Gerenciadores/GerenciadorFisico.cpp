@@ -1,6 +1,6 @@
 #include "GerenciadorFisico.h"
+#include <math.h>
 #include "stdlib.h"
-
 
 GerenciadorFisico::GerenciadorFisico() :
 	gravidade(0, 100)
@@ -17,6 +17,10 @@ GerenciadorFisico* GerenciadorFisico::getInstancia() {
 		instancia = new GerenciadorFisico();
 	}
 	return instancia;
+}
+
+void GerenciadorFisico::reiniciarRelogio() {
+	relogio.restart();
 }
 
 sf::Vector2f GerenciadorFisico::colidir(Entidade* A, Entidade* B) {
@@ -104,7 +108,7 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
 					else if (correcao.y == 0.f && (velocidade.x * correcao.x < 0.f)) {
 						velocidade = sf::Vector2f(0, velocidade.y);
 					}
-					velocidade = sf::Vector2f(velocidade.x * (1 - B->getAtrito() * decorrido), velocidade.y);
+					velocidade -= sf::Vector2f(velocidade.x * (B->getAtrito()) * decorrido, 0);
 					A->colidiuCom(B->getTipo());
 					Entidade::Tipo tipoA = A->getTipo();
 					if (tipoA != Entidade::Tipo::Neutro) {

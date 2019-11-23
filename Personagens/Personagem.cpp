@@ -18,7 +18,7 @@ Personagem::~Personagem() {
 }
 
 void Personagem::mover(sf::Vector2f direcao) {
-	direcao = sf::Vector2f(direcao.x, -(direcao.y < 0));
+	direcao = sf::Vector2f(direcao.x, (float)(-(direcao.y < 0)));
 	if (direcao.x != 0) {
 		atualizar = true;
 		sentido = direcao.x;

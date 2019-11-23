@@ -12,6 +12,7 @@ Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, Vetor
 	potencialVelocidade = sf::Vector2f(0.f, 130.f);
 	potencialAceleracao = sf::Vector2f(100.f, 0.f);
 	velocidadeMaxima = sf::Vector2f(130.f, 0.f);
+	estado = Estado::Pulando;
 }
 
 Jogador::~Jogador() {

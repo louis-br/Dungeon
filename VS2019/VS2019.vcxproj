@@ -130,11 +130,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Blocos\Fundo.cpp" />
-    <ClCompile Include="..\Blocos\Tijolo.cpp" />
+    <ClCompile Include="..\Obstaculos\TeiaDeAranha.cpp" />
+    <ClCompile Include="..\Plataformas\Plataforma.cpp" />
     <ClCompile Include="..\Entidades\Entidade.cpp" />
     <ClCompile Include="..\Entidades\EntidadeFisica.cpp" />
-    <ClCompile Include="..\Fases\DefesaInvasao.cpp" />
+    <ClCompile Include="..\Fases\Floresta.cpp" />
     <ClCompile Include="..\Fases\Fase.cpp" />
     <ClCompile Include="..\Gerenciadores\GerenciadorEntrada.cpp" />
     <ClCompile Include="..\Gerenciadores\GerenciadorFisico.cpp" />
@@ -149,15 +149,16 @@
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\jogo-sfml\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\jogo-sfml\SFML-2.5.1\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
-    <ClCompile Include="..\Principal\Menus\Menu.cpp" />
     <ClCompile Include="..\Personagens\Cavaleiro.cpp" />
+    <ClCompile Include="..\Principal\Menus\Inicial.cpp" />
+    <ClCompile Include="..\Principal\Menus\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Blocos\Fundo.h" />
-    <ClInclude Include="..\Blocos\Tijolo.h" />
+    <ClInclude Include="..\Obstaculos\TeiaDeAranha.h" />
+    <ClInclude Include="..\Plataformas\Plataforma.h" />
     <ClInclude Include="..\Entidades\Entidade.h" />
     <ClInclude Include="..\Entidades\EntidadeFisica.h" />
-    <ClInclude Include="..\Fases\DefesaInvasao.h" />
+    <ClInclude Include="..\Fases\Floresta.h" />
     <ClInclude Include="..\Fases\Fase.h" />
     <ClInclude Include="..\Gerenciadores\GerenciadorEntrada.h" />
     <ClInclude Include="..\Gerenciadores\GerenciadorFisico.h" />
@@ -171,6 +172,7 @@
     <ClInclude Include="..\Personagens\Personagem.h" />
     <ClInclude Include="..\Principal\Jogo.h" />
     <ClInclude Include="..\Listas\Lista.h" />
+    <ClInclude Include="..\Principal\Menus\Inicial.h" />
     <ClInclude Include="..\Principal\Menus\Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

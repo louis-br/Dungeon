@@ -4,12 +4,16 @@
 Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	posicao(pos),
 	tamanho(tam),
-	atrito(2.f)
+	atrito(1.f)
 {
 	if (lista != nullptr) {
 		lista->empilharTras(this);
 	}
 }
+
+/*Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, GerenciadorGrafico::Texturas tex, ListaEntidade* lista) {
+
+}*/
 
 Entidade::~Entidade() {
 

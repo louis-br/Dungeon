@@ -1,8 +1,8 @@
 #pragma once
 #include "../Gerenciadores/GerenciadorEntrada.h"
 #include "../Gerenciadores/GerenciadorGrafico.h"
-//#include "Menus/Menu.h"
-#include "../Fases/DefesaInvasao.h"
+#include "Menus/Inicial.h"
+#include "../Fases/Floresta.h"
 
 class Jogo
 {
@@ -11,8 +11,14 @@ private:
 	GerenciadorEntrada* entrada;
 	GerenciadorGrafico* grafico;
 	Cavaleiro jogador;
-	DefesaInvasao fase1;
-//	Menu menu;
+	Cavaleiro jogador2;
+	Floresta fase1;
+	Fase* fase;
+	Inicial menuInicial;
+	//Pausa menuPausa;
+	bool menuLigado;
+	bool pausado;
+	bool multijogador;
 public:
 	Jogo();
 	~Jogo();

@@ -28,6 +28,10 @@ void GerenciadorEntrada::setJogador(Jogador* jogador) {
 	}
 }
 
+void GerenciadorEntrada::setMenu(Menu* m) {
+	menu = m;
+}
+
 void GerenciadorEntrada::setJanela(sf::RenderWindow* window) {
 	janela = window;
 }
@@ -43,13 +47,18 @@ void GerenciadorEntrada::executar() {
 				break;
 			case sf::Event::KeyPressed:
 			case sf::Event::KeyReleased:
-				for (int i = 0; i < 2; ++i) {
-					if (jogadores[i] != nullptr) {
-						sf::Keyboard::Key* teclas = jogadores[i]->getTeclas();
-						for (int j = 0; j < 4; ++j) {
-							if (event.key.code == teclas[j]) {
-								jogadores[i]->atualizarTeclas();
-								break;
+				if (menu != nullptr) {
+					menu->atualizarTeclas();
+				}
+				else {
+					for (int i = 0; i < 2; ++i) {
+						if (jogadores[i] != nullptr) {
+							sf::Keyboard::Key* teclas = jogadores[i]->getTeclas();
+							for (int j = 0; j < 4; ++j) {
+								if (event.key.code == teclas[j]) {
+									jogadores[i]->atualizarTeclas();
+									break;
+								}
 							}
 						}
 					}
