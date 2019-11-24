@@ -45,6 +45,8 @@ void GerenciadorEntrada::executar() {
 			case sf::Event::Closed:
 				janela->close();
 				break;
+			case sf::Event::Resized:
+				janela->setSize(sf::Vector2u(event.size.width, event.size.height));
 			case sf::Event::KeyPressed:
 			case sf::Event::KeyReleased:
 				if (menu != nullptr) {

@@ -10,10 +10,9 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 	vetorEntidadeFisica(),
 	jogador(jog1)
 {
-	//camera.setCenter(200.f, 150.f); //trocar para personagem
 	if (janela != nullptr) {
-		camera.setSize(static_cast<sf::Vector2f>(janela->getSize()));
-        camera.zoom(0.7f);
+		//camera.setSize(static_cast<sf::Vector2f>(janela->getSize()));
+        //camera.zoom(0.5f);
 	}
 	if (jogador != nullptr) {
 		listaEntidade.empilharTras(static_cast<Entidade*>(jogador));
@@ -46,7 +45,9 @@ void Fase::executar(bool pausa) {
 	if (jogador != nullptr) {
 		sf::Vector2f centro = jogador->getPosicao() + jogador->getTamanho() * 0.5f;
 		camera.setCenter(centro);
-		sf::Vector2f tamanho = camera.getSize();
+		sf::Vector2f tamanho = static_cast<sf::Vector2f>(janela->getSize());
+		camera.setSize(tamanho);
+		camera.zoom(0.5f);
 		centro = centro - tamanho;
 		sf::IntRect retanguloTextura = sprite.getTextureRect();
 		sf::Vector2f tamanhoFundo = sf::Vector2f(retanguloTextura.width, retanguloTextura.height);
