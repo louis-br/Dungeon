@@ -29,6 +29,10 @@ Menu::~Menu() {
 
 }
 
+void Menu::setLigado(bool lig) {
+	ligado = lig;
+}
+
 bool Menu::getLigado() {
 	return ligado;
 }

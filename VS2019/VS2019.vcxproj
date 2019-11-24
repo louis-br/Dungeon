@@ -157,6 +157,7 @@
     <ClCompile Include="..\Personagens\Cavaleiro.cpp" />
     <ClCompile Include="..\Principal\Menus\Inicial.cpp" />
     <ClCompile Include="..\Principal\Menus\Menu.cpp" />
+    <ClCompile Include="..\Principal\Menus\Pausa.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Obstaculos\Estalactite.h" />
@@ -183,6 +184,7 @@
     <ClInclude Include="..\Principal\Jogo.h" />
     <ClInclude Include="..\Listas\Lista.h" />
     <ClInclude Include="..\Principal\Menus\Inicial.h" />
+    <ClInclude Include="..\Principal\Menus\Pausa.h" />
     <ClInclude Include="..\Principal\Menus\Menu.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

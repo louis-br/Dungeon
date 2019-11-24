@@ -7,10 +7,10 @@ class GerenciadorEntrada
 { 
 private:
 	Jogador* jogadores[2];
-	Menu* menu;
+	Menu* menus[2];
 	sf::RenderWindow* janela;
 	static GerenciadorEntrada* instancia;
-	GerenciadorEntrada(sf::RenderWindow* window = nullptr);
+	GerenciadorEntrada();
 	~GerenciadorEntrada();
 public:
 	static GerenciadorEntrada* getInstancia();

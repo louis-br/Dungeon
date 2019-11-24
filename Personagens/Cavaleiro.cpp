@@ -13,6 +13,10 @@ Cavaleiro::~Cavaleiro() {
 }
 
 void Cavaleiro::printar(GerenciadorGrafico* grafico) {
+	if (posicao.y > 400) {
+		posicao = sf::Vector2f(0, 0);
+		vidas = 3;
+	}
 	printarCoracoes(grafico);
 	printarDano(grafico, 5.f);
 	sprite.setPosition(posicao);
@@ -34,7 +38,7 @@ void Cavaleiro::printar(GerenciadorGrafico* grafico) {
 }
 
 void Cavaleiro::andar() {
-	int quadros = (int)(11 * (relogio.getElapsedTime().asSeconds() * abs(velocidade.x)) / (tamanho.x));
+	int quadros = (int)((relogio.getElapsedTime().asSeconds() * abs(velocidade.x)) / (tamanho.x) * 11.f);
 	if (quadros > 0) {
 		relogio.restart();
 		atualizar = true;
@@ -48,8 +52,8 @@ void Cavaleiro::andar() {
 
 void Cavaleiro::pular() {
 	sprite.move(sf::Vector2f(-6, -12));
-	int quadro = (velocidade.y + potencialVelocidade.y * 0.5f)/(potencialVelocidade.y) * 8;
-	quadro = std::max(std::min(quadro, 8), 0);	
+	int quadro = (int)((velocidade.y + potencialVelocidade.y * 0.5f)/(potencialVelocidade.y) * 8.f);
+	quadro = std::max(std::min(quadro, 8), 0);
 	sprite.setTextureRect(sf::IntRect((quadro + (sentido > 0)) * 75, 77, -sentido * 75, 102));
 }
 

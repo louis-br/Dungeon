@@ -1,8 +1,9 @@
 #include "GerenciadorEntrada.h"
 
-GerenciadorEntrada::GerenciadorEntrada(sf::RenderWindow* window) :
+GerenciadorEntrada::GerenciadorEntrada() :
 jogadores{nullptr, nullptr},
-janela(window)
+menus{nullptr, nullptr},
+janela(nullptr)
 {
 
 }
@@ -29,7 +30,12 @@ void GerenciadorEntrada::setJogador(Jogador* jogador) {
 }
 
 void GerenciadorEntrada::setMenu(Menu* m) {
-	menu = m;
+	if (menus[0] == nullptr) {
+		menus[0] = m;
+	}
+	else {
+		menus[1] = m;
+	}
 }
 
 void GerenciadorEntrada::setJanela(sf::RenderWindow* window) {
@@ -49,10 +55,13 @@ void GerenciadorEntrada::executar() {
 				janela->setSize(sf::Vector2u(event.size.width, event.size.height));
 			case sf::Event::KeyPressed:
 			case sf::Event::KeyReleased:
-				if (menu != nullptr) {
-					menu->atualizarTeclas();
+				if (menus[1] != nullptr) {
+					menus[1]->atualizarTeclas();
 				}
-				else {
+				if (menus[0] != nullptr && menus[0]->getLigado()) {
+					menus[0]->atualizarTeclas();
+				}
+				else if (menus[1] != nullptr && !menus[1]->getLigado()) {
 					for (int i = 0; i < 2; ++i) {
 						if (jogadores[i] != nullptr) {
 							sf::Keyboard::Key* teclas = jogadores[i]->getTeclas();

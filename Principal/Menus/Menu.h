@@ -17,6 +17,7 @@ protected:
 public:
 	Menu(sf::RenderWindow* window = nullptr, sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0));
 	~Menu();
+	void setLigado(bool lig);
 	bool getLigado();
-	void atualizarTeclas();
+	virtual void atualizarTeclas();
 };

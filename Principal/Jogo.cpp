@@ -6,19 +6,21 @@
 
 Jogo::Jogo() :
 	janela(sf::VideoMode(LARGURA, ALTURA, 16), TITULO),
+	menuInicial(&janela, sf::Vector2f(0, 0), sf::Vector2f(LARGURA, ALTURA)),
+	menuPausa(&janela, sf::Vector2f(0, 0), sf::Vector2f(LARGURA, ALTURA)),
 	entrada(GerenciadorEntrada::getInstancia()),
 	grafico(GerenciadorGrafico::getInstancia()),
 	jogador(),
 	fase1(&janela, &jogador),
 	fase(&fase1),
-	menuInicial(&janela, sf::Vector2f(0, 0), sf::Vector2f(LARGURA, ALTURA)),
 	pausado(false)
 {
 	janela.setFramerateLimit(60);
-	entrada->setJanela(&janela);
-	grafico->setJanela(&janela);
-	entrada->setJogador(static_cast<Jogador*>(&jogador));
 	entrada->setMenu(static_cast<Menu*>(&menuInicial));
+	entrada->setMenu(static_cast<Menu*>(&menuPausa));
+	entrada->setJanela(&janela);
+	entrada->setJogador(static_cast<Jogador*>(&jogador));
+	grafico->setJanela(&janela);
 	executar();
 }
 
@@ -31,12 +33,13 @@ void Jogo::executar() {
 	{
 		grafico->limpar();
 		entrada->executar();
-		bool ligado = menuInicial.getLigado();
-		fase->executar(ligado);
-		if (ligado) {
+		bool inicial = menuInicial.getLigado();
+		bool pausa = menuPausa.getLigado();
+		fase->executar(inicial || pausa);
+		if (inicial) {
+			menuPausa.setLigado(false);
 			menuInicial.printar(grafico);
 			if (menuInicial.executar()) {
-				entrada->setMenu(nullptr);
 				if (menuInicial.getSair()) {
 					return;
 				}
@@ -45,6 +48,14 @@ void Jogo::executar() {
 					jogador2.setTeclas(teclas);
 					entrada->setJogador(&jogador2);
 					fase->setJogador2(&jogador2);
+				}
+			}
+		}
+		if (pausa) {
+			menuPausa.printar(grafico);
+			if (menuPausa.executar()) {
+				if (menuPausa.getSair()) {
+					menuInicial.setLigado(true);
 				}
 			}
 		}

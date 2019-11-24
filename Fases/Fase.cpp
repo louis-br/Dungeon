@@ -27,6 +27,13 @@ Fase::~Fase() {
 }
 
 void Fase::setJogador2(Cavaleiro* jog2) {
+	if (jog2 == jogador2) {
+		return;
+	}
+	else if (jog2 == nullptr && jogador2 != nullptr) {
+		listaEntidade.remover(jogador2);
+		vetorEntidadeFisica.remover(jogador2);
+	}
 	jogador2 = jog2;
 	if (jogador2 != nullptr) {
 		listaEntidade.empilharTras(static_cast<Entidade*>(jogador2));

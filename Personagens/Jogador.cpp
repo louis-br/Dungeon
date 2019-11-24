@@ -60,5 +60,9 @@ void Jogador::colidiuCom(Tipo tipo) {
 		recebeuDano = true;
 		--vidas;
 		ultimoDano.restart();
+		if (vidas == 0) {
+			posicao = sf::Vector2f(0, 0);
+			vidas = 3;
+		}
 	}
 }

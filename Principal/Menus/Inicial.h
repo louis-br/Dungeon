@@ -10,8 +10,7 @@ private:
 	bool sair;
 public:
 	enum Opcoes {
-		NaoConfirmado = -1,
-		Fase1 = 0,
+		Fase1,
 		Fase2,
 		Jogadores,
 		Sair
