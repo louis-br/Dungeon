@@ -4,10 +4,7 @@
 Cavaleiro::Cavaleiro(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
 	Jogador(pos, sf::Vector2f(63, 77), lista, vetor)
 {
-	textura = GerenciadorGrafico::getInstancia()->getTextura(
-			  GerenciadorGrafico::Texturas::Cavaleiro);
-	sprite = sf::Sprite(textura);
-	sprite.setPosition(posicao);
+	setTextura(GerenciadorGrafico::Texturas::Cavaleiro);
 	sprite.setTextureRect(sf::IntRect(sf::Vector2i((sentido > 0)*63, 0), sf::Vector2i(-sentido*tamanho.x, tamanho.y)));
 }
 
@@ -16,7 +13,19 @@ Cavaleiro::~Cavaleiro() {
 }
 
 void Cavaleiro::printar(GerenciadorGrafico* grafico) {
+	printarCoracoes(grafico);
 	sprite.setPosition(posicao);
+	{
+		float dano = ultimoDano.getElapsedTime().asSeconds();
+		if (dano < 5.f) {
+			if ((int)(dano * 8.f) % 2) {
+				sprite.setColor(sf::Color(255, 255, 255));
+			}
+			else {
+				sprite.setColor(sf::Color(255, 0, 0));
+			}
+		}
+	}
 	switch(estado) {
 	case (Estado::Andando):
 		andar();

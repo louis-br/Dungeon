@@ -8,13 +8,25 @@ Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista,
 	estado(Estado::Andando),
 	quadroSprite(0),
 	sentido(1),
-	atualizar(true)
+	atualizar(true),
+	vidas(4),
+	coracao(GerenciadorGrafico::getInstancia()->getTextura(
+			GerenciadorGrafico::Texturas::Coracao)),
+	coracoes(coracao)
 {
-
+	coracao.setRepeated(true);
+	coracoes.setTexture(coracao);
+	coracoes.setOrigin(0, 10);
 }
 
 Personagem::~Personagem() {
 
+}
+
+void Personagem::printarCoracoes(GerenciadorGrafico* grafico) {
+	coracoes.setTextureRect(sf::IntRect(0, 0, 12 * vidas, 10));
+	coracoes.setPosition(posicao);
+	grafico->desenhar(coracoes);
 }
 
 void Personagem::mover(sf::Vector2f direcao) {

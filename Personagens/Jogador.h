@@ -15,6 +15,7 @@ public:
 	void setTeclas(sf::Keyboard::Key* novo);
 	sf::Keyboard::Key* getTeclas();
 	void atualizarTeclas();
+	Tipo getTipo();
 	void colidiuCom(Tipo tipo);
 };
 

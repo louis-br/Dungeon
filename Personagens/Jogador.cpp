@@ -40,8 +40,18 @@ void Jogador::atualizarTeclas() {
 	));
 }
 
+Jogador::Tipo Jogador::getTipo() {
+	return Tipo::Jogador;
+}
+
 void Jogador::colidiuCom(Tipo tipo) {
 	if (velocidade.y >= 0.f) {
 		estado = Estado::Andando;
+	}
+	if (tipo == Tipo::Hostil) {
+		if (ultimoDano.getElapsedTime().asSeconds() > 5.f) {
+			--vidas;
+			ultimoDano.restart();
+		}
 	}
 }

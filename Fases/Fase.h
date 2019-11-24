@@ -7,7 +7,7 @@
 //#include "../Personagens/Cavaleiro.h"
 #include "../Personagens/Cavaleiro.h"
 
-class Fase
+class Fase : public Entidade
 {
 protected:
 	GerenciadorFisico* fisico;
@@ -16,13 +16,12 @@ protected:
 	sf::View camera;
 	ListaEntidade listaEntidade;
 	VetorEntidadeFisica vetorEntidadeFisica;
-	//Cavaleiro jogador;
-	sf::Sprite fundo;
 	Cavaleiro* jogador;
 public:
 	Fase(sf::RenderWindow* window = nullptr, Cavaleiro* jog1 = nullptr);
 	void setJogador2(Cavaleiro* jog2);
 	virtual ~Fase();
 	virtual void criarTerreno() = 0;
+	void printar(GerenciadorGrafico* grafico);
 	void executar(bool pausa = false);
 };

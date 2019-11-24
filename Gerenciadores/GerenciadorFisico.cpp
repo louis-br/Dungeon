@@ -109,11 +109,11 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
 						velocidade = sf::Vector2f(0, velocidade.y);
 					}
 					velocidade -= sf::Vector2f(velocidade.x * (B->getAtrito()) * decorrido, 0);
-					A->colidiuCom(B->getTipo());
 					Entidade::Tipo tipoA = A->getTipo();
 					if (tipoA != Entidade::Tipo::Neutro) {
 						B->colidiuCom(tipoA);
 					}
+					A->colidiuCom(B->getTipo());
 				}
 			}
 			atual = atual->getProximo();

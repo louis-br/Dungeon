@@ -4,16 +4,16 @@
 Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	posicao(pos),
 	tamanho(tam),
-	atrito(1.f)
+	atrito(1.f),
+	textura(),
+	sprite(textura)
 {
+	sprite.setPosition(pos);
+	sprite.setTextureRect(sf::IntRect(sf::Vector2i(0, 0), static_cast<sf::Vector2i>(tamanho)));
 	if (lista != nullptr) {
 		lista->empilharTras(this);
 	}
 }
-
-/*Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, GerenciadorGrafico::Texturas tex, ListaEntidade* lista) {
-
-}*/
 
 Entidade::~Entidade() {
 
@@ -25,6 +25,10 @@ Entidade::Tipo Entidade::getTipo() {
 
 void Entidade::colidiuCom(Tipo tipo) {
 
+}
+
+void Entidade::setTextura(GerenciadorGrafico::Texturas tex) {
+	textura = GerenciadorGrafico::getInstancia()->getTextura(tex);
 }
 
 void Entidade::setPosicao(sf::Vector2f pos) {

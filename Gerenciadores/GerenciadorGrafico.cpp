@@ -56,14 +56,17 @@ void GerenciadorGrafico::carregarTexturas() {
 	//carregarTextura(Texturas::PlataformaTijolo3, "data/images/BrickPlataforma6.png");
 	//carregarTextura(Texturas::PlataformaTijolo4, "data/images/BrickPlataforma4.png");
 	//carregarTextura(Texturas::PlataformaTijolo5, "data/images/BrickPlataforma3.png");
+	carregarTextura(Texturas::Coracao, "Recursos/Personagens/Coracao.png");
 	carregarTextura(Texturas::Cavaleiro, "Recursos/Personagens/Cavaleiro.png");//"Recursos/Personagens/Original/Anaos.png");
 	//carregarTextura(Texturas::Mago, "data/images/Mago.png");
-	carregarTextura(Texturas::Orc, "Recursos/Personagens/Inimigo1.png");
+	carregarTextura(Texturas::Anao, "Recursos/Personagens/Original/Anaos.png");
 	carregarTextura(Texturas::Aranha, "Recursos/Personagens/spider.png");
+	carregarTextura(Texturas::Fenix, "Recursos/Personagens/Fenix.png");
 	carregarTextura(Texturas::Floresta, "Recursos/Fundos/Forest.png");
 	//carregarTextura(Texturas::Caverna, "data/images/Cave.png");
 	carregarTextura(Texturas::Estalactite, "Recursos/Obstaculos/stalactite4.png");
 	carregarTextura(Texturas::TeiaDeAranha, "Recursos/Obstaculos/SpiderWeb.png");
+	carregarTextura(Texturas::Fogo, "Recursos/Obstaculos/Fogo.png");
 	//carregarTextura(Texturas::BolaDeFogo, "data/images/ProjetilFogo.png");
 	//carregarTextura(Texturas::menuGame, "data/images/wood.png");
 }

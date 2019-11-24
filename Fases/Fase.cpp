@@ -8,7 +8,6 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 	camera(),
 	listaEntidade(),
 	vetorEntidadeFisica(),
-	fundo(),
 	jogador(jog1)
 {
 	//camera.setCenter(200.f, 150.f); //trocar para personagem
@@ -33,8 +32,11 @@ void Fase::setJogador2(Cavaleiro* jog2) {
 	}
 }
 
+void Fase::printar(GerenciadorGrafico* grafico) {
+	grafico->desenhar(sprite);
+}
+
 void Fase::executar(bool pausa) {
-	//std::cout << jogador.getVelocidade().x << ':' << jogador.getVelocidade().y << '\n';
 	if (pausa) {
 		fisico->reiniciarRelogio();
 	}
@@ -46,15 +48,13 @@ void Fase::executar(bool pausa) {
 		camera.setCenter(centro);
 		sf::Vector2f tamanho = camera.getSize();
 		centro = centro - tamanho;
-		sf::IntRect retanguloTextura = fundo.getTextureRect();
+		sf::IntRect retanguloTextura = sprite.getTextureRect();
 		sf::Vector2f tamanhoFundo = sf::Vector2f(retanguloTextura.width, retanguloTextura.height);
-		fundo.setPosition(sf::Vector2f(centro.x - fmodf(centro.x, tamanhoFundo.x)*0.5f, centro.y - fmodf(centro.y, tamanhoFundo.y)*0.5f));
+		sprite.setPosition(sf::Vector2f(centro.x - fmodf(centro.x, tamanhoFundo.x)*0.5f, centro.y - fmodf(centro.y, tamanhoFundo.y)*0.5f));
 	}
 	if (janela != nullptr) {
 		janela->setView(camera);
 	}
-	//grafico->limpar();
-	grafico->desenhar(fundo);
+	printar(grafico);
 	listaEntidade.printar();
-	//grafico->atualizarTela();
 }

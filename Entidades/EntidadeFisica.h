@@ -10,6 +10,7 @@ protected:
 	sf::Vector2f velocidadeMaxima;
 	float atrito;
 public:
+	EntidadeFisica(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr);
 	EntidadeFisica(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr, VetorEntidadeFisica* vetor = nullptr);
 	~EntidadeFisica();
 	void setVelocidade(sf::Vector2f& vel);

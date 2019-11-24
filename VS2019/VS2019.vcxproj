@@ -130,6 +130,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Obstaculos\Estalactite.cpp" />
+    <ClCompile Include="..\Obstaculos\Fogo.cpp" />
+    <ClCompile Include="..\Personagens\Aranha.cpp" />
+    <ClCompile Include="..\Personagens\Fenix.cpp" />
+    <ClCompile Include="..\Personagens\Inimigo.cpp" />
     <ClCompile Include="..\Obstaculos\TeiaDeAranha.cpp" />
     <ClCompile Include="..\Plataformas\Plataforma.cpp" />
     <ClCompile Include="..\Entidades\Entidade.cpp" />
@@ -141,7 +146,7 @@
     <ClCompile Include="..\Gerenciadores\GerenciadorGrafico.cpp" />
     <ClCompile Include="..\Listas\ListaEntidade.cpp" />
     <ClCompile Include="..\Listas\VetorEntidadeFisica.cpp" />
-    <ClCompile Include="..\Personagens\Orc.cpp" />
+    <ClCompile Include="..\Personagens\Anao.cpp" />
     <ClCompile Include="..\Personagens\Jogador.cpp" />
     <ClCompile Include="..\Personagens\Personagem.cpp" />
     <ClCompile Include="..\Principal\Jogo.cpp" />
@@ -154,6 +159,11 @@
     <ClCompile Include="..\Principal\Menus\Menu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Obstaculos\Estalactite.h" />
+    <ClInclude Include="..\Obstaculos\Fogo.h" />
+    <ClInclude Include="..\Personagens\Aranha.h" />
+    <ClInclude Include="..\Personagens\Fenix.h" />
+    <ClInclude Include="..\Personagens\Inimigo.h" />
     <ClInclude Include="..\Obstaculos\TeiaDeAranha.h" />
     <ClInclude Include="..\Plataformas\Plataforma.h" />
     <ClInclude Include="..\Entidades\Entidade.h" />
@@ -166,7 +176,7 @@
     <ClInclude Include="..\Listas\ListaEntidade.h" />
     <ClInclude Include="..\Listas\MapaRecursos.h" />
     <ClInclude Include="..\Listas\VetorEntidadeFisica.h" />
-    <ClInclude Include="..\Personagens\Orc.h" />
+    <ClInclude Include="..\Personagens\Anao.h" />
     <ClInclude Include="..\Personagens\Cavaleiro.h" />
     <ClInclude Include="..\Personagens\Jogador.h" />
     <ClInclude Include="..\Personagens\Personagem.h" />
