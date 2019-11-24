@@ -10,23 +10,27 @@ Menu::Menu(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	baixo(sf::Keyboard::Down),
 	confirma(sf::Keyboard::Enter),
 	opcao(0),
+	ligado(true),
 	confirmado(false)
 {
 	GerenciadorGrafico* grafico = GerenciadorGrafico::getInstancia();
 	if (grafico != nullptr) {
 		grafico->carregarFonte(fonte, "Recursos/Fontes/vinque.ttf");
 	}
-	//fundo.setPosition(sf::Vector2f(400, 300));
 	fundo.setFillColor(sf::Color(255, 255, 255, 128));
 	fundo.setPosition(posicao + tamanho * 0.1f);
 	titulo.setCharacterSize(96);
 	titulo.setFillColor(sf::Color::Black);
 	titulo.setOrigin(sf::Vector2f(titulo.getLocalBounds().width * 0.5f, 0.f));
-	titulo.setPosition(posicao + sf::Vector2f(tamanho.x * 0.5f, tamanho.y * 0.1f)); //   - tamanhoTexto * 0.5f
+	titulo.setPosition(posicao + sf::Vector2f(tamanho.x * 0.5f, tamanho.y * 0.1f));
 }
 
 Menu::~Menu() {
 
+}
+
+bool Menu::getLigado() {
+	return ligado;
 }
 
 void Menu::atualizarTeclas() {

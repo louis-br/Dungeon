@@ -16,9 +16,6 @@ void Cavaleiro::printar(GerenciadorGrafico* grafico) {
 	printarCoracoes(grafico);
 	printarDano(grafico, 5.f);
 	sprite.setPosition(posicao);
-	/*if (tamanho != sf::Vector2f(63, 77)) {
-		tamanho = sf::Vector2f(63, 77);
-	}*/
 	switch(estado) {
 	case (Estado::Andando):
 		andar();

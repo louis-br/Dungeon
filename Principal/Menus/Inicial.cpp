@@ -2,6 +2,9 @@
 
 Inicial::Inicial(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	Menu(window, pos, tam),
+	fase(false),
+	multijogador(false),
+	sair(false),
 	opcoes{
 		sf::Text(sf::String("Fase 1"), fonte),
 		sf::Text(sf::String("Fase 2"), fonte),
@@ -15,33 +18,51 @@ Inicial::Inicial(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 		opcoes[i].setOrigin(sf::Vector2f(opcoes[i].getLocalBounds().width * 0.5f, 0.f));
 		opcoes[i].setPosition(posicao + sf::Vector2f(tamanho.x * 0.5f, tamanho.y * 0.5f + 72 * (i - 1)));
 	}
-	/*iniciar.setCharacterSize(48);
-	iniciar.setFillColor(sf::Color::Black);
-	iniciar.setOrigin(sf::Vector2f(titulo.getLocalBounds().width * 0.5f, 0.f));
-	iniciar.setPosition(posicao + sf::Vector2f(tamanho.x * 0.5f, tamanho.y * 0.1f)); //   - tamanhoTexto * 0.5f*/
 }
 
 Inicial::~Inicial() {
 
 }
 
-int Inicial::executar() {
-	if (confirmado) {
-		confirmado = false;
-	}
-	else {
-		return Opcoes::NaoConfirmado;
-	}
-	return opcao;
+bool Inicial::getFase() {
+	return fase;
 }
 
-void Inicial::setMultijogador(bool multijogador) {
-	if (multijogador) {
-		opcoes[2].setString(sf::String("Jogadores: 2"));
+bool Inicial::getMultijogador() {
+	return multijogador;
+}
+
+bool Inicial::getSair() {
+	return sair;
+}
+
+int Inicial::executar() {
+	if (confirmado) {
+		ligado = false;
+		switch (opcao) {
+		case (Opcoes::Fase1):
+			fase = false;
+			break;
+		case (Opcoes::Fase2):
+			fase = true;
+			break;
+		case (Opcoes::Jogadores):
+			multijogador = !multijogador;
+			if (multijogador) {
+				opcoes[2].setString(sf::String("Jogadores: 2"));
+			}
+			else {
+				opcoes[2].setString(sf::String("Jogadores: 1"));
+			}
+			ligado = true;
+			break;
+		case (Opcoes::Sair):
+			sair = true;
+			break;
+		}
+		confirmado = false;
 	}
-	else {
-		opcoes[2].setString(sf::String("Jogadores: 1"));
-	}
+	return !ligado;
 }
 
 void Inicial::printar(GerenciadorGrafico* grafico) {

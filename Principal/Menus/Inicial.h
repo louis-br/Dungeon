@@ -5,6 +5,9 @@ class Inicial : public Menu
 {
 private:
 	sf::Text opcoes[4];
+	bool fase;
+	bool multijogador;
+	bool sair;
 public:
 	enum Opcoes {
 		NaoConfirmado = -1,
@@ -16,8 +19,11 @@ public:
 
 	Inicial(sf::RenderWindow* window = nullptr, sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0));
 	~Inicial();
+	bool getFase();
+	bool getMultijogador();
+	bool getSair();
 	int executar();
-	void setMultijogador(bool multijogador);
 	void printar(GerenciadorGrafico* grafico);
+
 };
 

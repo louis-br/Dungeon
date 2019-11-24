@@ -1,7 +1,7 @@
 #include "Jogo.h"
 
-#define LARGURA 800
-#define ALTURA 600
+#define LARGURA 1280
+#define ALTURA 720
 #define TITULO "Dungeon++"
 
 Jogo::Jogo() :
@@ -12,9 +12,7 @@ Jogo::Jogo() :
 	fase1(&janela, &jogador),
 	fase(&fase1),
 	menuInicial(&janela, sf::Vector2f(0, 0), sf::Vector2f(LARGURA, ALTURA)),
-	menuLigado(true),
-	pausado(false),
-	multijogador(false)
+	pausado(false)
 {
 	janela.setFramerateLimit(60);
 	entrada->setJanela(&janela);
@@ -33,36 +31,20 @@ void Jogo::executar() {
 	{
 		grafico->limpar();
 		entrada->executar();
-		fase->executar(menuLigado);
-		if (menuLigado) {
+		bool ligado = menuInicial.getLigado();
+		fase->executar(ligado);
+		if (ligado) {
 			menuInicial.printar(grafico);
-			int opcao = menuInicial.executar();
-			if (opcao >= 0) {
-				menuLigado = false;
-				switch (opcao) {
-				case Inicial::Opcoes::Fase1:
-					std::cout << "Fase1\n";
-					fase = &fase1;
-					break;
-				case Inicial::Opcoes::Fase2:
-					std::cout << "Fase2\n";
-					break;
-				case Inicial::Opcoes::Jogadores:
-					menuLigado = true;
-					multijogador = !multijogador;
-					menuInicial.setMultijogador(multijogador);
-					break;
-				case Inicial::Opcoes::Sair:
+			if (menuInicial.executar()) {
+				entrada->setMenu(nullptr);
+				if (menuInicial.getSair()) {
 					return;
 				}
-				if (!menuLigado) {
-					entrada->setMenu(nullptr);
-					if (multijogador) {
-						sf::Keyboard::Key teclas[4] = { sf::Keyboard::D, sf::Keyboard::A, sf::Keyboard::W, sf::Keyboard::S };
-						jogador2.setTeclas(teclas);
-						entrada->setJogador(&jogador2);
-						fase->setJogador2(&jogador2);
-					}
+				if (menuInicial.getMultijogador()) {
+					sf::Keyboard::Key teclas[4] = { sf::Keyboard::D, sf::Keyboard::A, sf::Keyboard::W, sf::Keyboard::S };
+					jogador2.setTeclas(teclas);
+					entrada->setJogador(&jogador2);
+					fase->setJogador2(&jogador2);
 				}
 			}
 		}

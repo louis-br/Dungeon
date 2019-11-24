@@ -17,6 +17,7 @@ protected:
 	ListaEntidade listaEntidade;
 	VetorEntidadeFisica vetorEntidadeFisica;
 	Cavaleiro* jogador;
+	Cavaleiro* jogador2;
 public:
 	Fase(sf::RenderWindow* window = nullptr, Cavaleiro* jog1 = nullptr);
 	void setJogador2(Cavaleiro* jog2);

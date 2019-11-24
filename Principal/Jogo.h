@@ -16,9 +16,7 @@ private:
 	Fase* fase;
 	Inicial menuInicial;
 	//Pausa menuPausa;
-	bool menuLigado;
 	bool pausado;
-	bool multijogador;
 public:
 	Jogo();
 	~Jogo();

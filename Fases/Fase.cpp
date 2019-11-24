@@ -8,7 +8,8 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 	camera(),
 	listaEntidade(),
 	vetorEntidadeFisica(),
-	jogador(jog1)
+	jogador(jog1),
+	jogador2(nullptr)
 {
 	if (jogador != nullptr) {
 		listaEntidade.empilharTras(static_cast<Entidade*>(jogador));
@@ -19,12 +20,17 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 Fase::~Fase() {
 	listaEntidade.remover(static_cast<Entidade*>(jogador));
 	vetorEntidadeFisica.remover(static_cast<EntidadeFisica*>(jogador));
+	if (jogador2 != nullptr) {
+		listaEntidade.remover(static_cast<Entidade*>(jogador2));
+		vetorEntidadeFisica.remover(static_cast<EntidadeFisica*>(jogador2));
+	}
 }
 
 void Fase::setJogador2(Cavaleiro* jog2) {
-	if (jog2 != nullptr) {
-		listaEntidade.empilharTras(static_cast<Entidade*>(jog2));
-		vetorEntidadeFisica.empilharTras(static_cast<EntidadeFisica*>(jog2));
+	jogador2 = jog2;
+	if (jogador2 != nullptr) {
+		listaEntidade.empilharTras(static_cast<Entidade*>(jogador2));
+		vetorEntidadeFisica.empilharTras(static_cast<EntidadeFisica*>(jogador2));
 	}
 }
 
