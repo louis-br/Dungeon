@@ -13,7 +13,7 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 	//camera.setCenter(200.f, 150.f); //trocar para personagem
 	if (janela != nullptr) {
 		camera.setSize(static_cast<sf::Vector2f>(janela->getSize()));
-		camera.zoom(0.5f);
+        camera.zoom(0.7f);
 	}
 	if (jogador != nullptr) {
 		listaEntidade.empilharTras(static_cast<Entidade*>(jogador));
