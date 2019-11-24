@@ -11,6 +11,7 @@ public:
 	VetorEntidadeFisica();
 	~VetorEntidadeFisica();
 	void empilharTras(EntidadeFisica* entidade);
+	void remover(EntidadeFisica* entidade);
 	int tamanho();
 	EntidadeFisica*& operator[](int indice);
 };

@@ -5,7 +5,8 @@ EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade
 	velocidade(0, 0),
 	aceleracao(0, 0),
 	velocidadeMaxima(0, 0),
-	atrito(0)
+	atrito(0),
+	excluido(false)
 {
 
 }
@@ -15,7 +16,8 @@ EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade
 	velocidade(0, 0),
 	aceleracao(0, 0),
 	velocidadeMaxima(0, 0),
-	atrito(0)
+	atrito(0),
+	excluido(false)
 {
 	if (vetor != nullptr) {
 		vetor->empilharTras(this);
@@ -48,4 +50,8 @@ void EntidadeFisica::setVelocidadeMaxima(sf::Vector2f& velMax) {
 
 sf::Vector2f EntidadeFisica::getVelocidadeMaxima() {
 	return velocidadeMaxima;
+}
+
+bool EntidadeFisica::getExcluido() {
+	return excluido;
 }

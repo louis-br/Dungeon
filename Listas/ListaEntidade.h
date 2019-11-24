@@ -15,5 +15,6 @@ public:
 	Lista<Entidade>::Elemento<Entidade>* getPrimeiro();
 	Lista<Entidade>::Elemento<Entidade>* getUltimo();
 	void empilharTras(Entidade* entidade);
+	void remover(Entidade* entidade);
 	void printar();
 };

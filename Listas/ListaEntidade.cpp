@@ -9,7 +9,12 @@ ListaEntidade::ListaEntidade() :
 }
 
 ListaEntidade::~ListaEntidade() {
-
+	Lista<Entidade>::Elemento<Entidade>* atual = LEs.getPrimeiro();
+	while (atual != nullptr) {
+		Lista<Entidade>::Elemento<Entidade>* proximo = atual->getProximo();
+		delete atual;
+		atual = proximo;
+	}
 }
 
 Lista<Entidade>::Elemento<Entidade>* ListaEntidade::getPrimeiro() {
@@ -25,16 +30,14 @@ void ListaEntidade::empilharTras(Entidade* entidade)
 	LEs.empilharTras(entidade);
 }
 
-void ListaEntidade::printar()
-{
-	//grafico->limpar();
+void ListaEntidade::remover(Entidade* entidade) {
+	LEs.remover(entidade);
+}
+
+void ListaEntidade::printar() {
 	Lista<Entidade>::Elemento<Entidade>* atual = LEs.getPrimeiro();
 	while (atual != nullptr) {
 		atual->getElemento()->printar(grafico);
 		atual = atual->getProximo();
 	}
-	/*for (iterador = elementos.begin(); iterador != elementos.end(); ++iterador) {
-		(*iterador)->printar(grafico);
-	}*/
-	//grafico->atualizarTela();
 }

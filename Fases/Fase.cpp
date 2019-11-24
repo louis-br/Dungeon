@@ -10,10 +10,6 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 	vetorEntidadeFisica(),
 	jogador(jog1)
 {
-	if (janela != nullptr) {
-		//camera.setSize(static_cast<sf::Vector2f>(janela->getSize()));
-        //camera.zoom(0.5f);
-	}
 	if (jogador != nullptr) {
 		listaEntidade.empilharTras(static_cast<Entidade*>(jogador));
 		vetorEntidadeFisica.empilharTras(static_cast<EntidadeFisica*>(jogador));
@@ -21,7 +17,8 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
 }
 
 Fase::~Fase() {
-
+	listaEntidade.remover(static_cast<Entidade*>(jogador));
+	vetorEntidadeFisica.remover(static_cast<EntidadeFisica*>(jogador));
 }
 
 void Fase::setJogador2(Cavaleiro* jog2) {
@@ -41,6 +38,16 @@ void Fase::executar(bool pausa) {
 	}
 	else {
 		fisico->executar(vetorEntidadeFisica, listaEntidade);
+	}
+	for (int i = 0; i < vetorEntidadeFisica.tamanho();) {
+		EntidadeFisica* movel = vetorEntidadeFisica[i];
+		if (movel->getExcluido()) {
+			listaEntidade.remover(movel);
+			vetorEntidadeFisica.remover(movel);
+		}
+		else {
+			++i;
+		}
 	}
 	if (jogador != nullptr) {
 		sf::Vector2f centro = jogador->getPosicao() + jogador->getTamanho() * 0.5f;

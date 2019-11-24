@@ -18,9 +18,16 @@ Inimigo::Tipo Inimigo::getTipo() {
 }
 
 void Inimigo::colidiuCom(Tipo tipo) {
+	estado = Estado::Andando;
+	if ((int)tipo > 0) {
+		sentido = !sentido;
+	}
 	if (tipo == Tipo::JogadorAtacando && ultimoDano.getElapsedTime().asSeconds() > 1.f) {
 		recebeuDano = true;
 		--vidas;
 		ultimoDano.restart();
+		if (vidas == 0) {
+			excluido = true;
+		}
 	}
 }

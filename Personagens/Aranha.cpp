@@ -11,13 +11,6 @@ Aranha::~Aranha() {
 
 }
 
-void Aranha::colidiuCom(Tipo tipo) {
-	estado = Estado::Andando;
-	if ((int)tipo > 0) {
-		sentido = !sentido;
-	}
-}
-
 void Aranha::printar(GerenciadorGrafico* grafico) {
 	printarCoracoes(grafico);
 	printarDano(grafico, 1.f);

@@ -33,6 +33,9 @@ public:
 	~Lista() {
 		pPrimeiro = nullptr;
 		pUltimo = nullptr;
+		while (getPrimeiro() != nullptr) {
+			desempilharTras();
+		}
 	}
 
 	Elemento<TL>* getPrimeiro() { return pPrimeiro; }
@@ -47,6 +50,7 @@ public:
 		}
 		else {
 			pUltimo->setProximo(novo);
+			novo->setAnterior(pUltimo);
 			pUltimo = novo;
 		}
 	}
@@ -55,8 +59,10 @@ public:
 		if (pUltimo != nullptr) {
 			Elemento<TL>* antigo = pUltimo;
 			pUltimo = pUltimo->getAnterior();
-			pUltimo.setProximo(nullptr);
 			delete antigo;
+			if (pUltimo != nullptr) {
+				pUltimo->setProximo(nullptr);
+			}
 		}
 	}
 
@@ -66,8 +72,20 @@ public:
 		}
 		Elemento<TL>* atual = pPrimeiro;
 		while (atual != nullptr) {
-			if (*(atual->getElemento) == *elemento) {
-				atual->getAnterior()->setProximo(atual->getProximo());
+			if (atual->getElemento() == elemento) {
+				Elemento<TL>* anterior = atual->getAnterior();
+				Elemento<TL>* proximo = atual->getProximo();
+				if (anterior != nullptr) {
+					anterior->setProximo(proximo);
+				}
+				if (proximo != nullptr) {
+					proximo->setAnterior(anterior);
+				}
+				if (pPrimeiro == atual) {
+					pPrimeiro = proximo;
+					pPrimeiro->setAnterior(nullptr);
+				}
+				delete atual;
 				break;
 			}
 			atual = atual->getProximo();
