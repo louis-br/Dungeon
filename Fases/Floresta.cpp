@@ -20,4 +20,5 @@ void Floresta::criarTerreno() {
 	new Fogo(sf::Vector2f(400, 268), sf::Vector2f(8, 15), &listaEntidade);
 	new Anao(sf::Vector2f(500, 0), &listaEntidade, &vetorEntidadeFisica);
 	new Aranha(sf::Vector2f(500, 0), &listaEntidade, &vetorEntidadeFisica);
+	new Fenix(sf::Vector2f(600, 0), &listaEntidade, &vetorEntidadeFisica);
 }

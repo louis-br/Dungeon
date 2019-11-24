@@ -9,4 +9,5 @@ public:
 	void printar(GerenciadorGrafico* grafico);
 	void andar();
 	void pular();
+	void atacar();
 };

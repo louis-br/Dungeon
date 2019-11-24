@@ -19,6 +19,8 @@ void Aranha::colidiuCom(Tipo tipo) {
 }
 
 void Aranha::printar(GerenciadorGrafico* grafico) {
+	printarCoracoes(grafico);
+	printarDano(grafico, 1.f);
 	sentido = (int)(relogio.getElapsedTime().asSeconds() * 0.25f) % 2 == 0;
 	if (!sentido) {
 		sentido = -1;

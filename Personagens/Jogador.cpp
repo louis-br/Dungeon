@@ -41,17 +41,24 @@ void Jogador::atualizarTeclas() {
 }
 
 Jogador::Tipo Jogador::getTipo() {
-	return Tipo::Jogador;
+	if (estado == Estado::Atacando) {
+		return Tipo::JogadorAtacando;
+	}
+	else {
+		return Tipo::Jogador;
+	}
 }
 
 void Jogador::colidiuCom(Tipo tipo) {
-	if (velocidade.y >= 0.f) {
-		estado = Estado::Andando;
-	}
-	if (tipo == Tipo::Hostil) {
-		if (ultimoDano.getElapsedTime().asSeconds() > 5.f) {
-			--vidas;
-			ultimoDano.restart();
+	if (estado == Estado::Pulando) {
+		if (velocidade.y >= -1.f) {
+			estado = Estado::Andando;
+			atualizar = true;
 		}
+	}
+	if (estado != Estado::Atacando && tipo == Tipo::Hostil && ultimoDano.getElapsedTime().asSeconds() > 5.f) {
+		recebeuDano = true;
+		--vidas;
+		ultimoDano.restart();
 	}
 }

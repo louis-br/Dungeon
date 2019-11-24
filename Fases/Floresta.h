@@ -7,6 +7,7 @@
 #include "../Obstaculos/Fogo.h"
 #include "../Personagens/Anao.h"
 #include "../Personagens/Aranha.h"
+#include "../Personagens/Fenix.h"
 
 class Floresta : public Fase
 {

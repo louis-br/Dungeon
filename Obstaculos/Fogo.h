@@ -9,4 +9,3 @@ public:
 	Tipo getTipo();
 	void printar(GerenciadorGrafico* grafico);
 };
-

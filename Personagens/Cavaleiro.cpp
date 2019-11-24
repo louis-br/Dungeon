@@ -5,7 +5,7 @@ Cavaleiro::Cavaleiro(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica
 	Jogador(pos, sf::Vector2f(63, 77), lista, vetor)
 {
 	setTextura(GerenciadorGrafico::Texturas::Cavaleiro);
-	sprite.setTextureRect(sf::IntRect(sf::Vector2i((sentido > 0)*63, 0), sf::Vector2i(-sentido*tamanho.x, tamanho.y)));
+	sprite.setTextureRect(sf::IntRect((sentido > 0)*63, 0, -sentido*(int)(tamanho.x), (int)(tamanho.y)));
 }
 
 Cavaleiro::~Cavaleiro() {
@@ -14,24 +14,20 @@ Cavaleiro::~Cavaleiro() {
 
 void Cavaleiro::printar(GerenciadorGrafico* grafico) {
 	printarCoracoes(grafico);
+	printarDano(grafico, 5.f);
 	sprite.setPosition(posicao);
-	{
-		float dano = ultimoDano.getElapsedTime().asSeconds();
-		if (dano < 5.f) {
-			if ((int)(dano * 8.f) % 2) {
-				sprite.setColor(sf::Color(255, 255, 255));
-			}
-			else {
-				sprite.setColor(sf::Color(255, 0, 0));
-			}
-		}
-	}
+	/*if (tamanho != sf::Vector2f(63, 77)) {
+		tamanho = sf::Vector2f(63, 77);
+	}*/
 	switch(estado) {
 	case (Estado::Andando):
 		andar();
 		break;
 	case (Estado::Pulando):
 		pular();
+		break;
+	case (Estado::Atacando):
+		atacar();
 		break;
 	default:
 		break;
@@ -41,7 +37,7 @@ void Cavaleiro::printar(GerenciadorGrafico* grafico) {
 }
 
 void Cavaleiro::andar() {
-	int quadros = 11 * (relogio.getElapsedTime().asSeconds() * abs(velocidade.x)) / (tamanho.x);
+	int quadros = (int)(11 * (relogio.getElapsedTime().asSeconds() * abs(velocidade.x)) / (tamanho.x));
 	if (quadros > 0) {
 		relogio.restart();
 		atualizar = true;
@@ -56,6 +52,17 @@ void Cavaleiro::andar() {
 void Cavaleiro::pular() {
 	sprite.move(sf::Vector2f(-6, -12));
 	int quadro = (velocidade.y + potencialVelocidade.y * 0.5f)/(potencialVelocidade.y) * 8;
-	quadro = fmax(fmin(quadro, 8), 0);	
+	quadro = std::max(std::min(quadro, 8), 0);	
 	sprite.setTextureRect(sf::IntRect((quadro + (sentido > 0)) * 75, 77, -sentido * 75, 102));
+}
+
+void Cavaleiro::atacar() {
+	int quadro = (int)(relogio.getElapsedTime().asSeconds() * 2.f * 5.f);
+	quadro = std::min(quadro, 5);
+	sprite.move(-32.5, -26);
+	//tamanho = sf::Vector2f(128, 106);
+	sprite.setTextureRect(sf::IntRect((quadro + (sentido > 0)) * 128, 179, -sentido * 128, 106));
+	if (relogio.getElapsedTime().asSeconds() > 0.5f) {
+		estado = Estado::Pulando;
+	}
 }

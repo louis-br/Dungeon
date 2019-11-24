@@ -20,7 +20,7 @@ Estalactite::Tipo Estalactite::getTipo() {
 }
 
 void Estalactite::colidiuCom(Tipo tipo) {
-	if (tipo == Tipo::Jogador) {
+	if (tipo == Tipo::Jogador || tipo == Tipo::JogadorAtacando) {
 		tamanho = sf::Vector2f(tamanho.x, 86);
 	}
 }

@@ -16,6 +16,7 @@ public:
 	enum class Tipo {
 		Neutro,
 		Jogador,
+		JogadorAtacando,
 		Hostil
 	};
 
