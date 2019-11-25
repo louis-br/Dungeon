@@ -32,6 +32,5 @@ void Fenix::printar(GerenciadorGrafico* grafico) {
 	grafico->desenhar(sprite);
 }
 
-void Fenix::andar() {
+void Fenix
 
-}

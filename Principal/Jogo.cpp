@@ -11,8 +11,8 @@ Jogo::Jogo() :
 	entrada(GerenciadorEntrada::getInstancia()),
 	grafico(GerenciadorGrafico::getInstancia()),
 	jogador(),
-	fase1(&janela, &jogador),
-	fase(&fase1),
+	//fase1(&janela, &jogador),
+	fase(new Floresta(&janela, &jogador)),
 	pausado(false)
 {
 	janela.setFramerateLimit(60);
@@ -25,7 +25,9 @@ Jogo::Jogo() :
 }
 
 Jogo::~Jogo() {
-
+	if (fase != nullptr) {
+		delete fase;
+	}
 }
 
 void Jogo::executar() {
@@ -48,6 +50,15 @@ void Jogo::executar() {
 					jogador2.setTeclas(teclas);
 					entrada->setJogador(&jogador2);
 					fase->setJogador2(&jogador2);
+				}
+				if (fase != nullptr) {
+					delete fase;
+				}
+				if (menuInicial.getFase()) {
+					fase = static_cast<Fase*>(new Caverna(&janela, &jogador));
+				}
+				else {
+					fase = static_cast<Fase*>(new Floresta(&janela, &jogador));
 				}
 			}
 		}
