@@ -70,7 +70,7 @@ void Fases::Fase::executar(bool pausa) {
         camera.zoom(0.5f);
         centro = centro - tamanho;
         sf::IntRect retanguloTextura = sprite.getTextureRect();
-        sf::Vector2f tamanhoFundo = sf::Vector2f(retanguloTextura.width, retanguloTextura.height);
+        sf::Vector2f tamanhoFundo = sf::Vector2f(retanguloTextura.width * 0.5f, retanguloTextura.height);
         sprite.setPosition(sf::Vector2f(centro.x - fmodf(centro.x, tamanhoFundo.x)*0.5f, centro.y - fmodf(centro.y, tamanhoFundo.y)*0.5f));
     }
     if (janela != nullptr) {

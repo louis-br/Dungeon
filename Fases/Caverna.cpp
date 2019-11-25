@@ -6,7 +6,7 @@ Fases::Caverna::Caverna(sf::RenderWindow* janela, Personagens::Cavaleiro* jog1):
     setTextura(Gerenciadores::GerenciadorGrafico::Texturas::Caverna);
     textura.setRepeated(true);
 	sf::Vector2u tam = textura.getSize();
-	sprite.setTextureRect(sf::IntRect(0, 0, (int)(textura.getSize().x) * 2, (int)(textura.getSize().y) * 3));
+	sprite.setTextureRect(sf::IntRect(0, 0, (int)(textura.getSize().x) * 3, (int)(textura.getSize().y) * 3));
     //sprite.setTextureRect(sf::IntRect(0, 0, 1920*2, 1080));
     criarTerreno();
 }
