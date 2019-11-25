@@ -6,8 +6,8 @@ Inicial::Inicial(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	multijogador(false),
 	sair(false),
 	opcoes{
-		sf::Text(sf::String("Fase 1"), fonte),
-		sf::Text(sf::String("Fase 2"), fonte),
+		sf::Text(sf::String("Floresta"), fonte),
+		sf::Text(sf::String("Caverna"), fonte),
 		sf::Text(sf::String("Jogadores: 1"), fonte),
 		sf::Text(sf::String("Sair"), fonte),
 	}

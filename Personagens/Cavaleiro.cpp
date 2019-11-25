@@ -13,7 +13,7 @@ Cavaleiro::~Cavaleiro() {
 }
 
 void Cavaleiro::printar(GerenciadorGrafico* grafico) {
-	if (posicao.y > 800) {
+	if (posicao.y > 800 || vidas <= 0) {
 		posicao = sf::Vector2f(0, 0);
 		vidas = 3;
 	}
