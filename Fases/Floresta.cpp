@@ -14,7 +14,8 @@ Floresta::~Floresta() {
 }
 
 void Floresta::criarTerreno() {
-    std::srand(time(NULL));
+    //Falta colocar os obstaculos
+    /*std::srand(time(NULL));
     int num = 5 + rand() % 20;
     int num2;
     for(int i = 0; i < num; i++){
@@ -26,14 +27,7 @@ void Floresta::criarTerreno() {
     for(int i = 0; i < num; i++){
         num2 = 200 + rand() % 5450;
         new Aranha(sf::Vector2f(num2, 0), &listaEntidade, &vetorEntidadeFisica);
-    }
-
-    num = 5 + rand() % 20;
-
-    for(int i = 0; i < num; i++){
-        num2 = 200 + rand() % 5450;
-        new Estalactite(sf::Vector2f(num2, 0), sf::Vector2f(23, 258), &listaEntidade, &vetorEntidadeFisica);
-    }
+    }*/
 
     new Plataforma(sf::Vector2f(0, 400), sf::Vector2f(200, 200), &listaEntidade, GerenciadorGrafico::Plataforma);
     new Plataforma(sf::Vector2f(200,360), sf::Vector2f(400, 700), &listaEntidade, GerenciadorGrafico::Plataforma);
