@@ -37,14 +37,24 @@ void Jogo::executar() {
 		entrada->executar();
 		bool inicial = menuInicial.getLigado();
 		bool pausa = menuPausa.getLigado();
-		fase->executar(inicial || pausa);
+
+        menuInicial.executar();
+
+        if(menuInicial.getFase()){
+            fase = &fase1;
+        }
+        else{
+            fase = &fase2;
+        }
+        if (menuInicial.getSair()) {
+            return;
+        }
+        fase->executar(inicial || pausa);
+
 		if (inicial) {
 			menuPausa.setLigado(false);
 			menuInicial.printar(grafico);
-			if (menuInicial.executar()) {
-				if (menuInicial.getSair()) {
-					return;
-				}
+            if (menuInicial.executar()) {
 				if (menuInicial.getMultijogador()) {
 					sf::Keyboard::Key teclas[4] = { sf::Keyboard::D, sf::Keyboard::A, sf::Keyboard::W, sf::Keyboard::S };
 					jogador2.setTeclas(teclas);
@@ -62,6 +72,7 @@ void Jogo::executar() {
 				}
 			}
 		}
+
 		if (pausa) {
 			menuPausa.printar(grafico);
 			if (menuPausa.executar()) {

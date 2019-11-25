@@ -51,11 +51,11 @@ void GerenciadorGrafico::carregarTexturas() {
 	carregarTextura(Texturas::PlataformaGramaPequenaMedia, "Recursos/Plataformas/PlataformaPequenaMedia.png");
 	carregarTextura(Texturas::PlataformaGramaPequenaGrande, "Recursos/Plataformas/PlataformaPequenaGrande.png");
 	carregarTextura(Texturas::PlataformaGramaMediaBaixa, "Recursos/Plataformas/PlataformaMediaBaixa.png");
-	//carregarTextura(Texturas::PlataformaTijolo1, "data/images/BrickPlataforma5.png");
-	//carregarTextura(Texturas::PlataformaTijolo2, "data/images/BrickPlataforma1.png");
-	//carregarTextura(Texturas::PlataformaTijolo3, "data/images/BrickPlataforma6.png");
-	//carregarTextura(Texturas::PlataformaTijolo4, "data/images/BrickPlataforma4.png");
-	//carregarTextura(Texturas::PlataformaTijolo5, "data/images/BrickPlataforma3.png");
+    carregarTextura(Texturas::PlataformaTijolo1, "Recursos/Plataformas/BrickPlataforma1.png");
+    carregarTextura(Texturas::PlataformaTijolo2, "Recursos/Plataformas/BrickPlataforma2.png");
+    carregarTextura(Texturas::PlataformaTijolo3, "Recursos/Plataformas/BrickPlataforma3.png");
+    carregarTextura(Texturas::PlataformaTijolo4, "Recursos/Plataformas/BrickPlataforma4.png");
+    carregarTextura(Texturas::PlataformaTijolo5, "Recursos/Plataformas/BrickPlataforma6.png");
 	carregarTextura(Texturas::Coracao, "Recursos/Personagens/Coracao.png");
 	carregarTextura(Texturas::Cavaleiro, "Recursos/Personagens/Cavaleiro.png");//"Recursos/Personagens/Original/Anaos.png");
 	//carregarTextura(Texturas::Mago, "data/images/Mago.png");
@@ -63,7 +63,7 @@ void GerenciadorGrafico::carregarTexturas() {
 	carregarTextura(Texturas::Aranha, "Recursos/Personagens/spider.png");
 	carregarTextura(Texturas::Fenix, "Recursos/Personagens/Fenix.png");
 	carregarTextura(Texturas::Floresta, "Recursos/Fundos/Forest.png");
-	//carregarTextura(Texturas::Caverna, "data/images/Cave.png");
+    carregarTextura(Texturas::Caverna, "Recursos/Fundos/Cave.png");
 	carregarTextura(Texturas::Estalactite, "Recursos/Obstaculos/stalactite4.png");
 	carregarTextura(Texturas::TeiaDeAranha, "Recursos/Obstaculos/SpiderWeb.png");
 	carregarTextura(Texturas::Fogo, "Recursos/Obstaculos/Fogo.png");
