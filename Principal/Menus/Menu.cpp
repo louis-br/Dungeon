@@ -1,6 +1,6 @@
 #include "Menu.h"
 
-Menu::Menu(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
+Principal::Menus::Menu::Menu(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	Entidade(pos, tam),
 	janela(window),
 	fundo(tam * 0.8f),
@@ -13,7 +13,7 @@ Menu::Menu(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	ligado(true),
 	confirmado(false)
 {
-	GerenciadorGrafico* grafico = GerenciadorGrafico::getInstancia();
+	Gerenciadores::GerenciadorGrafico* grafico = Gerenciadores::GerenciadorGrafico::getInstancia();
 	if (grafico != nullptr) {
 		grafico->carregarFonte(fonte, "Recursos/Fontes/vinque.ttf");
 	}
@@ -25,19 +25,19 @@ Menu::Menu(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	titulo.setPosition(posicao + sf::Vector2f(tamanho.x * 0.5f, tamanho.y * 0.1f));
 }
 
-Menu::~Menu() {
+Principal::Menus::Menu::~Menu() {
 
 }
 
-void Menu::setLigado(bool lig) {
+void Principal::Menus::Menu::setLigado(bool lig) {
 	ligado = lig;
 }
 
-bool Menu::getLigado() {
+bool Principal::Menus::Menu::getLigado() {
 	return ligado;
 }
 
-void Menu::atualizarTeclas() {
+void Principal::Menus::Menu::atualizarTeclas() {
 	opcao += sf::Keyboard::isKeyPressed(baixo) - sf::Keyboard::isKeyPressed(cima);
 	if (sf::Keyboard::isKeyPressed(confirma)) {
 		confirmado = true;

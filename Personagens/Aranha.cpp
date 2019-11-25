@@ -1,17 +1,17 @@
 #include "Aranha.h"
 
-Aranha::Aranha(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Personagens::Aranha::Aranha(sf::Vector2f pos, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
     Inimigo(pos, sf::Vector2f(14, 11), lista, vetor)
 {
-    setTextura(GerenciadorGrafico::Texturas::Aranha);
+    setTextura(Gerenciadores::GerenciadorGrafico::Texturas::Aranha);
     //sprite.setTextureRect(sf::IntRect(0, 0, 14, 11));
 }
 
-Aranha::~Aranha() {
+Personagens::Aranha::~Aranha() {
 
 }
 
-void Aranha::printar(GerenciadorGrafico* grafico) {
+void Personagens::Aranha::printar(Gerenciadores::GerenciadorGrafico* grafico) {
     if (posicao.y > 800) {
         posicao = sf::Vector2f(posicao.x, 0);
     }

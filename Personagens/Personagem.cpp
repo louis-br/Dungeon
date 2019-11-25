@@ -1,6 +1,6 @@
 #include "Personagem.h"
 
-Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Personagens::Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
 	EntidadeFisica(pos, tam, lista, vetor),
 	potencialVelocidade(0, 0),
 	potencialAceleracao(0, 0),
@@ -10,8 +10,8 @@ Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista,
 	sentido(1),
 	atualizar(true),
 	vidas(4),
-	coracao(GerenciadorGrafico::getInstancia()->getTextura(
-			GerenciadorGrafico::Texturas::Coracao)),
+	coracao(Gerenciadores::GerenciadorGrafico::getInstancia()->getTextura(
+			Gerenciadores::GerenciadorGrafico::Texturas::Coracao)),
 	coracoes(coracao),
 	recebeuDano(false)
 {
@@ -20,11 +20,11 @@ Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista,
 	coracoes.setOrigin(0, 10);
 }
 
-Personagem::~Personagem() {
+Personagens::Personagem::~Personagem() {
 
 }
 
-void Personagem::printarDano(GerenciadorGrafico* grafico, float tempo) {
+void Personagens::Personagem::printarDano(Gerenciadores::GerenciadorGrafico* grafico, float tempo) {
 	if (recebeuDano) {
 		float dano = ultimoDano.getElapsedTime().asSeconds();
 		if (dano < tempo) {
@@ -41,13 +41,13 @@ void Personagem::printarDano(GerenciadorGrafico* grafico, float tempo) {
 	}
 }
 
-void Personagem::printarCoracoes(GerenciadorGrafico* grafico) {
+void Personagens::Personagem::printarCoracoes(Gerenciadores::GerenciadorGrafico* grafico) {
 	coracoes.setTextureRect(sf::IntRect(0, 0, 12 * vidas, 10));
 	coracoes.setPosition(posicao);
 	grafico->desenhar(coracoes);
 }
 
-void Personagem::mover(sf::Vector2f direcao) {
+void Personagens::Personagem::mover(sf::Vector2f direcao) {
 	//direcao = sf::Vector2f(direcao.x, (float)(-(direcao.y < 0)));
 	if (direcao.x != 0 && direcao.x != sentido) {
 		atualizar = true;

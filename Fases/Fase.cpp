@@ -1,9 +1,9 @@
 #include "Fase.h"
 #include "math.h"
 
-Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
-    fisico(GerenciadorFisico::getInstancia()),
-    grafico(GerenciadorGrafico::getInstancia()),
+Fases::Fase::Fase(sf::RenderWindow* window, Personagens::Cavaleiro* jog1) :
+    fisico(Gerenciadores::GerenciadorFisico::getInstancia()),
+    grafico(Gerenciadores::GerenciadorGrafico::getInstancia()),
     janela(window),
     camera(),
     listaEntidade(),
@@ -12,40 +12,40 @@ Fase::Fase(sf::RenderWindow* window, Cavaleiro* jog1) :
     jogador2(nullptr)
 {
     if (jogador != nullptr) {
-        listaEntidade.empilharTras(static_cast<Entidade*>(jogador));
-        vetorEntidadeFisica.empilharTras(static_cast<EntidadeFisica*>(jogador));
+        listaEntidade.empilharTras(static_cast<Entidades::Entidade*>(jogador));
+        vetorEntidadeFisica.empilharTras(static_cast<Entidades::EntidadeFisica*>(jogador));
     }
 }
 
-Fase::~Fase() {
-    listaEntidade.remover(static_cast<Entidade*>(jogador));
-    vetorEntidadeFisica.remover(static_cast<EntidadeFisica*>(jogador));
+Fases::Fase::~Fase() {
+    listaEntidade.remover(static_cast<Entidades::Entidade*>(jogador));
+    vetorEntidadeFisica.remover(static_cast<Entidades::EntidadeFisica*>(jogador));
     if (jogador2 != nullptr) {
-        listaEntidade.remover(static_cast<Entidade*>(jogador2));
-        vetorEntidadeFisica.remover(static_cast<EntidadeFisica*>(jogador2));
+        listaEntidade.remover(static_cast<Entidades::Entidade*>(jogador2));
+        vetorEntidadeFisica.remover(static_cast<Entidades::EntidadeFisica*>(jogador2));
     }
 }
 
-void Fase::setJogador2(Cavaleiro* jog2) {
+void Fases::Fase::setJogador2(Personagens::Cavaleiro* jog2) {
     if (jog2 == jogador2) {
         return;
     }
     else if (jog2 == nullptr && jogador2 != nullptr) {
-        listaEntidade.remover(static_cast<Entidade*>(jogador2));
-        vetorEntidadeFisica.remover(static_cast<EntidadeFisica*>(jogador2));
+        listaEntidade.remover(static_cast<Entidades::Entidade*>(jogador2));
+        vetorEntidadeFisica.remover(static_cast<Entidades::EntidadeFisica*>(jogador2));
     }
     jogador2 = jog2;
     if (jogador2 != nullptr) {
-        listaEntidade.empilharTras(static_cast<Entidade*>(jogador2));
-        vetorEntidadeFisica.empilharTras(static_cast<EntidadeFisica*>(jogador2));
+        listaEntidade.empilharTras(static_cast<Entidades::Entidade*>(jogador2));
+        vetorEntidadeFisica.empilharTras(static_cast<Entidades::EntidadeFisica*>(jogador2));
     }
 }
 
-void Fase::printar(GerenciadorGrafico* grafico) {
+void Fases::Fase::printar(Gerenciadores::GerenciadorGrafico* grafico) {
     grafico->desenhar(sprite);
 }
 
-void Fase::executar(bool pausa) {
+void Fases::Fase::executar(bool pausa) {
     if (pausa) {
         fisico->reiniciarRelogio();
     }
@@ -53,7 +53,7 @@ void Fase::executar(bool pausa) {
         fisico->executar(vetorEntidadeFisica, listaEntidade);
     }
     for (int i = 0; i < vetorEntidadeFisica.tamanho();) {
-        EntidadeFisica* movel = vetorEntidadeFisica[i];
+        Entidades::EntidadeFisica* movel = vetorEntidadeFisica[i];
         if (movel->getExcluido()) {
             listaEntidade.remover(movel);
             vetorEntidadeFisica.remover(movel);

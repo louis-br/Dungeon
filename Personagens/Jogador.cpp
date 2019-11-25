@@ -1,7 +1,7 @@
 #include "Jogador.h"
 #include <SFML/Window/Keyboard.hpp>
 
-Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Personagens::Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
     Personagem(pos, tam, lista, vetor),
     direita(sf::Keyboard::Right),
     esquerda(sf::Keyboard::Left),
@@ -15,11 +15,11 @@ Jogador::Jogador(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, Vetor
     estado = Estado::Pulando;
 }
 
-Jogador::~Jogador() {
+Personagens::Jogador::~Jogador() {
 
 }
 
-void Jogador::setTeclas(sf::Keyboard::Key* novo) {
+void Personagens::Jogador::setTeclas(sf::Keyboard::Key* novo) {
     for (int i = 0; i < 4; ++i) {
         teclas[i] = novo[i];
     }
@@ -29,18 +29,18 @@ void Jogador::setTeclas(sf::Keyboard::Key* novo) {
     baixo = teclas[3];
 }
 
-sf::Keyboard::Key* Jogador::getTeclas() {
+sf::Keyboard::Key* Personagens::Jogador::getTeclas() {
     return teclas;
 }
 
-void Jogador::atualizarTeclas() {
+void Personagens::Jogador::atualizarTeclas() {
     mover(sf::Vector2f(
         (float)(sf::Keyboard::isKeyPressed(direita) - sf::Keyboard::isKeyPressed(esquerda)),
         (float)(sf::Keyboard::isKeyPressed(baixo) - sf::Keyboard::isKeyPressed(cima))
     ));
 }
 
-Jogador::Tipo Jogador::getTipo() {
+Personagens::Jogador::Tipo Personagens::Jogador::getTipo() {
     if (estado == Estado::Atacando) {
         return Tipo::JogadorAtacando;
     }
@@ -49,7 +49,7 @@ Jogador::Tipo Jogador::getTipo() {
     }
 }
 
-void Jogador::colidiuCom(Tipo tipo) {
+void Personagens::Jogador::colidiuCom(Tipo tipo) {
     if (estado == Estado::Pulando) {
         if (velocidade.y >= -1.f) {
             estado = Estado::Andando;

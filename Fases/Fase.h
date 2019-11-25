@@ -11,22 +11,24 @@
 #include "../Personagens/Anao.h"
 #include "../Personagens/Aranha.h"
 
-class Fase : public Entidade
-{
-protected:
-    GerenciadorFisico* fisico;
-    GerenciadorGrafico* grafico;
-    sf::RenderWindow* janela;
-    sf::View camera;
-    ListaEntidade listaEntidade;
-    VetorEntidadeFisica vetorEntidadeFisica;
-    Cavaleiro* jogador;
-    Cavaleiro* jogador2;
-public:
-    Fase(sf::RenderWindow* window = nullptr, Cavaleiro* jog1 = nullptr);
-    void setJogador2(Cavaleiro* jog2);
-    virtual ~Fase();
-    virtual void criarTerreno() = 0;
-    void printar(GerenciadorGrafico* grafico);
-    void executar(bool pausa = false);
-};
+namespace Fases {
+	class Fase : public Entidades::Entidade
+	{
+	protected:
+		Gerenciadores::GerenciadorFisico* fisico;
+		Gerenciadores::GerenciadorGrafico* grafico;
+		sf::RenderWindow* janela;
+		sf::View camera;
+		Listas::ListaEntidade listaEntidade;
+		Listas::VetorEntidadeFisica vetorEntidadeFisica;
+		Personagens::Cavaleiro* jogador;
+		Personagens::Cavaleiro* jogador2;
+	public:
+		Fase(sf::RenderWindow* window = nullptr, Personagens::Cavaleiro* jog1 = nullptr);
+		void setJogador2(Personagens::Cavaleiro* jog2);
+		virtual ~Fase();
+		virtual void criarTerreno() = 0;
+		void printar(Gerenciadores::GerenciadorGrafico* grafico);
+		void executar(bool pausa = false);
+	};
+}

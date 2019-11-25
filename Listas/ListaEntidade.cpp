@@ -1,41 +1,41 @@
 #include "ListaEntidade.h"
 #include "../Entidades/Entidade.h"
 
-ListaEntidade::ListaEntidade() :
-	grafico(GerenciadorGrafico::getInstancia()),
+Listas::ListaEntidade::ListaEntidade() :
+	grafico(Gerenciadores::GerenciadorGrafico::getInstancia()),
 	LEs()
 {
 
 }
 
-ListaEntidade::~ListaEntidade() {
-	Lista<Entidade>::Elemento<Entidade>* atual = LEs.getPrimeiro();
+Listas::ListaEntidade::~ListaEntidade() {
+	Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* atual = LEs.getPrimeiro();
 	while (atual != nullptr) {
-		Lista<Entidade>::Elemento<Entidade>* proximo = atual->getProximo();
+		Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* proximo = atual->getProximo();
 		delete atual;
 		atual = proximo;
 	}
 }
 
-Lista<Entidade>::Elemento<Entidade>* ListaEntidade::getPrimeiro() {
+Listas::Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* Listas::ListaEntidade::getPrimeiro() {
 	return LEs.getPrimeiro();
 }
 
-Lista<Entidade>::Elemento<Entidade>* ListaEntidade::getUltimo() {
+Listas::Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* Listas::ListaEntidade::getUltimo() {
 	return LEs.getUltimo();
 }
 
-void ListaEntidade::empilharTras(Entidade* entidade)
+void Listas::ListaEntidade::empilharTras(Entidades::Entidade* entidade)
 {
 	LEs.empilharTras(entidade);
 }
 
-void ListaEntidade::remover(Entidade* entidade) {
+void Listas::ListaEntidade::remover(Entidades::Entidade* entidade) {
 	LEs.remover(entidade);
 }
 
-void ListaEntidade::printar() {
-	Lista<Entidade>::Elemento<Entidade>* atual = LEs.getPrimeiro();
+void Listas::ListaEntidade::printar() {
+	Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* atual = LEs.getPrimeiro();
 	while (atual != nullptr) {
 		atual->getElemento()->printar(grafico);
 		atual = atual->getProximo();

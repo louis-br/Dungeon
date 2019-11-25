@@ -1,24 +1,24 @@
 #include "VetorEntidadeFisica.h"
 #include "../Entidades/EntidadeFisica.h"
 
-VetorEntidadeFisica::VetorEntidadeFisica()
+Listas::VetorEntidadeFisica::VetorEntidadeFisica()
 {
 
 }
 
-VetorEntidadeFisica::~VetorEntidadeFisica() {
+Listas::VetorEntidadeFisica::~VetorEntidadeFisica() {
 	for (int i = 0; i < LEFs.size(); ++i) {
 		delete LEFs[i];
 	}
 	LEFs.clear();
 }
 
-void VetorEntidadeFisica::empilharTras(EntidadeFisica* entidade)
+void Listas::VetorEntidadeFisica::empilharTras(Entidades::EntidadeFisica* entidade)
 {
 	LEFs.push_back(entidade);
 }
 
-void VetorEntidadeFisica::remover(EntidadeFisica* entidade) {
+void Listas::VetorEntidadeFisica::remover(Entidades::EntidadeFisica* entidade) {
 	for (int i = 0; i < LEFs.size(); ++i) {
 		if (LEFs[i] == entidade) {
 			LEFs.erase(LEFs.begin() + i);
@@ -26,10 +26,10 @@ void VetorEntidadeFisica::remover(EntidadeFisica* entidade) {
 	}
 }
 
-int VetorEntidadeFisica::tamanho() {
+int Listas::VetorEntidadeFisica::tamanho() {
 	return LEFs.size();
 }
 
-EntidadeFisica*& VetorEntidadeFisica::operator[](int indice) {
+Entidades::EntidadeFisica*& Listas::VetorEntidadeFisica::operator[](int indice) {
 	return LEFs[indice];
 }

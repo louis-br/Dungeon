@@ -1,6 +1,6 @@
 #include "Inicial.h"
 
-Inicial::Inicial(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
+Principal::Menus::Inicial::Inicial(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
     Menu(window, pos, tam),
     fase(false),
     multijogador(false),
@@ -20,23 +20,23 @@ Inicial::Inicial(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
     }
 }
 
-Inicial::~Inicial() {
+Principal::Menus::Inicial::~Inicial() {
 
 }
 
-bool Inicial::getFase() {
+bool Principal::Menus::Inicial::getFase() {
     return fase;
 }
 
-bool Inicial::getMultijogador() {
+bool Principal::Menus::Inicial::getMultijogador() {
     return multijogador;
 }
 
-bool Inicial::getSair() {
+bool Principal::Menus::Inicial::getSair() {
     return sair;
 }
 
-int Inicial::executar() {
+int Principal::Menus::Inicial::executar() {
     if (confirmado) {
         ligado = false;
         switch (opcao) {
@@ -65,7 +65,7 @@ int Inicial::executar() {
     return !ligado;
 }
 
-void Inicial::printar(GerenciadorGrafico* grafico) {
+void Principal::Menus::Inicial::printar(Gerenciadores::GerenciadorGrafico* grafico) {
     janela->setView(janela->getDefaultView());
     grafico->desenhar(fundo);
     grafico->desenhar(titulo);

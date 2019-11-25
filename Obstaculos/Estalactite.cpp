@@ -1,16 +1,16 @@
 #include "Estalactite.h"
 
-Estalactite::Estalactite(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Obstaculos::Estalactite::Estalactite(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
 	EntidadeFisica(pos, tam, lista, vetor)
 {
-	setTextura(GerenciadorGrafico::Texturas::Estalactite);
+	setTextura(Gerenciadores::GerenciadorGrafico::Texturas::Estalactite);
 }
 
-Estalactite::~Estalactite() {
+Obstaculos::Estalactite::~Estalactite() {
 
 }
 
-Estalactite::Tipo Estalactite::getTipo() {
+Obstaculos::Estalactite::Tipo Obstaculos::Estalactite::getTipo() {
 	if (velocidade.y < 10) {
 		return Tipo::Neutro;
 	}
@@ -19,13 +19,13 @@ Estalactite::Tipo Estalactite::getTipo() {
 	}
 }
 
-void Estalactite::colidiuCom(Tipo tipo) {
+void Obstaculos::Estalactite::colidiuCom(Tipo tipo) {
 	if (tipo == Tipo::Jogador || tipo == Tipo::JogadorAtacando) {
 		tamanho = sf::Vector2f(tamanho.x, 86);
 	}
 }
 
-void Estalactite::printar(GerenciadorGrafico* grafico) {
+void Obstaculos::Estalactite::printar(Gerenciadores::GerenciadorGrafico* grafico) {
 	sprite.setPosition(posicao);
 	grafico->desenhar(sprite);
 }

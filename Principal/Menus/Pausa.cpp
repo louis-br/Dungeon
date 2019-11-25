@@ -1,6 +1,6 @@
 #include "Pausa.h"
 
-Pausa::Pausa(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
+Principal::Menus::Pausa::Pausa(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	Menu(window, pos, tam),
 	fase(false),
 	multijogador(false),
@@ -19,15 +19,15 @@ Pausa::Pausa(sf::RenderWindow* window, sf::Vector2f pos, sf::Vector2f tam) :
 	}
 }
 
-Pausa::~Pausa() {
+Principal::Menus::Pausa::~Pausa() {
 
 }
 
-bool Pausa::getSair() {
+bool Principal::Menus::Pausa::getSair() {
 	return sair;
 }
 
-int Pausa::executar() {
+int Principal::Menus::Pausa::executar() {
 	if (confirmado) {
 		ligado = false;
 		switch (opcao) {
@@ -42,7 +42,7 @@ int Pausa::executar() {
 	return !ligado;
 }
 
-void Pausa::printar(GerenciadorGrafico* grafico) {
+void Principal::Menus::Pausa::printar(Gerenciadores::GerenciadorGrafico* grafico) {
 	janela->setView(janela->getDefaultView());
 	grafico->desenhar(fundo);
 	grafico->desenhar(titulo);
@@ -58,7 +58,7 @@ void Pausa::printar(GerenciadorGrafico* grafico) {
 	}
 }
 
-void Pausa::atualizarTeclas() {
+void Principal::Menus::Pausa::atualizarTeclas() {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Escape)) {
 		ligado = true;
 	}

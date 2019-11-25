@@ -1,18 +1,18 @@
 #include "Fenix.h"
 
-Fenix::Fenix(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Personagens::Fenix::Fenix(sf::Vector2f pos, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
 	Inimigo(pos, sf::Vector2f(159, 214), lista, vetor),
 	bolaDeFogo(new BolaDeFogo(pos, lista, vetor))
 {
 	vidas = 3;
-	setTextura(GerenciadorGrafico::Texturas::Fenix);
+	setTextura(Gerenciadores::GerenciadorGrafico::Texturas::Fenix);
 }
 
-Fenix::~Fenix() {
+Personagens::Fenix::~Fenix() {
 
 }
 
-void Fenix::printar(GerenciadorGrafico* grafico) {
+void Personagens::Fenix::printar(Gerenciadores::GerenciadorGrafico* grafico) {
 	printarCoracoes(grafico);
 	printarDano(grafico, 1.f);
 	float decorrido = relogio.getElapsedTime().asSeconds();
@@ -33,18 +33,18 @@ void Fenix::printar(GerenciadorGrafico* grafico) {
 	grafico->desenhar(sprite);
 }
 
-Fenix::BolaDeFogo::BolaDeFogo(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Personagens::Fenix::BolaDeFogo::BolaDeFogo(sf::Vector2f pos, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
 	EntidadeFisica(pos, sf::Vector2f(16, 15), lista, vetor),
 	visivel(false)
 {
-	setTextura(GerenciadorGrafico::Texturas::BolaDeFogo);
+	setTextura(Gerenciadores::GerenciadorGrafico::Texturas::BolaDeFogo);
 }
 
-Fenix::BolaDeFogo::~BolaDeFogo() {
+Personagens::Fenix::BolaDeFogo::~BolaDeFogo() {
 
 }
 
-Fenix::BolaDeFogo::Tipo Fenix::BolaDeFogo::getTipo() {
+Personagens::Fenix::BolaDeFogo::Tipo Personagens::Fenix::BolaDeFogo::getTipo() {
 	if (visivel) {
 		return Tipo::Hostil;
 	}
@@ -53,19 +53,19 @@ Fenix::BolaDeFogo::Tipo Fenix::BolaDeFogo::getTipo() {
 	}
 }
 
-void Fenix::BolaDeFogo::colidiuCom(Tipo tipo) {
+void Personagens::Fenix::BolaDeFogo::colidiuCom(Tipo tipo) {
 	if (tipo == Tipo::Neutro) {
 		visivel = false;
 	}
 }
 
-void Fenix::BolaDeFogo::printar(GerenciadorGrafico* grafico) {
+void Personagens::Fenix::BolaDeFogo::printar(Gerenciadores::GerenciadorGrafico* grafico) {
 	sprite.setPosition(posicao);
 	if (visivel) {
 		grafico->desenhar(sprite);
 	}
 }
 
-void Fenix::BolaDeFogo::setVisivel(bool v) {
+void Personagens::Fenix::BolaDeFogo::setVisivel(bool v) {
 	visivel = v;
 }

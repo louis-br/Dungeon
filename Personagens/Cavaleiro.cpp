@@ -1,18 +1,18 @@
 #include "Cavaleiro.h"
 #include "math.h"
 
-Cavaleiro::Cavaleiro(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Personagens::Cavaleiro::Cavaleiro(sf::Vector2f pos, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
     Jogador(pos, sf::Vector2f(63, 77), lista, vetor)
 {
-    setTextura(GerenciadorGrafico::Texturas::Cavaleiro);
+    setTextura(Gerenciadores::GerenciadorGrafico::Texturas::Cavaleiro);
     sprite.setTextureRect(sf::IntRect((sentido > 0)*63, 0, -sentido*(int)(tamanho.x), (int)(tamanho.y)));
 }
 
-Cavaleiro::~Cavaleiro() {
+Personagens::Cavaleiro::~Cavaleiro() {
 
 }
 
-void Cavaleiro::printar(GerenciadorGrafico* grafico) {
+void Personagens::Cavaleiro::printar(Gerenciadores::GerenciadorGrafico* grafico) {
     if (posicao.y > 800 || vidas <= 0) {
         posicao = sf::Vector2f(0, 0);
         vidas = 3;
@@ -37,7 +37,7 @@ void Cavaleiro::printar(GerenciadorGrafico* grafico) {
     grafico->desenhar(sprite);
 }
 
-void Cavaleiro::andar() {
+void Personagens::Cavaleiro::andar() {
     int quadros = (int)((relogio.getElapsedTime().asSeconds() * abs(velocidade.x)) / (tamanho.x) * 11.f);
     if (quadros > 0) {
         relogio.restart();
@@ -50,14 +50,14 @@ void Cavaleiro::andar() {
     }
 }
 
-void Cavaleiro::pular() {
+void Personagens::Cavaleiro::pular() {
     sprite.move(sf::Vector2f(-6, -12));
     int quadro = (int)((velocidade.y + potencialVelocidade.y * 0.5f)/(potencialVelocidade.y) * 8.f);
     quadro = std::max(std::min(quadro, 8), 0);
     sprite.setTextureRect(sf::IntRect((quadro + (sentido > 0)) * 75, 77, -sentido * 75, 102));
 }
 
-void Cavaleiro::atacar() {
+void Personagens::Cavaleiro::atacar() {
     int quadro = (int)(relogio.getElapsedTime().asSeconds() * 2.f * 5.f);
     quadro = std::min(quadro, 5);
     sprite.move(-32.5, -26);

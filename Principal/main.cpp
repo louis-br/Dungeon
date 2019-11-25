@@ -1,6 +1,6 @@
 #include "Jogo.h"
 
 int main() {
-	Jogo jogo;
+	Principal::Jogo jogo;
 	return 0;
 }

@@ -1,16 +1,16 @@
 #include "GerenciadorGrafico.h"
 
-GerenciadorGrafico::GerenciadorGrafico() :
+Gerenciadores::GerenciadorGrafico::GerenciadorGrafico() :
 	janela(nullptr)
 {
 	carregarTexturas();
 }
 
-GerenciadorGrafico::~GerenciadorGrafico() {
+Gerenciadores::GerenciadorGrafico::~GerenciadorGrafico() {
 
 }
 
-GerenciadorGrafico* GerenciadorGrafico::getInstancia()
+Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::getInstancia()
 {
 	if (instancia == nullptr) {
 		instancia = new GerenciadorGrafico();
@@ -18,32 +18,32 @@ GerenciadorGrafico* GerenciadorGrafico::getInstancia()
 	return instancia;
 }
 
-void GerenciadorGrafico::setJanela(sf::RenderWindow* window) {
+void Gerenciadores::GerenciadorGrafico::setJanela(sf::RenderWindow* window) {
 	janela = window;
 }
 
-void GerenciadorGrafico::limpar() 
+void Gerenciadores::GerenciadorGrafico::limpar()
 {
 	if (janela != nullptr) {
 		janela->clear();
 	}
 }
 
-void GerenciadorGrafico::desenhar(sf::Drawable& desenho)
+void Gerenciadores::GerenciadorGrafico::desenhar(sf::Drawable& desenho)
 {
 	if (janela != nullptr) {
 		janela->draw(desenho);
 	}
 }
 
-void GerenciadorGrafico::atualizarTela() 
+void Gerenciadores::GerenciadorGrafico::atualizarTela()
 {
 	if (janela != nullptr) {
 		janela->display();
 	}
 }
 
-void GerenciadorGrafico::carregarTexturas() {
+void Gerenciadores::GerenciadorGrafico::carregarTexturas() {
 	carregarTextura(Texturas::Plataforma, "Recursos/Plataformas/Plataforma1.png");
 	carregarTextura(Texturas::Grama, "Recursos/Plataformas/Grass.png");
 	carregarTextura(Texturas::PlataformaGrama, "Recursos/Plataformas/Plataforma3.png");
@@ -71,20 +71,20 @@ void GerenciadorGrafico::carregarTexturas() {
 	//carregarTextura(Texturas::menuGame, "data/images/wood.png");
 }
 
-void GerenciadorGrafico::carregarTextura(Texturas id, const std::string& arquivo)
+void Gerenciadores::GerenciadorGrafico::carregarTextura(Texturas id, const std::string& arquivo)
 {
 	mapaTexturas.carregarRecurso(id, arquivo);
 }
 
-sf::Texture& GerenciadorGrafico::getTextura(Texturas id) {
+sf::Texture& Gerenciadores::GerenciadorGrafico::getTextura(Texturas id) {
 	return mapaTexturas.getRecurso(id);
 }
 
-void GerenciadorGrafico::carregarFonte(sf::Font& fonte, const std::string& arquivo)
+void Gerenciadores::GerenciadorGrafico::carregarFonte(sf::Font& fonte, const std::string& arquivo)
 {
 	if (!fonte.loadFromFile(arquivo)) {
 		std::cout << "Falha ao carregar fonte: " << arquivo << '\n';
 	}
 }
 
-GerenciadorGrafico* GerenciadorGrafico::instancia(nullptr);
+Gerenciadores::GerenciadorGrafico* Gerenciadores::GerenciadorGrafico::instancia(nullptr);

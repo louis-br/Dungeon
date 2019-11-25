@@ -1,7 +1,7 @@
 #include "Entidade.h"
 
 
-Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
+Entidades::Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista) :
 	posicao(pos),
 	tamanho(tam),
 	atrito(1.f),
@@ -15,42 +15,42 @@ Entidade::Entidade(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
 	}
 }
 
-Entidade::~Entidade() {
+Entidades::Entidade::~Entidade() {
 
 }
 
-Entidade::Tipo Entidade::getTipo() {
+Entidades::Entidade::Tipo Entidades::Entidade::getTipo() {
 	return Tipo::Neutro;
 }
 
-void Entidade::colidiuCom(Tipo tipo) {
+void Entidades::Entidade::colidiuCom(Tipo tipo) {
 
 }
 
-void Entidade::setTextura(GerenciadorGrafico::Texturas tex) {
-	textura = GerenciadorGrafico::getInstancia()->getTextura(tex);
+void Entidades::Entidade::setTextura(Gerenciadores::GerenciadorGrafico::Texturas tex) {
+	textura = Gerenciadores::GerenciadorGrafico::getInstancia()->getTextura(tex);
 }
 
-void Entidade::setPosicao(sf::Vector2f pos) {
+void Entidades::Entidade::setPosicao(sf::Vector2f pos) {
 	posicao = pos;
 }
 
-sf::Vector2f Entidade::getPosicao() {
+sf::Vector2f Entidades::Entidade::getPosicao() {
 	return posicao;
 }
 
-void Entidade::setTamanho(sf::Vector2f pos) {
+void Entidades::Entidade::setTamanho(sf::Vector2f pos) {
 	tamanho = pos;
 }
 
-sf::Vector2f Entidade::getTamanho() {
+sf::Vector2f Entidades::Entidade::getTamanho() {
 	return tamanho;
 }
 
-void Entidade::setAtrito(float at) {
+void Entidades::Entidade::setAtrito(float at) {
 	atrito = at;
 }
 
-float Entidade::getAtrito() {
+float Entidades::Entidade::getAtrito() {
 	return atrito;
 }

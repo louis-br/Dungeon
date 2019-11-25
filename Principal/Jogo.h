@@ -6,22 +6,24 @@
 #include "../Fases/Floresta.h"
 #include "../Fases/Caverna.h"
 
-class Jogo
-{
-private:
-	sf::RenderWindow janela;
-	Inicial menuInicial;
-	Pausa menuPausa;
-	GerenciadorEntrada* entrada;
-	GerenciadorGrafico* grafico;
-	Cavaleiro jogador;
-	Cavaleiro jogador2;
-	//Caverna fase1;
-	Fase* fase;
-	//Pausa menuPausa;
-	bool pausado;
-public:
-	Jogo();
-	~Jogo();
-	void executar();
-};
+namespace Principal {
+	class Jogo
+	{
+	private:
+		sf::RenderWindow janela;
+		Menus::Inicial menuInicial;
+		Menus::Pausa menuPausa;
+		Gerenciadores::GerenciadorEntrada* entrada;
+		Gerenciadores::GerenciadorGrafico* grafico;
+		Personagens::Cavaleiro jogador;
+		Personagens::Cavaleiro jogador2;
+		//Caverna fase1;
+		Fases::Fase* fase;
+		//Pausa menuPausa;
+		bool pausado;
+	public:
+		Jogo();
+		~Jogo();
+		void executar();
+	};
+}

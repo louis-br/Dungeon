@@ -2,19 +2,23 @@
 #include "Lista.h"
 #include "../Gerenciadores/GerenciadorGrafico.h"
 
-class Entidade;
+namespace Entidades {
+	class Entidade;
+}
 
-class ListaEntidade
-{
-private:
-	GerenciadorGrafico* grafico;
-	Lista<Entidade> LEs;
-public:
-	ListaEntidade();
-	~ListaEntidade();
-	Lista<Entidade>::Elemento<Entidade>* getPrimeiro();
-	Lista<Entidade>::Elemento<Entidade>* getUltimo();
-	void empilharTras(Entidade* entidade);
-	void remover(Entidade* entidade);
-	void printar();
-};
+namespace Listas {
+	class ListaEntidade
+	{
+	private:
+		Gerenciadores::GerenciadorGrafico* grafico;
+		Lista<Entidades::Entidade> LEs;
+	public:
+		ListaEntidade();
+		~ListaEntidade();
+		Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* getPrimeiro();
+		Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* getUltimo();
+		void empilharTras(Entidades::Entidade* entidade);
+		void remover(Entidades::Entidade* entidade);
+		void printar();
+	};
+}

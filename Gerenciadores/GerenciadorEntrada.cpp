@@ -1,6 +1,6 @@
 #include "GerenciadorEntrada.h"
 
-GerenciadorEntrada::GerenciadorEntrada() :
+Gerenciadores::GerenciadorEntrada::GerenciadorEntrada() :
 jogadores{nullptr, nullptr},
 menus{nullptr, nullptr},
 janela(nullptr)
@@ -8,11 +8,11 @@ janela(nullptr)
 
 }
 
-GerenciadorEntrada::~GerenciadorEntrada() {
+Gerenciadores::GerenciadorEntrada::~GerenciadorEntrada() {
 
 }
 
-GerenciadorEntrada* GerenciadorEntrada::getInstancia()
+Gerenciadores::GerenciadorEntrada* Gerenciadores::GerenciadorEntrada::getInstancia()
 {
 	if (instancia == nullptr) {
 		instancia = new GerenciadorEntrada();
@@ -20,7 +20,7 @@ GerenciadorEntrada* GerenciadorEntrada::getInstancia()
 	return instancia;
 }
 
-void GerenciadorEntrada::setJogador(Jogador* jogador) {
+void Gerenciadores::GerenciadorEntrada::setJogador(Personagens::Jogador* jogador) {
 	if (jogadores[0] == nullptr) {
 		jogadores[0] = jogador;
 	}
@@ -29,7 +29,7 @@ void GerenciadorEntrada::setJogador(Jogador* jogador) {
 	}
 }
 
-void GerenciadorEntrada::setMenu(Menu* m) {
+void Gerenciadores::GerenciadorEntrada::setMenu(Principal::Menus::Menu* m) {
 	if (menus[0] == nullptr) {
 		menus[0] = m;
 	}
@@ -38,11 +38,11 @@ void GerenciadorEntrada::setMenu(Menu* m) {
 	}
 }
 
-void GerenciadorEntrada::setJanela(sf::RenderWindow* window) {
+void Gerenciadores::GerenciadorEntrada::setJanela(sf::RenderWindow* window) {
 	janela = window;
 }
 
-void GerenciadorEntrada::executar() {
+void Gerenciadores::GerenciadorEntrada::executar() {
 	if (janela != nullptr) {
 		sf::Event event;
 		while (janela->pollEvent(event))
@@ -82,4 +82,4 @@ void GerenciadorEntrada::executar() {
 	}
 }
 
-GerenciadorEntrada* GerenciadorEntrada::instancia(nullptr);
+Gerenciadores::GerenciadorEntrada* Gerenciadores::GerenciadorEntrada::instancia(nullptr);

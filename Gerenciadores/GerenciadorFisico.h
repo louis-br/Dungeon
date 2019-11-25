@@ -7,17 +7,19 @@
 #include "../Listas/ListaEntidade.h"
 #include "../Listas/VetorEntidadeFisica.h"
 
-class GerenciadorFisico
-{
-private:
-	sf::Vector2f gravidade;
-	static GerenciadorFisico* instancia;
-	sf::Clock relogio;
-	GerenciadorFisico();
-	~GerenciadorFisico();
-public:
-	static GerenciadorFisico* getInstancia();
-	void reiniciarRelogio();
-	sf::Vector2f colidir(Entidade* A, Entidade* B);
-	void executar(VetorEntidadeFisica& moveis, ListaEntidade& entidades);
-};
+namespace Gerenciadores {
+	class GerenciadorFisico
+	{
+	private:
+		sf::Vector2f gravidade;
+		static GerenciadorFisico* instancia;
+		sf::Clock relogio;
+		GerenciadorFisico();
+		~GerenciadorFisico();
+	public:
+		static GerenciadorFisico* getInstancia();
+		void reiniciarRelogio();
+		sf::Vector2f colidir(Entidades::Entidade* A, Entidades::Entidade* B);
+		void executar(Listas::VetorEntidadeFisica& moveis, Listas::ListaEntidade& entidades);
+	};
+}

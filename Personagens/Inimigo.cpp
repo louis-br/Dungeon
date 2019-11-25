@@ -1,6 +1,6 @@
 #include "Inimigo.h"
 
-Inimigo::Inimigo(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Personagens::Inimigo::Inimigo(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
     Personagem(pos, tam, lista, vetor)
 {
     vidas = 1;
@@ -9,15 +9,15 @@ Inimigo::Inimigo(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, Vetor
     velocidadeMaxima = sf::Vector2f(130.f, 100.f);
 }
 
-Inimigo::~Inimigo() {
+Personagens::Inimigo::~Inimigo() {
 
 }
 
-Inimigo::Tipo Inimigo::getTipo() {
+Personagens::Inimigo::Tipo Personagens::Inimigo::getTipo() {
     return Tipo::Hostil;
 }
 
-void Inimigo::colidiuCom(Tipo tipo) {
+void Personagens::Inimigo::colidiuCom(Tipo tipo) {
     estado = Estado::Andando;
     if ((int)tipo > 0) {
         sentido = !sentido;

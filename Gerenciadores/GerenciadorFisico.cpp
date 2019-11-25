@@ -2,28 +2,28 @@
 #include <math.h>
 #include "stdlib.h"
 
-GerenciadorFisico::GerenciadorFisico() :
+Gerenciadores::GerenciadorFisico::GerenciadorFisico() :
     gravidade(0, 200)
 {
 
 }
 
-GerenciadorFisico::~GerenciadorFisico() {
+Gerenciadores::GerenciadorFisico::~GerenciadorFisico() {
 
 }
 
-GerenciadorFisico* GerenciadorFisico::getInstancia() {
+Gerenciadores::GerenciadorFisico* Gerenciadores::GerenciadorFisico::getInstancia() {
     if (instancia == nullptr) {
         instancia = new GerenciadorFisico();
     }
     return instancia;
 }
 
-void GerenciadorFisico::reiniciarRelogio() {
+void Gerenciadores::GerenciadorFisico::reiniciarRelogio() {
     relogio.restart();
 }
 
-sf::Vector2f GerenciadorFisico::colidir(Entidade* A, Entidade* B) {
+sf::Vector2f Gerenciadores::GerenciadorFisico::colidir(Entidades::Entidade* A, Entidades::Entidade* B) {
     sf::Vector2f posA = A->getPosicao();
     sf::Vector2f extremoA = posA + A->getTamanho();
     sf::Vector2f posB = B->getPosicao();
@@ -85,19 +85,19 @@ sf::Vector2f restringirVelocidade(sf::Vector2f velocidade, sf::Vector2f velocida
     return sf::Vector2f(x, y);
 }
 
-void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& entidades) {
+void Gerenciadores::GerenciadorFisico::executar(Listas::VetorEntidadeFisica& moveis, Listas::ListaEntidade& entidades) {
     //Lista<Entidade>::Elemento<Entidade>* atual = ListaEntidade
     float decorrido = relogio.getElapsedTime().asSeconds();
     relogio.restart();
     for (int i = 0; i < moveis.tamanho(); ++i) {
-        EntidadeFisica* movel = moveis[i];
+        Entidades::EntidadeFisica* movel = moveis[i];
         sf::Vector2f aceleracao = movel->getAceleracao() + gravidade;
         sf::Vector2f velocidade = restringirVelocidade(movel->getVelocidade() + aceleracao * decorrido, movel->getVelocidadeMaxima());
         sf::Vector2f posicao = movel->getPosicao() + velocidade * decorrido + aceleracao * 0.5f * (decorrido * decorrido);
-        Entidade* A = static_cast<Entidade*>(movel);
-        Lista<Entidade>::Elemento<Entidade>* atual = entidades.getPrimeiro();
+		Entidades::Entidade* A = static_cast<Entidades::Entidade*>(movel);
+        Listas::Lista<Entidades::Entidade>::Elemento<Entidades::Entidade>* atual = entidades.getPrimeiro();
         while (atual != nullptr) {
-            Entidade* B = atual->getElemento();
+			Entidades::Entidade* B = atual->getElemento();
             if (A != B) {
                 sf::Vector2f correcao = colidir(A, atual->getElemento());
                 posicao += correcao;
@@ -109,8 +109,8 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
                         velocidade = sf::Vector2f(0, velocidade.y);
                     }
                     velocidade -= sf::Vector2f(velocidade.x * (B->getAtrito()) * decorrido, 0);
-                    Entidade::Tipo tipoA = A->getTipo();
-                    if (tipoA != Entidade::Tipo::Neutro) {
+					Entidades::Entidade::Tipo tipoA = A->getTipo();
+                    if (tipoA != Entidades::Entidade::Tipo::Neutro) {
                         B->colidiuCom(tipoA);
                     }
                     A->colidiuCom(B->getTipo());
@@ -123,4 +123,4 @@ void GerenciadorFisico::executar(VetorEntidadeFisica& moveis, ListaEntidade& ent
     }
 }
 
-GerenciadorFisico* GerenciadorFisico::instancia(nullptr);
+Gerenciadores::GerenciadorFisico* Gerenciadores::GerenciadorFisico::instancia(nullptr);

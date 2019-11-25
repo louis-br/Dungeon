@@ -1,6 +1,6 @@
 #include "EntidadeFisica.h"
 
-EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista) :
+Entidades::EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista) :
 	Entidade(pos, tam, lista),
 	velocidade(0, 0),
 	aceleracao(0, 0),
@@ -11,7 +11,7 @@ EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade
 
 }
 
-EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+Entidades::EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :
 	Entidade(pos, tam, lista),
 	velocidade(0, 0),
 	aceleracao(0, 0),
@@ -24,34 +24,34 @@ EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade
 	}
 }
 
-EntidadeFisica::~EntidadeFisica() {
+Entidades::EntidadeFisica::~EntidadeFisica() {
 
 }
 
-void EntidadeFisica::setVelocidade(sf::Vector2f& vel) {
+void Entidades::EntidadeFisica::setVelocidade(sf::Vector2f& vel) {
 	velocidade = vel;
 }
 
-sf::Vector2f EntidadeFisica::getVelocidade() {
+sf::Vector2f Entidades::EntidadeFisica::getVelocidade() {
 	return velocidade;
 }
 
-void EntidadeFisica::setAceleracao(sf::Vector2f& acel) {
+void Entidades::EntidadeFisica::setAceleracao(sf::Vector2f& acel) {
 	aceleracao = acel;
 }
 
-sf::Vector2f EntidadeFisica::getAceleracao() {
+sf::Vector2f Entidades::EntidadeFisica::getAceleracao() {
 	return aceleracao;
 }
 
-void EntidadeFisica::setVelocidadeMaxima(sf::Vector2f& velMax) {
+void Entidades::EntidadeFisica::setVelocidadeMaxima(sf::Vector2f& velMax) {
 	velocidadeMaxima = velMax;
 }
 
-sf::Vector2f EntidadeFisica::getVelocidadeMaxima() {
+sf::Vector2f Entidades::EntidadeFisica::getVelocidadeMaxima() {
 	return velocidadeMaxima;
 }
 
-bool EntidadeFisica::getExcluido() {
+bool Entidades::EntidadeFisica::getExcluido() {
 	return excluido;
 }
