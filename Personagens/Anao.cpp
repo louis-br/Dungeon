@@ -27,14 +27,5 @@ void Anao::printar(GerenciadorGrafico* grafico) {
     mover(sf::Vector2f(sentido, 0));
     sprite.setPosition(posicao);
     sprite.setTextureRect(sf::IntRect(30 + (sentido < 0)*36, 7, sentido*36, 65));
-    andar();
     grafico->desenhar(sprite);
 }
-
-void Anao::andar() {
-
-}
-
-//void Anao::colidiuCom(Tipo tipo) {
-
-//}

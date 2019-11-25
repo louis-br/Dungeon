@@ -5,7 +5,9 @@ Floresta::Floresta(sf::RenderWindow* janela, Cavaleiro* jog1) :
 {
 	setTextura(GerenciadorGrafico::Texturas::Floresta);
 	textura.setRepeated(true);
-	sprite.setTextureRect(sf::IntRect(0, 0, 1920*2, 1080));
+	sf::Vector2u tam = textura.getSize();
+	sprite.setTextureRect(sf::IntRect(0, 0, (int)(textura.getSize().x) * 2, (int)(textura.getSize().y) * 3));
+	//sprite.setTextureRect(sf::IntRect(0, 0, 1920*2, 1080));
 	criarTerreno();
 }
 

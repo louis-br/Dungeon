@@ -24,10 +24,5 @@ void Aranha::printar(GerenciadorGrafico* grafico) {
     mover(sf::Vector2f(sentido, -1));
     sprite.setPosition(posicao);
     sprite.setTextureRect(sf::IntRect((sentido < 0) * 14, 0, sentido * 14, 11));
-    andar();
     grafico->desenhar(sprite);
-}
-
-void Aranha::andar() {
-
 }

@@ -67,7 +67,7 @@ void GerenciadorGrafico::carregarTexturas() {
 	carregarTextura(Texturas::Estalactite, "Recursos/Obstaculos/stalactite4.png");
 	carregarTextura(Texturas::TeiaDeAranha, "Recursos/Obstaculos/SpiderWeb.png");
 	carregarTextura(Texturas::Fogo, "Recursos/Obstaculos/Fogo.png");
-	//carregarTextura(Texturas::BolaDeFogo, "data/images/ProjetilFogo.png");
+	carregarTextura(Texturas::BolaDeFogo, "Recursos/Personagens/BolaDeFogo.png");
 	//carregarTextura(Texturas::menuGame, "data/images/wood.png");
 }
 
