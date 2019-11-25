@@ -1,5 +1,6 @@
 #pragma once
 #include "Fase.h"
+#include "../Personagens/Fenix.h"
 
 class Caverna : public Fase
 {

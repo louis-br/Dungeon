@@ -5,7 +5,7 @@ class Fenix : public Inimigo
 private:
 	class BolaDeFogo : public EntidadeFisica {
 	public:
-		BolaDeFogo();
+		BolaDeFogo(sf::Vector2f pos = sf::Vector2f(0, 0), ListaEntidade* lista = nullptr, VetorEntidadeFisica* vetor = nullptr);
 		~BolaDeFogo();
 		Tipo getTipo();
 		void colidiuCom(Tipo tipo);

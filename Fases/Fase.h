@@ -8,7 +8,6 @@
 #include "../Obstaculos/TeiaDeAranha.h"
 #include "../Obstaculos/Estalactite.h"
 #include "../Obstaculos/Fogo.h"
-#include "../Personagens/Fenix.h"
 #include "../Personagens/Anao.h"
 #include "../Personagens/Aranha.h"
 

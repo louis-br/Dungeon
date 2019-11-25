@@ -40,26 +40,15 @@ void Jogo::executar() {
 
         menuInicial.executar();
 
-        if(menuInicial.getFase()){
-            fase = &fase1;
-        }
-        else{
-            fase = &fase2;
-        }
-        if (menuInicial.getSair()) {
-            return;
-        }
         fase->executar(inicial || pausa);
-
 		if (inicial) {
 			menuPausa.setLigado(false);
 			menuInicial.printar(grafico);
+			jogador.setPosicao(sf::Vector2f(0, 0));
+			jogador2.setPosicao(sf::Vector2f(0, 0));
             if (menuInicial.executar()) {
-				if (menuInicial.getMultijogador()) {
-					sf::Keyboard::Key teclas[4] = { sf::Keyboard::D, sf::Keyboard::A, sf::Keyboard::W, sf::Keyboard::S };
-					jogador2.setTeclas(teclas);
-					entrada->setJogador(&jogador2);
-					fase->setJogador2(&jogador2);
+				if (menuInicial.getSair()) {
+					return;
 				}
 				if (fase != nullptr) {
 					delete fase;
@@ -69,6 +58,15 @@ void Jogo::executar() {
 				}
 				else {
 					fase = static_cast<Fase*>(new Floresta(&janela, &jogador));
+				}
+				if (menuInicial.getMultijogador()) {
+					sf::Keyboard::Key teclas[4] = { sf::Keyboard::D, sf::Keyboard::A, sf::Keyboard::W, sf::Keyboard::S };
+					jogador2.setTeclas(teclas);
+					entrada->setJogador(&jogador2);
+					fase->setJogador2(&jogador2);
+				}
+				else {
+					entrada->setJogador(nullptr);
 				}
 			}
 		}

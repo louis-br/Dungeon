@@ -28,9 +28,27 @@ void Fenix::printar(GerenciadorGrafico* grafico) {
 	mover(sf::Vector2f(sentido, -1));
 	sprite.setPosition(posicao);
 	sprite.setTextureRect(sf::IntRect((sentido < 0) * 159, 0, sentido * 159, 214));
-	andar();
 	grafico->desenhar(sprite);
 }
 
-void Fenix
+Fenix::BolaDeFogo::BolaDeFogo(sf::Vector2f pos, ListaEntidade* lista, VetorEntidadeFisica* vetor) :
+	EntidadeFisica(pos, sf::Vector2f(0, 0), lista, vetor)
+{
 
+}
+
+Fenix::BolaDeFogo::~BolaDeFogo() {
+
+}
+
+Fenix::BolaDeFogo::Tipo Fenix::BolaDeFogo::getTipo() {
+	return Tipo::Hostil;
+}
+
+void Fenix::BolaDeFogo::colidiuCom(Tipo tipo) {
+
+}
+
+void Fenix::BolaDeFogo::printar(GerenciadorGrafico* grafico) {
+
+}
