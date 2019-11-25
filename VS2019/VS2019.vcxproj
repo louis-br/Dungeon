@@ -130,6 +130,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Fases\Caverna.cpp" />
     <ClCompile Include="..\Obstaculos\Estalactite.cpp" />
     <ClCompile Include="..\Obstaculos\Fogo.cpp" />
     <ClCompile Include="..\Personagens\Aranha.cpp" />
@@ -160,6 +161,7 @@
     <ClCompile Include="..\Principal\Menus\Pausa.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Fases\Caverna.h" />
     <ClInclude Include="..\Obstaculos\Estalactite.h" />
     <ClInclude Include="..\Obstaculos\Fogo.h" />
     <ClInclude Include="..\Personagens\Aranha.h" />

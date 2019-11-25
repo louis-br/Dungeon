@@ -4,9 +4,9 @@ Inimigo::Inimigo(sf::Vector2f pos, sf::Vector2f tam, ListaEntidade* lista, Vetor
 	Personagem(pos, tam, lista, vetor)
 {
 	vidas = 1;
-	potencialVelocidade = sf::Vector2f(0.f, 50.f);
+	potencialVelocidade = sf::Vector2f(0.f, 100.f);
 	potencialAceleracao = sf::Vector2f(100.f, 0.f);
-	velocidadeMaxima = sf::Vector2f(130.f, 50.f);
+	velocidadeMaxima = sf::Vector2f(130.f, 100.f);
 }
 
 Inimigo::~Inimigo() {

@@ -3,7 +3,7 @@
 #include "stdlib.h"
 
 GerenciadorFisico::GerenciadorFisico() :
-	gravidade(0, 100)
+	gravidade(0, 200)
 {
 	
 }

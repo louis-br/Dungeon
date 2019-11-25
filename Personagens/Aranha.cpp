@@ -12,6 +12,9 @@ Aranha::~Aranha() {
 }
 
 void Aranha::printar(GerenciadorGrafico* grafico) {
+	if (posicao.y > 800) {
+		posicao = sf::Vector2f(posicao.x, 0);
+	}
 	printarCoracoes(grafico);
 	printarDano(grafico, 1.f);
 	sentido = (int)(relogio.getElapsedTime().asSeconds() * 0.25f) % 2 == 0;

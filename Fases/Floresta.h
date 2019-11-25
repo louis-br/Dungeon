@@ -1,13 +1,5 @@
 #pragma once
 #include "Fase.h"
-#include "../Listas/ListaEntidade.h"
-#include "../Plataformas/Plataforma.h"
-#include "../Obstaculos/TeiaDeAranha.h"
-#include "../Obstaculos/Estalactite.h"
-#include "../Obstaculos/Fogo.h"
-#include "../Personagens/Anao.h"
-#include "../Personagens/Aranha.h"
-#include "../Personagens/Fenix.h"
 
 class Floresta : public Fase
 {
