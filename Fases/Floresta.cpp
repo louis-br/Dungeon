@@ -29,17 +29,17 @@ void Fases::Floresta::criarTerreno() {
         new Personagens::Aranha(sf::Vector2f(num2, 0), &listaEntidade, &vetorEntidadeFisica);
     }
 
-    num = rand() % 5;
+    num = 5 + rand() % 5;
 
     for (int i = 0; i < num; i++) {
-        num2 = 3000 + rand() % 300;
+        num2 = 1000 + rand() % 8000;
         new Obstaculos::TeiaDeAranha(sf::Vector2f(num2, 40), sf::Vector2f(50, 10), &listaEntidade);
     }
 
-    num = rand() % 5;
+    num = 5 + rand() % 5;
 
     for (int i = 0; i < num; i++) {
-        num2 = 3000 + rand() % 300;
+        num2 = 1000 + rand() % 8000;
         new Obstaculos::Fogo(sf::Vector2f(num2, 320), sf::Vector2f(8, 15), &listaEntidade);
     }
 
