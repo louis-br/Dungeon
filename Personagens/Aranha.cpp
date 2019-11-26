@@ -13,7 +13,7 @@ Personagens::Aranha::~Aranha() {
 
 void Personagens::Aranha::printar(Gerenciadores::GerenciadorGrafico* grafico) {
     if (posicao.y > 800) {
-        posicao = sf::Vector2f(posicao.x, 0);
+        posicao = sf::Vector2f(posicao.x, -200);
     }
     printarCoracoes(grafico);
     printarDano(grafico, 1.f);

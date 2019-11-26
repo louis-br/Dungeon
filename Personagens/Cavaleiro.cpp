@@ -15,7 +15,7 @@ Personagens::Cavaleiro::~Cavaleiro() {
 void Personagens::Cavaleiro::printar(Gerenciadores::GerenciadorGrafico* grafico) {
     if (posicao.y > 800 || vidas <= 0) {
         posicao = sf::Vector2f(0, 0);
-        vidas = 3;
+        vidas = 10;
     }
     printarCoracoes(grafico);
     printarDano(grafico, 5.f);

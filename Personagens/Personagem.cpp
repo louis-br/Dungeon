@@ -9,7 +9,7 @@ Personagens::Personagem::Personagem(sf::Vector2f pos, sf::Vector2f tam, Listas::
 	quadroSprite(0),
 	sentido(1),
 	atualizar(true),
-	vidas(4),
+	vidas(10),
 	coracao(Gerenciadores::GerenciadorGrafico::getInstancia()->getTextura(
 			Gerenciadores::GerenciadorGrafico::Texturas::Coracao)),
 	coracoes(coracao),
