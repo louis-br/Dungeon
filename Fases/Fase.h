@@ -21,13 +21,12 @@ namespace Fases {
 		sf::View camera;
 		Personagens::Cavaleiro* jogador;
 		Personagens::Cavaleiro* jogador2;
-	public:
         Listas::ListaEntidade listaEntidade;
         Listas::VetorEntidadeFisica vetorEntidadeFisica;
-
+	public:
 		Fase(sf::RenderWindow* window = nullptr, Personagens::Cavaleiro* jog1 = nullptr);
-		void setJogador2(Personagens::Cavaleiro* jog2);
 		virtual ~Fase();
+		void setJogador2(Personagens::Cavaleiro* jog2);
 		virtual void criarTerreno() = 0;
 		void printar(Gerenciadores::GerenciadorGrafico* grafico);
 		void executar(bool pausa = false);

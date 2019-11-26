@@ -19,9 +19,7 @@ namespace Principal {
 		Gerenciadores::GerenciadorGrafico* grafico;
 		Personagens::Cavaleiro jogador;
 		Personagens::Cavaleiro jogador2;
-		//Caverna fase1;
 		Fases::Fase* fase;
-		//Pausa menuPausa;
 		bool pausado;
 	public:
 		Jogo();
