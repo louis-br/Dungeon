@@ -10,6 +10,8 @@ namespace Principal {
 	class Jogo
 	{
 	private:
+        bool geraChefao;
+        int controlFase;
 		sf::RenderWindow janela;
 		Menus::Inicial menuInicial;
 		Menus::Pausa menuPausa;

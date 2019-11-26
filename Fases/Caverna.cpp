@@ -123,15 +123,4 @@ void Fases::Caverna::criarTerreno(){
     new Plataformas::Plataforma(sf::Vector2f(11000, 40), sf::Vector2f(180, 307), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo5);
     new Plataformas::Plataforma(sf::Vector2f(11100, 40), sf::Vector2f(180, 307), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo5);
     new Plataformas::Plataforma(sf::Vector2f(11200, 40), sf::Vector2f(11000, 307), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo5);
-    new Personagens::Fenix(sf::Vector2f(10200, -200), &listaEntidade, &vetorEntidadeFisica);
-    //new Plataforma(sf::Vector2f(0, 120), sf::Vector2f(168, 52), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo1);
-    //new Plataforma(sf::Vector2f(400, 120), sf::Vector2f(64, 40), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo2);
-    //new Plataforma(sf::Vector2f(800, 120), sf::Vector2f(42, 37), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo3);
-    //new Plataforma(sf::Vector2f(1200, 120), sf::Vector2f(122, 37), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo4);
-    //new Plataforma(sf::Vector2f(1600, 120), sf::Vector2f(180, 307), &listaEntidade, Gerenciadores::GerenciadorGrafico::PlataformaTijolo5);
-    //new TeiaDeAranha(sf::Vector2f(0, 268), sf::Vector2f(100, 50), &listaEntidade);
-    //new Estalactite(sf::Vector2f(300, 0), sf::Vector2f(23, 258), &listaEntidade, &vetorEntidadeFisica);
-    //new Fogo(sf::Vector2f(400, 268), sf::Vector2f(8, 15), &listaEntidade);
-    //new Anao(sf::Vector2f(500, 0), &listaEntidade, &vetorEntidadeFisica);
-    //new Aranha(sf::Vector2f(500, 0), &listaEntidade, &vetorEntidadeFisica);
 }

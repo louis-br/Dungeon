@@ -13,7 +13,8 @@ Principal::Jogo::Jogo() :
 	jogador(),
 	//fase1(&janela, &jogador),
 	fase(new Fases::Floresta(&janela, &jogador)),
-	pausado(false)
+    pausado(false),
+    geraChefao(true)
 {
 	janela.setFramerateLimit(60);
 	entrada->setMenu(static_cast<Menus::Menu*>(&menuInicial));
@@ -36,9 +37,20 @@ void Principal::Jogo::executar() {
 		grafico->limpar();
 		entrada->executar();
 		bool inicial = menuInicial.getLigado();
-		bool pausa = menuPausa.getLigado();
+        bool pausa = menuPausa.getLigado();
 
         menuInicial.executar();
+
+        if(jogador.getPosicao().x > 9300 && controlFase == 1){
+            delete fase;
+            fase = static_cast<Fases::Fase*>(new Fases::Caverna(&janela, &jogador));
+            controlFase = 2;
+        }
+
+        if(jogador.getPosicao().x > 9500  && controlFase == 2 && geraChefao){
+            geraChefao = false;
+            new Personagens::Fenix(sf::Vector2f(10500, -100), &fase->listaEntidade, &fase->vetorEntidadeFisica);
+        }
 
         fase->executar(inicial || pausa);
 		if (inicial) {
@@ -54,10 +66,12 @@ void Principal::Jogo::executar() {
 					delete fase;
 				}
 				if (menuInicial.getFase()) {
+                    controlFase = 2;
 					fase = static_cast<Fases::Fase*>(new Fases::Caverna(&janela, &jogador));
 				}
 				else {
-					fase = static_cast<Fases::Fase*>(new Fases::Floresta(&janela, &jogador));
+                    controlFase = 1;
+                    fase = static_cast<Fases::Fase*>(new Fases::Floresta(&janela, &jogador));
 				}
 				if (menuInicial.getMultijogador()) {
 					sf::Keyboard::Key teclas[4] = { sf::Keyboard::D, sf::Keyboard::A, sf::Keyboard::W, sf::Keyboard::S };

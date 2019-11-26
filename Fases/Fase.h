@@ -19,11 +19,12 @@ namespace Fases {
 		Gerenciadores::GerenciadorGrafico* grafico;
 		sf::RenderWindow* janela;
 		sf::View camera;
-		Listas::ListaEntidade listaEntidade;
-		Listas::VetorEntidadeFisica vetorEntidadeFisica;
 		Personagens::Cavaleiro* jogador;
 		Personagens::Cavaleiro* jogador2;
 	public:
+        Listas::ListaEntidade listaEntidade;
+        Listas::VetorEntidadeFisica vetorEntidadeFisica;
+
 		Fase(sf::RenderWindow* window = nullptr, Personagens::Cavaleiro* jog1 = nullptr);
 		void setJogador2(Personagens::Cavaleiro* jog2);
 		virtual ~Fase();
