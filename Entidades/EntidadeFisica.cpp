@@ -1,14 +1,16 @@
 #include "EntidadeFisica.h"
 
-Entidades::EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista) :
-	Entidade(pos, tam, lista),
+Entidades::EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, Listas::VetorEntidadeFisica* vetor) :
+	Entidade(pos, tam),
 	velocidade(0, 0),
 	aceleracao(0, 0),
 	velocidadeMaxima(0, 0),
 	atrito(0),
 	excluido(false)
 {
-
+	if (vetor != nullptr) {
+		vetor->empilharTras(this);
+	}
 }
 
 Entidades::EntidadeFisica::EntidadeFisica(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista, Listas::VetorEntidadeFisica* vetor) :

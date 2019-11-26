@@ -12,7 +12,7 @@ namespace Entidades {
 		float atrito;
 		bool excluido;
 	public:
-		EntidadeFisica(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), Listas::ListaEntidade* lista = nullptr);
+		EntidadeFisica(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), Listas::VetorEntidadeFisica* vetor = nullptr);
 		EntidadeFisica(sf::Vector2f pos = sf::Vector2f(0, 0), sf::Vector2f tam = sf::Vector2f(0, 0), Listas::ListaEntidade* lista = nullptr, Listas::VetorEntidadeFisica* vetor = nullptr);
 		~EntidadeFisica();
 		void setVelocidade(sf::Vector2f& vel);

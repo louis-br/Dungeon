@@ -133,6 +133,7 @@
     <ClCompile Include="..\Fases\Caverna.cpp" />
     <ClCompile Include="..\Obstaculos\Estalactite.cpp" />
     <ClCompile Include="..\Obstaculos\Fogo.cpp" />
+    <ClCompile Include="..\Obstaculos\Obstaculo.cpp" />
     <ClCompile Include="..\Personagens\Aranha.cpp" />
     <ClCompile Include="..\Personagens\Fenix.cpp" />
     <ClCompile Include="..\Personagens\Inimigo.cpp" />
@@ -164,6 +165,7 @@
     <ClInclude Include="..\Fases\Caverna.h" />
     <ClInclude Include="..\Obstaculos\Estalactite.h" />
     <ClInclude Include="..\Obstaculos\Fogo.h" />
+    <ClInclude Include="..\Obstaculos\Obstaculo.h" />
     <ClInclude Include="..\Personagens\Aranha.h" />
     <ClInclude Include="..\Personagens\Fenix.h" />
     <ClInclude Include="..\Personagens\Inimigo.h" />

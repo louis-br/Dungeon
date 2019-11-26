@@ -1,7 +1,7 @@
 #include "Fogo.h"
 
 Obstaculos::Fogo::Fogo(sf::Vector2f pos, sf::Vector2f tam, Listas::ListaEntidade* lista) :
-	Entidade(pos, tam, lista)
+	Obstaculo(pos, tam, lista)
 {
 	setTextura(Gerenciadores::GerenciadorGrafico::Texturas::Fogo);
 	textura.setRepeated(true);
@@ -15,8 +15,4 @@ Obstaculos::Fogo::~Fogo() {
 
 Obstaculos::Fogo::Tipo Obstaculos::Fogo::getTipo() {
 	return Tipo::Hostil;
-}
-
-void Obstaculos::Fogo::printar(Gerenciadores::GerenciadorGrafico* grafico) {
-	grafico->desenhar(sprite);
 }
